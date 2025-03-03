@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTrack - Personal Finance Management</title>
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --primary-light: #60ad5e;
+            --primary-dark: #005005;
+            --secondary-color: #1565c0;
+            --text-color: #333;
+            --text-light: #757575;
+            --bg-color: #f5f5f5;
+            --card-color: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --ai-bg-color: #e8f5e9;
+            --ai-accent: #2e7d32;
+            --ai-text: #1b5e20;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 8px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 4px 12px;
+            
+        }
+        
+        .nav-links a:hover {
+            transition:1s;
+            border-bottom:0.5px solid #fff;
+            
+            
+           
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        
+        
+        main {
+            padding: 30px 0;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .card {
+            background-color: var(--card-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .total-balance {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 15px 0;
+        }
+        
+        .account-list {
+            list-style: none;
+        }
+        
+        .account-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .account-item:last-child {
+            border-bottom: none;
+        }
+        
+        .account-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .account-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .bank {
+            background-color: var(--secondary-color);
+        }
+        
+        .wallet {
+            background-color: var(--primary-dark);
+        }
+        
+        .credit {
+            background-color: #c62828;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-outlined {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outlined:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .charts-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 1024px) {
+            .charts-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .chart {
+            height: 300px;
+            position: relative;
+        }
+        
+        .transactions-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .filter-options {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .transaction-list {
+            list-style: none;
+        }
+        
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .transaction-item:last-child {
+            border-bottom: none;
+        }
+        
+        .transaction-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .transaction-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+        
+         /* AI Advisor Section Styles */
+         .ai-advisor {
+            background-color: var(--ai-bg-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .ai-header {
+            background-color: var(--ai-accent);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ai-title {
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        .ai-content {
+            padding: 20px;
+        }
+        
+        .ai-message {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ai-message-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .ai-icon {
+            color: var(--ai-accent);
+            font-size: 20px;
+        }
+        
+        .ai-message-title {
+            font-weight: 600;
+            color: var(--ai-text);
+        }
+        
+        .ai-message-content {
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+        
+        .ai-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .ai-action-btn {
+            background-color: var(--ai-accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .ai-action-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .ai-chat {
+            margin-top: 15px;
+        }
+        
+        .ai-input-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .ai-input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 14px;
+        }
+        
+        .ai-send-btn {
+            background-color: var(--ai-accent);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 0 15px;
+            cursor: pointer;
+        }
+        
+        .shopping {
+            background-color: #7e57c2;
+        }
+        
+        .food {
+            background-color: #f9a825;
+        }
+        
+        .transport {
+            background-color: #5c6bc0;
+        }
+        
+        .transaction-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .transaction-name {
+            font-weight: 600;
+        }
+        
+        .transaction-date {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        
+        .transaction-amount {
+            font-weight: 600;
+        }
+        
+        .income {
+            color: var(--primary-color);
+        }
+        
+        .expense {
+            color: #c62828;
+        }
+        
+        .budget-tips {
+            margin-top: 20px;
+        }
+        
+        .tip-card {
+            background-color: #e8f5e9;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+        }
+        
+        .tip-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .tip-icon {
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+        
+        .tip-title {
+            font-weight: 600;
+        }
+        
+        .tip-content {
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+        
+        .connect-account {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e3f2fd;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        .connect-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .bank-options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .bank-option {
+            padding: 5rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .bank-option:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #555;
+            color: #bbb;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 200;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: var(--border-radius);
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+        
+        .modal-title {
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+        }
+        
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .loading-animation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid var(--primary-color);
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-wallet"></i> FinTrack
+                </div>
+                <div class="nav-links">
+                    <a href="#" class="active">Dashboard</a>
+                    <a href="#">Transactions</a>
+                    <a href="#">Budgets</a>
+                    <a href="#">Reports</a>
+                    <a href="#">Goals</a>
+                </div>
+                <div class="user-profile">
+                    <div class="user-avatar">JS</div>
+                    <span>John Smith</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="dashboard">
+            <div class="sidebar">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Total Balance</h2>
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <div class="total-balance"> ₹6,52,062.85</div>
+                    <button class="btn btn-primary" id="add-transaction-btn">
+                        <i class="fas fa-plus"></i> Add Transaction
+                    </button>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Your Accounts</h2>
+                        <button class="btn btn-outlined" id="connect-account-btn">
+                            <i class="fas fa-plus"></i> Add
+                        </button>
+                    </div>
+                    <ul class="account-list">
+                        <li class="account-item">
+                            <div class="account-name">
+                                <div class="account-icon bank">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div>
+                                    <div>Bank Of India (BOI)</div>
+                                    <div style="font-size: 12px; color: #757575;">Checking</div>
+                                </div>
+                            </div>
+                            <div class="account-balance"> ₹4,12,350.75</div>
+                        </li>
+                        <li class="account-item">
+                            <div class="account-name">
+                                <div class="account-icon bank">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div>
+                                    <div>HDFC Bank</div>
+                                    <div style="font-size: 12px; color: #757575;">Savings</div>
+                                </div>
+                            </div>
+                            <div class="account-balance"> ₹2,28,724.10</div>
+                        </li>
+                        <li class="account-item">
+                            <div class="account-name">
+                                <div class="account-icon wallet">
+                                    <i class="fa-brands fa-google-pay"></i>
+                                </div>
+                                <div>
+                                    <div>UPI Wallet</div>
+                                    <div style="font-size: 12px; color: #757575;">Wallet</div>
+                                </div>
+                            </div>
+                            <div class="account-balance"> ₹12,188.00</div>
+                        </li>
+                        <li class="account-item">
+                            <div class="account-name">
+                                <div class="account-icon credit">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <div>
+                                    <div>HDFC Bank</div>
+                                    <div style="font-size: 12px; color: #757575;">Credit Card</div>
+                                </div>
+                            </div>
+                            <div class="account-balance">- ₹1,200.00</div>
+                        </li>
+                    </ul>
+                </div>
+
+                                <!-- New AI Financial Advisor Section -->
+                                <div class="ai-advisor">
+                                    <div class="ai-header">
+                                        <i class="fas fa-robot"></i>
+                                        <div class="ai-title">FinTrack AI Advisor</div>
+                                    </div>
+                                    <div class="ai-content">
+                                        <div class="ai-message">
+                                            <div class="ai-message-header">
+                                                <i class="fas fa-lightbulb ai-icon"></i>
+                                                <div class="ai-message-title">Reduce Food Expenses</div>
+                                            </div>
+                                            <div class="ai-message-content">
+                                                You spent 15% more on dining out this month. I've analyzed your patterns and created a dining budget plan that could save you ₹3,000.
+                                            </div>
+                                            <div class="ai-buttons">
+                                                <button class="ai-action-btn" id="view-plan-btn">View Plan</button>
+                                                <button class="ai-action-btn" id="ignore-tip-btn">Ignore</button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="ai-message">
+                                            <div class="ai-message-header">
+                                                <i class="fas fa-chart-line ai-icon"></i>
+                                                <div class="ai-message-title">Investment Opportunity</div>
+                                            </div>
+                                            <div class="ai-message-content">
+                                                I've identified that you have ₹50,000 sitting idle in your checking account. Would you like me to suggest some safe investment options?
+                                            </div>
+                                            <div class="ai-buttons">
+                                                <button class="ai-action-btn" id="show-investments-btn">Show Options</button>
+                                                <button class="ai-action-btn" id="remind-later-btn">Remind Later</button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="ai-message">
+                                            <div class="ai-message-header">
+                                                <i class="fas fa-exclamation-triangle ai-icon" style="color: #f57c00;"></i>
+                                                <div class="ai-message-title">Unusual Transaction Alert</div>
+                                            </div>
+                                            <div class="ai-message-content">
+                                                I detected an unusual spending pattern: ₹5,000 at an online merchant yesterday. Does this look familiar?
+                                            </div>
+                                            <div class="ai-buttons">
+                                                <button class="ai-action-btn" id="confirm-transaction-btn">Yes, It's Mine</button>
+                                                <button class="ai-action-btn" style="background-color: #c62828;" id="report-transaction-btn">Report Issue</button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="ai-chat">
+                                            <div class="ai-input-container">
+                                                <input type="text" class="ai-input" placeholder="Ask me anything about your finances..." id="ai-chat-input">
+                                                <button class="ai-send-btn" id="ai-chat-btn">
+                                                    <i class="fas fa-paper-plane"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                
+            <div class="main-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Monthly Overview</h2>
+                        <select id="month-selector">
+                            <option value="march">March 2025</option>
+                            <option value="february">February 2025</option>
+                            <option value="january">January 2025</option>
+                        </select>
+                    </div>
+
+                    <div class="charts-container">
+                        <div class="chart" id="income-expense-chart">
+                            <!-- Chart will be rendered here via JS -->
+                            <canvas id="incomeExpenseCanvas" height="300"></canvas>
+                        </div>
+                        <div class="chart" id="category-chart">
+                            <!-- Chart will be rendered here via JS -->
+                            <canvas id="categoryCanvas" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="transactions-header">
+                        <h2 class="card-title">Recent Transactions</h2>
+                        <div class="filter-options">
+                            <button class="filter-btn active">All</button>
+                            <button class="filter-btn">Income</button>
+                            <button class="filter-btn">Expenses</button>
+                        </div>
+                    </div>
+
+                    <ul class="transaction-list">
+                        <li class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon shopping">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">Amazon</div>
+                                    <div class="transaction-date">March 2, 2025</div>
+                                </div>
+                            </div>
+                            <div class="transaction-amount expense">- ₹785.43</div>
+                        </li>
+                        <li class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon food">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">Grocery Store</div>
+                                    <div class="transaction-date">March 1, 2025</div>
+                                </div>
+                            </div>
+                            <div class="transaction-amount expense">- ₹1132.00</div>
+                        </li>
+                        <li class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon bank">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">Salary Deposit</div>
+                                    <div class="transaction-date">February 28, 2025</div>
+                                </div>
+                            </div>
+                            <div class="transaction-amount income">+ ₹45,000.00</div>
+                        </li>
+                        <li class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon transport">
+                                    <i class="fas fa-gas-pump"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">Gas Station</div>
+                                    <div class="transaction-date">February 27, 2025</div>
+                                </div>
+                            </div>
+                            <div class="transaction-amount expense">- ₹200.00</div>
+                        </li>
+                        <li class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon shopping">
+                                    <i class="fas fa-tshirt"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-name">Clothing Store</div>
+                                    <div class="transaction-date">February 25, 2025</div>
+                                </div>
+                            </div>
+                            <div class="transaction-amount expense">- ₹1428.50</div>
+                        </li>
+                    </ul>
+
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button class="btn btn-outlined">View All Transactions</button>
+                    </div>
+                </div>
+
+                <div class="connect-account">
+                    <h3 class="connect-title">Connect More Accounts to Get a Complete Financial Picture</h3>
+                    <p>Link your bank accounts, credit cards, investment accounts, and digital wallets to see all your finances in one place.</p>
+                    
+                    <div class="bank-options">
+                        <div class="bank-option">
+                            <img src= alt="Wells Fargo">
+                        </div>
+                        <div class="bank-option">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="bank-option">
+                            <img src="/api/placeholder/50/50" alt="PayPal">
+                        </div>
+                        <div class="bank-option">
+                            <img src="/api/placeholder/50/50" alt="Venmo">
+                        </div>
+                        <div class="bank-option">
+                            <img src="/api/placeholder/50/50" alt="More">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FinTrack</h3>
+                    <p>Your all-in-one solution for personal finance management, powered by AI to help you make smarter financial decisions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:support@fintrack.com">support@fintrack.com</a></li>
+                        <li><a href="tel:+18001234567">+91 65655 65655</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 FinTrack. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for adding a new transaction -->
+    <div class="modal" id="transaction-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Add New Transaction</h2>
+            <form id="transaction-form">
+                <div class="form-group">
+                    <label for="transaction-type">Transaction Type</label>
+                    <select id="transaction-type">
+                        <option value="expense">Expense</option>
+                        <option value="income">Income</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-amount">Amount</label>
+                    <input type="number" id="transaction-amount" placeholder="0.00" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-category">Category</label>
+                    <select id="transaction-category">
+                        <option value="food">Food & Dining</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="transport">Transportation</option>
+                        <option value="bills">Bills & Utilities</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="salary">Salary</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-date">Date</label>
+                    <input type="date" id="transaction-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-description">Description</label>
+                    <input type="text" id="transaction-description" placeholder="Enter description">
+                </div>
+                <div class="form-group">
+                    <label for="transaction-account">Account</label>
+                    <select id="transaction-account">
+                        <option value="chase">Bank Of India (BOI)- Savings</option>
+                        <option value="bofa">HDFC Bank- Savings</option>
+                        <option value="coinbase">UPI Wallet</option>
+                        <option value="citi">HDFC Bank - Credit Card</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outlined" id="cancel-transaction">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Transaction</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for connecting a new account -->
+    <div class="modal" id="connect-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Connect a New Account</h2>
+            <div class="form-group">
+                <label>Select Institution</label>
+                <select id="institution-select">
+                    <option value="">Select your bank or financial service</option>
+                    <option value="wells-fargo">SBI</option>
+                    <option value="us-bank">Kotak Bank</option>
+                    <option value="fidelity">ICICI Bank</option>
+                    <option value="robinhood">HDFC Bank</option>
+                    <option value="paypal">BOI</option>
+                    
+                    <option value="other">Other...</option>
+                </select>
+            </div>
+
+            <div id="connection-form" >
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Your institution username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Your institution password">
+                </div>
+                <p style="font-size: 12px; color: #757575; margin-bottom: 20px;">Your credentials are securely encrypted and never stored in our database. We use bank-level security to protect your information.</p>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outlined" id="cancel-connect">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="connect-btn">Connect Account</button>
+                </div>
+            </div>
+
+            <div id="connecting-status" \>
+                <div class="loading-animation">
+                    <div class="spinner"></div>
+                </div>
+                <p style="text-align: center; margin-top: 15px;">Connecting to your account. This may take a moment...</p>
+            </div>
+
+            <div id="connection-success" style="display: none;">
+                <div style="text-align: center; color: var(--primary-color); font-size: 50px; margin: 20px 0;">
+                
+                    <!-- Add this right before the closing </body> tag -->
+<script>// Wait for the DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // ===== Modal Functionality =====
+        // Transaction Modal
+        const transactionModal = document.getElementById('transaction-modal');
+        const addTransactionBtn = document.getElementById('add-transaction-btn');
+        const cancelTransactionBtn = document.getElementById('cancel-transaction');
+        const closeTransactionModal = document.querySelector('#transaction-modal .close-modal');
+        
+        // Connect Account Modal
+        const connectModal = document.getElementById('connect-modal');
+        const connectAccountBtn = document.getElementById('connect-account-btn');
+        const cancelConnectBtn = document.getElementById('cancel-connect');
+        const closeConnectModal = document.querySelector('#connect-modal .close-modal');
+        
+        // Connection Status Elements
+        const connectionForm = document.getElementById('connection-form');
+        const connectingStatus = document.getElementById('connecting-status');
+        const connectionSuccess = document.getElementById('connection-success');
+        const connectBtn = document.getElementById('connect-btn');
+        
+        // Show Transaction Modal
+        addTransactionBtn.addEventListener('click', function() {
+            transactionModal.style.display = 'flex';
+        });
+        
+        // Hide Transaction Modal
+        function hideTransactionModal() {
+            transactionModal.style.display = 'none';
+            document.getElementById('transaction-form').reset();
+        }
+        
+        cancelTransactionBtn.addEventListener('click', hideTransactionModal);
+        closeTransactionModal.addEventListener('click', hideTransactionModal);
+        
+        // Show Connect Modal
+        connectAccountBtn.addEventListener('click', function() {
+            // Reset form state
+            connectionForm.style.display = 'block';
+            connectingStatus.style.display = 'none';
+            connectionSuccess.style.display = 'none';
+            
+            connectModal.style.display = 'flex';
+        });
+        
+        // Hide Connect Modal
+        function hideConnectModal() {
+            connectModal.style.display = 'none';
+            document.getElementById('institution-select').value = '';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+        
+        cancelConnectBtn.addEventListener('click', hideConnectModal);
+        closeConnectModal.addEventListener('click', hideConnectModal);
+        
+        // Handle Connect Account flow
+        connectBtn.addEventListener('click', function() {
+            // Validate form
+            const institution = document.getElementById('institution-select').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (!institution || !username || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Show loading state
+            connectionForm.style.display = 'none';
+            connectingStatus.style.display = 'block';
+            
+            // Simulate API connection (3 seconds)
+            setTimeout(function() {
+                connectingStatus.style.display = 'none';
+                connectionSuccess.style.display = 'block';
+                
+                // Auto close after 2 seconds and refresh account list
+                setTimeout(function() {
+                    hideConnectModal();
+                    // Here you would typically refresh the accounts list with new data
+                }, 2000);
+            }, 3000);
+        });
+        
+        // ===== Navigation Tabs =====
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                navLinks.forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // You would typically load different content here based on the tab
+                const pageName = this.textContent.trim();
+                console.log(`Navigating to ${pageName} page`);
+                
+                // For demo purposes, show an alert
+                if (pageName !== 'Dashboard') {
+                    alert(`The ${pageName} page would load here. This is a demo.`);
+                }
+            });
+        });
+        
+        // ===== Transaction Filters =====
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const transactions = document.querySelectorAll('.transaction-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.textContent.trim();
+                
+                // Show/hide transactions based on filter
+                transactions.forEach(transaction => {
+                    if (filter === 'All') {
+                        transaction.style.display = 'flex';
+                    } else if (filter === 'Income' && transaction.querySelector('.income')) {
+                        transaction.style.display = 'flex';
+                    } else if (filter === 'Expenses' && transaction.querySelector('.expense')) {
+                        transaction.style.display = 'flex';
+                    } else {
+                        transaction.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // ===== Month Selector =====
+        const monthSelector = document.getElementById('month-selector');
+        
+        monthSelector.addEventListener('change', function() {
+            const selectedMonth = this.value;
+            console.log(`Loading data for ${selectedMonth}`);
+            // Here you would typically update charts and transaction list
+            // For demo purposes:
+            alert(`Data for ${selectedMonth} would load here. This is a demo.`);
+        });
+        
+        // ===== Transaction Form Submission =====
+        const transactionForm = document.getElementById('transaction-form');
+        
+        transactionForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const type = document.getElementById('transaction-type').value;
+            const amount = document.getElementById('transaction-amount').value;
+            const category = document.getElementById('transaction-category').value;
+            const date = document.getElementById('transaction-date').value;
+            const description = document.getElementById('transaction-description').value;
+            const account = document.getElementById('transaction-account').value;
+            
+            // Create transaction object
+            const transaction = {
+                type,
+                amount,
+                category,
+                date,
+                description,
+                account
+            };
+            
+            console.log('New transaction:', transaction);
+            
+            // Here you would typically send this data to your backend
+            // For demo purposes:
+            alert('Transaction added successfully!');
+            hideTransactionModal();
+            
+            // Add the new transaction to the list (for demo purposes)
+            addTransactionToList(transaction);
+        });
+        
+        // Function to add a new transaction to the list
+        function addTransactionToList(transaction) {
+            const transactionList = document.querySelector('.transaction-list');
+            
+            // Format date for display
+            const transactionDate = new Date(transaction.date);
+            const formattedDate = transactionDate.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            // Create new list item
+            const newTransaction = document.createElement('li');
+            newTransaction.className = 'transaction-item';
+            
+            // Determine icon class based on category
+            let iconClass = '';
+            if (transaction.category === 'food') iconClass = 'food';
+            else if (transaction.category === 'shopping') iconClass = 'shopping';
+            else if (transaction.category === 'transport') iconClass = 'transport';
+            else if (transaction.category === 'salary') iconClass = 'bank';
+            else iconClass = 'bank';
+            
+            // Determine icon based on category
+            let icon = '';
+            if (transaction.category === 'food') icon = 'fas fa-utensils';
+            else if (transaction.category === 'shopping') icon = 'fas fa-shopping-bag';
+            else if (transaction.category === 'transport') icon = 'fas fa-gas-pump';
+            else if (transaction.category === 'salary') icon = 'fas fa-money-bill-wave';
+            else icon = 'fas fa-receipt';
+            
+            // Format amount display
+            const amountClass = transaction.type === 'income' ? 'income' : 'expense';
+            const amountPrefix = transaction.type === 'income' ? '+ ' : '- ';
+            
+            // Set HTML content
+            newTransaction.innerHTML = `
+                <div class="transaction-info">
+                    <div class="transaction-icon ${iconClass}">
+                        <i class="${icon}"></i>
+                    </div>
+                    <div class="transaction-details">
+                        <div class="transaction-name">${transaction.description || transaction.category}</div>
+                        <div class="transaction-date">${formattedDate}</div>
+                    </div>
+                </div>
+                <div class="transaction-amount ${amountClass}">${amountPrefix}₹${parseFloat(transaction.amount).toFixed(2)}</div>
+            `;
+            
+            // Insert at the beginning of the list
+            transactionList.insertBefore(newTransaction, transactionList.firstChild);
+        }
+        
+        // ===== Bank Options =====
+        const bankOptions = document.querySelectorAll('.bank-option');
+        
+        bankOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Show connect modal with pre-selected bank
+                connectModal.style.display = 'flex';
+                
+                // Try to set the institution select if it matches
+                const bankName = this.querySelector('img').alt;
+                const selectOptions = document.getElementById('institution-select').options;
+                
+                for (let i = 0; i < selectOptions.length; i++) {
+                    if (selectOptions[i].text.includes(bankName)) {
+                        document.getElementById('institution-select').selectedIndex = i;
+                        break;
+                    }
+                }
+            });
+        });
+        
+        // ===== Charts =====
+        // Load charts using Chart.js
+        loadCharts();
+        
+        function loadCharts() {
+            // Get chart contexts
+            const incomeExpenseCtx = document.getElementById('incomeExpenseCanvas').getContext('2d');
+            const categoryCtx = document.getElementById('categoryCanvas').getContext('2d');
+            
+            // Income vs Expense Chart
+            new Chart(incomeExpenseCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [
+                        {
+                            label: 'Income',
+                            data: [45000, 47000, 48000, 46000, 49000, 50000],
+                            backgroundColor: '#60ad5e',
+                        },
+                        {
+                            label: 'Expenses',
+                            data: [30000, 32000, 29000, 33000, 31000, 28000],
+                            backgroundColor: '#c62828',
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '₹' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Income vs Expenses'
+                        }
+                    }
+                }
+            });
+            
+            // Expense by Category Chart
+            new Chart(categoryCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Food & Dining', 'Shopping', 'Housing', 'Transportation', 'Utilities', 'Entertainment', 'Other'],
+                    datasets: [{
+                        data: [5000, 4200, 10000, 3000, 2800, 2000, 1000],
+                        backgroundColor: [
+                            '#f9a825', // Food
+                            '#7e57c2', // Shopping
+                            '#5c6bc0', // Housing
+                            '#42a5f5', // Transportation
+                            '#26a69a', // Utilities
+                            '#ec407a', // Entertainment
+                            '#78909c'  // Other
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Expenses by Category'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const value = context.raw;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return `₹${value.toLocaleString()} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Close modals when clicking outside the modal content
+        window.addEventListener('click', function(event) {
+            if (event.target === transactionModal) {
+                hideTransactionModal();
+            }
+            if (event.target === connectModal) {
+                hideConnectModal();
+            }
+        });
+    });</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="./fintrack-interactivity.js"></script>
+</body>
+</html>
