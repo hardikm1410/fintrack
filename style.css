@@ -230,7 +230,9 @@ main {
     .charts-container {
         grid-template-columns: 1fr;
     }
-}
+
+.nav-links{ display:none;}
+.nav-links a{ display:none;}
 
 .chart {
     height: 300px;
