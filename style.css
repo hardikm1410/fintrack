@@ -112,6 +112,15 @@ main {
     .dashboard {
         grid-template-columns: 1fr;
     }
+
+    body{
+        margin: auto auto;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        
+    }
+    
 }
 
 .sidebar {
