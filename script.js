@@ -1,5 +1,5 @@
 function animateCounter(target, duration) {
-            const counterElement = document.getElementById('counter');
+            const counterElement = document.getElementById('total-balance);
             let start = 0;
             const increment = Math.ceil(target / (duration / 16)); // 16ms interval roughly 60fps
 
@@ -17,7 +17,7 @@ function animateCounter(target, duration) {
         }
 
         
-
+animateCounter(800456, 8000)
 
  document.addEventListener('DOMContentLoaded', function() {
         // ===== Modal Functionality =====
