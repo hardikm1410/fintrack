@@ -7,9 +7,9 @@ function animateCounter(target, duration) {
                 start += increment;
                 if (start < target) {
                     counterElement.textContent = start;
-                    requestAnimationFrame(updateCounter);
+                                        requestAnimationFrame(updateCounter);
                 } else {
-                    counterElement.textContent = target; // Ensure final value is correct
+                    counterElement.textContent = '₹' + target.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
                 }
             }
 
