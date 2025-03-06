@@ -1,3 +1,24 @@
+function animateCounter(target, duration) {
+            const counterElement = document.getElementById('counter');
+            let start = 0;
+            const increment = Math.ceil(target / (duration / 16)); // 16ms interval roughly 60fps
+
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    counterElement.textContent = start;
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counterElement.textContent = target; // Ensure final value is correct
+                }
+            }
+
+            updateCounter();
+        }
+
+        
+
+
  document.addEventListener('DOMContentLoaded', function() {
         // ===== Modal Functionality =====
         // Transaction Modal
