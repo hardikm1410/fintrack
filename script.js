@@ -17,7 +17,7 @@ function animateCounter(target, duration) {
         }
 
         
-animateCounter(800456, 8000)
+animateCounter(800456, 8000);
 
  document.addEventListener('DOMContentLoaded', function() {
         // ===== Modal Functionality =====
