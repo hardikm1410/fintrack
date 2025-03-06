@@ -1,5 +1,5 @@
 function animateCounter(target, duration) {
-            const counterElement = document.getElementById('total-balance);
+            const counterElement = document.getElementById('total-balance');
             let start = 0;
             const increment = Math.ceil(target / (duration / 16)); // 16ms interval roughly 60fps
 
