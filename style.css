@@ -479,10 +479,10 @@
         .chat-container {
             
             max-width:90%;
-            max-height:25rem;
+            max-height:23rem;
             position:relative;
             margin-left: 22.5rem;
-            margin-top: -24rem;
+            margin-top: -23rem;
             flex: 1;
             background-color: var(--card-color);
             border-radius:10px;
