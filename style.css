@@ -58,7 +58,7 @@ header {
         flex-direction: column;
         gap: 25px;
         background: rgba(0, 72, 14, 0.32); /* Glass Effect */
-        backdrop-filter: blur(4px);
+        backdrop-filter: blur(6px);
         position: fixed;
         top: 0px; /* Start from top */
         left: 0;
