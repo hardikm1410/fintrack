@@ -55,7 +55,7 @@ header {
         position: absolute;
         top: 150px; /* Adjust as needed */
         left: 0;
-        width: 75%;
+        width: 100%;
         background-color: var(--primary-color);
         justify-content: center;
         text-align: center;
