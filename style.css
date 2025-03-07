@@ -58,7 +58,7 @@ header {
         flex-direction: column;
         gap: 25px;
         background: rgba(0, 72, 14, 0.32); /* Glass Effect */
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(4px);
         position: fixed;
         top: 0px; /* Start from top */
         left: 0;
@@ -69,7 +69,7 @@ header {
         text-align: center;
         transform: translateY(-100%); /* Hidden at first */
         z-index: -1; /* Behind Header */
-        transition: transform 0.7s ease-in-out;
+        
         opacity: 0; /* Invisible initially */
       }
 
