@@ -421,10 +421,7 @@ animateCounter(800456, 10000);
          
          // Simulate AI response
          const responses = [
-             "I understand your question about " + message.substring(0, 20) + "... Let me help you with that.",
-             "That's an interesting query! Here's what I know about " + message.substring(0, 15) + "...",
-             "Thanks for asking. Based on my knowledge, I can tell you that...",
-             "I'd be happy to assist with your question. Here's some information that might help...",
+             "Sorry, I'm under developement at this time!",
          ];
          
          const randomResponse = responses[Math.floor(Math.random() * responses.length)];
@@ -451,11 +448,11 @@ animateCounter(800456, 10000);
      
      messageDiv.innerHTML = `
          <div class="message-wrapper">
-             <div class="message-avatar ${avatarClass}">${avatar}</div>
              <div>
                  <div class="message-content">${text}</div>
-                 <div class="message-time">${timeString}</div>
+                 
                  <div class="message-actions">
+                 <div class="message-time">${timeString}</div>
                      <button class="message-action-btn" title="Copy to clipboard">
                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                              <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
