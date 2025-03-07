@@ -69,7 +69,7 @@ header {
         text-align: center;
         transform: translateY(-100%); /* Hidden at first */
         z-index: -1; /* Behind Header */
-        
+        color: var(--primary-color);
         opacity: 0; /* Invisible initially */
       }
 
