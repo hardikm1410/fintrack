@@ -53,7 +53,7 @@ header {
         display: none; /* Hide on mobile by default */
         flex-direction: column;
         position: absolute;
-        top: 60px; /* Adjust as needed */
+        top: 250px; /* Adjust as needed */
         left: 0;
         width: 100%;
         background-color: var(--primary-color);
