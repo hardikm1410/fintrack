@@ -17,7 +17,7 @@ document.addEventListener('click', (e) => {
 });
 
 hamburgerMenu.addEventListener('click', () => {
-    document.main.classList.toggle('no-scroll');
+    document.classList.toggle('no-scroll');
 });
 
 
