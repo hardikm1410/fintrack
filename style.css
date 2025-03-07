@@ -64,8 +64,8 @@ header {
         left: 0;
         height: 100vh;
         width: 100%;
-        
-        padding: 4rem 1.5rem;
+        font-size:25px;
+        padding: 15rem 1.5rem;
         text-align: center;
         transform: translateY(-100%); /* Hidden at first */
         z-index: -1; /* Behind Header */
