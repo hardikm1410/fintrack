@@ -15,6 +15,16 @@ document.addEventListener('click', (e) => {
 hamburgerMenu.addEventListener('click', () => {
     document.body.classList.toggle('no-scroll');
 })
+// Close menu on outside click
+document.addEventListener('click', (e) => {
+    if (!hamburgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('mobile-nav-active');
+    }
+});
+
+hamburgerMenu.addEventListener('click', () => {
+    document.body.classList.toggle('no-scroll');
+})
 
 
 function animateCounter(target, duration) {
