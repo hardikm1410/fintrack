@@ -147,8 +147,7 @@ main {
     .dashboard {
         grid-template-columns: 1fr;
     }
-    .nav-links{ display:none;}
-    .nav-links a{ display:none;}
+    
 }
 
 .sidebar {
