@@ -53,11 +53,11 @@ header {
         display: none; /* Hide on mobile by default */
         flex-direction: column;
         position: absolute;
-        top: 250px; /* Adjust as needed */
+        top: 150px; /* Adjust as needed */
         left: 0;
-        width: 100%;
-        background-color: var(--primary-color);
-        opacity: 0.65;
+        width: 75%;
+        background-color: var(--primary-color) opacity: 0.65;
+        
         text-align: center;
         z-index: 101;
     }
