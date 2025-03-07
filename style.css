@@ -75,6 +75,9 @@ header {
     .nav-links.mobile-nav-active {
         display: flex; /* Show when active */
     }
+
+    .main{ 
+        display: blur 20 px;
 }
 
 nav {
