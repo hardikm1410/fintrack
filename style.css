@@ -77,7 +77,7 @@ header {
      }
       .no-scroll {
         overflow: hidden;
-    }
+      }
     
       .nav-links.mobile-nav-active {
         transform: translateY(0);
