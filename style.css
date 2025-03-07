@@ -38,49 +38,55 @@ header {
     padding: 12px 0;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 /* ... your existing CSS ... */
 
-.hamburger-menu {
-    display: none; /* Hide on desktop */
+  /* Hamburger Icon */
+  .hamburger-menu {
+    display: none;
+    font-size: 30px;
     cursor: pointer;
+    z-index: 1000;
 }
 
+/* Mobile Menu */
 @media (max-width: 768px) {
     .nav-links {
-        display: none; /* Hide on mobile by default */      margin-left: auto;
+        display: flex;
         flex-direction: column;
-        position: absolute;
-        top: 150px; /* Adjust as needed */
+        gap: 25px;
+        background: rgba(0, 72, 14, 0.32); /* Glass Effect */
+        backdrop-filter: blur(5px);
+        position: fixed;
+        top: 0px; /* Start from top */
         left: 0;
+        height: 100vh;
         width: 100%;
-        background-color: var(--primary-color);
-        justify-content: center;
+        
+        padding: 4rem 1.5rem;
         text-align: center;
-        z-index: 101;
-    }
+        transform: translateY(-100%); /* Hidden at first */
+        z-index: -1; /* Behind Header */
+        transition: transform 0.7s ease-in-out;
+        opacity: 0; /* Invisible initially */
+      }
 
-    .nav-links a {
+      .no-scroll {
+        overflow: hidden;
+    }
+    
+      .nav-links.mobile-nav-active {
+        transform: translateY(0);
+        z-index: -1; /* Bring it behind header */
+        opacity: 1; /* Make it visible */
+      }
+    
+      .hamburger-menu {
         display: block;
-        padding: 15px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
     }
-
-    .hamburger-menu {
-        display: block; /* Show on mobile */
-    }
-
-    .nav-links.mobile-nav-active {
-        display: flex; /* Show when active */
-    }
-
-    body .main{ 
-        filter:blur(2px);
-    }
-}
-
 nav {
     display: flex;
     justify-content: space-between;
