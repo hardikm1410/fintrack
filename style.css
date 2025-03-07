@@ -76,7 +76,7 @@ header {
         display: flex; /* Show when active */
     }
 
-    .main{ 
+    body .mobile-nav-active{ 
         filter:blur(2px);
     }
 }
