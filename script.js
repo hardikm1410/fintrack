@@ -1,7 +1,7 @@
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const navLinks = document.querySelector('.nav-links');
 
-const body = document.querySelector('main.container');
+const body = document.querySelector(.container');
 
 
 hamburgerMenu.addEventListener('click', () => {
