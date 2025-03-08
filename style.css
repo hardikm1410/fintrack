@@ -126,7 +126,7 @@ nav {
 }
 
 .nav-links a {
-    color: white;
+    color: var(--primary-color);
     text-decoration: none;
     padding: 4px 12px;
     
