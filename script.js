@@ -2,7 +2,7 @@ const hamburgerMenu = document.querySelector('.hamburger-menu');
 const navLinks = document.querySelector('.nav-links');
 
 hamburgerMenu.addEventListener('click', (e) => {
-    document.body.classList.toggle('no-scroll');
+    navLinks.classList.toggle('mobile-nav-active);
 });
 
 // Close menu on outside click
