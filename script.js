@@ -1,13 +1,6 @@
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const navLinks = document.querySelector('.nav-links');
 
-
-hamburgerMenu.addEventListener('click', () => {
-    navLinks.classList.toggle('mobile-nav-active');
-});
-
-
-
 // Close menu on outside click
 document.addEventListener('click', (e) => {
     if (!hamburgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
@@ -18,6 +11,15 @@ document.addEventListener('click', (e) => {
 hamburgerMenu.addEventListener('click', (e) => {
     document.classList.toggle('no-scroll');
 });
+
+
+
+hamburgerMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('mobile-nav-active');
+});
+
+
+
 
 
 function animateCounter(target, duration) {
