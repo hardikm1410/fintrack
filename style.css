@@ -93,7 +93,7 @@ header {
 
     .header {
         position: relative;
-        z-index: 1; /* Ensure header is above navbar */
+        z-index: 1000; /* Ensure header is above navbar */
     }
 }
         
