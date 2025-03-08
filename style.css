@@ -62,8 +62,8 @@ header {
         display: flex;
         flex-direction: column;
         gap: 25px;
-        background-color:rgba(0, 0, 0, 0.6); /* Glass Effect */;
-        backdrop-filter: blur(10px);
+        background-color:rgba(0, 0, 0, 0.7); /* Glass Effect */;
+        backdrop-filter: blur(8px);
         position: fixed;
         top: 0; /* Start from top */
         left: 0;
@@ -126,7 +126,7 @@ nav {
 }
 
 .nav-links a {
-    color: var(--primary-color);
+    color: white;
     text-decoration: none;
     padding: 4px 12px;
     
