@@ -2,11 +2,15 @@ const hamburgerMenu = document.querySelector('.hamburger-menu');
 const navLinks = document.querySelector('.nav-links');
 
 
-
-
-hamburgerMenu.addEventListener('click', () => {
-    navLinks.classList.toggle('mobile-nav-active');
+// Open menu on click
+document.addEventListener('click', () => {
+    if (!hamburgerMenu.contains(target) && !navLinks.contains(target)) {
+        navLinks.classList.toggle('mobile-nav-active');
+    }
 });
+
+
+
 
 
 // Close menu on outside click
