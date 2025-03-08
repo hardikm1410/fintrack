@@ -62,7 +62,7 @@ header {
         flex-direction: column;
         gap: 25px;
         background-color: black; /* Dark background */
-        */backdrop-filter: blur(6px);*/
+        /*backdrop-filter: blur(6px);*/
         position: fixed;
         top: 0; /* Start from top */
         left: 0;
