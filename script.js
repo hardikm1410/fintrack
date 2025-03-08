@@ -13,9 +13,6 @@ document.addEventListener('click', (e) => {
     }
 });
 
-hamburgerMenu.addEventListener('click', () => {
-    
-});
 
 
 
