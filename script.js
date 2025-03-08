@@ -8,8 +8,8 @@ document.addEventListener('click', (e) => {
     }
 });
 
-hamburgerMenu.addEventListener('click', () => {
-    document.classList.toggle('no-scroll');
+hamburgerMenu.addEventListener('click', (e) => {
+    document.body.classList.toggle('no-scroll');
 });
 
 
