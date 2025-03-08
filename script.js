@@ -1,14 +1,18 @@
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const navLinks = document.querySelector('.nav-links');
 
+hamburgerMenu.addEventListener('click', (e) => {
+    document.body.classList.toggle('no-scroll');
+});
+
 // Close menu on outside click
 document.addEventListener('click', (a) => {
-    if (!hamburgerMenu.contains(e.target) && !navLinks.contains(a.target)) {
+    if (!hamburgerMenu.contains(a.target) && !navLinks.contains(a.target)) {
         navLinks.classList.toggle('mobile-nav-active');
     }
 });
 
-hamburgerMenu.addEventListener('click', () => {
+hamburgerMenu.addEventListener('click', (e) => {
     document.body.classList.toggle('no-scroll');
 });
 
