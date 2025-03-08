@@ -61,7 +61,7 @@ header {
         display: flex;
         flex-direction: column;
         gap: 25px;
-        background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+        background-color: black /* Dark background */
         backdrop-filter: blur(6px);
         position: fixed;
         top: 0; /* Start from top */
