@@ -51,9 +51,6 @@ header {
     z-index: 1000;
 }
 
-.no-scroll {
-        overflow: hidden;
-      }
 
 /* Mobile Menu */
 @media (max-width: 768px) {
@@ -80,6 +77,10 @@ header {
        color: var(--primary-color);
      }
       
+       .no-scroll {
+        overflow: hidden;
+      }
+
     
       .nav-links.mobile-nav-active {
         transform: translateY(0);
