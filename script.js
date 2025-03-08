@@ -2,13 +2,6 @@ const hamburgerMenu = document.querySelector('.hamburger-menu');
 const navLinks = document.querySelector('.nav-links');
 
 
-// Open menu on click
-document.addEventListener('click', () => {
-    if (hamburgerMenu.contains(.target) && navLinks.contains(.target)) {
-        navLinks.classList.toggle('mobile-nav-active');
-    }
-});
-
 
 
 
