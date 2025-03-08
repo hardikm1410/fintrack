@@ -60,7 +60,7 @@ header {
         display: flex;
         flex-direction: column;
         gap: 25px;
-        background: rgba(0, 72, 14, 0.32); /* Glass Effect */
+        background-color: black;
         backdrop-filter: blur(6px);
         position: fixed;
         top: 2rem; /* Start from top */
