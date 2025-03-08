@@ -14,9 +14,6 @@ hamburgerMenu.addEventListener('click', (e) => {
 
 
 
-hamburgerMenu.addEventListener('click', () => {
-    navLinks.classList.toggle('mobile-nav-active');
-});
 
 
 
