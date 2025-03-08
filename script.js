@@ -2,8 +2,8 @@ const hamburgerMenu = document.querySelector('.hamburger-menu');
 const navLinks = document.querySelector('.nav-links');
 
 // Close menu on outside click
-document.addEventListener('click', (e) => {
-    if (!hamburgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
+document.addEventListener('click', (a) => {
+    if (!hamburgerMenu.contains(e.target) && !navLinks.contains(a.target)) {
         navLinks.classList.toggle('mobile-nav-active');
     }
 });
