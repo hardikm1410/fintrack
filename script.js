@@ -4,7 +4,7 @@ const navLinks = document.querySelector('.nav-links');
 // Close menu on outside click
 document.addEventListener('click', (e) => {
     if (!hamburgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
-        navLinks.classList.remove('mobile-nav-active');
+        navLinks.classList.toggle('mobile-nav-active');
     }
 });
 
