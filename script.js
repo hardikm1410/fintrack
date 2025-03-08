@@ -1,4 +1,4 @@
- document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', (event) => {
     const loginTrigger = document.getElementById('login-trigger');
     const loginModal = document.getElementById('login-modal');
     const closeBtn = document.querySelector('.close-btn');
@@ -26,11 +26,6 @@ hamburgerMenu.addEventListener('click', () => {
     document.body.classList.toggle('no-scroll');
 });
 
-const loGin = document.querySelector('modal');
-loGin.addEventListener('click', () => {
-    
-    document.body.classList.toggle('no-scroll');
-});
 // Close menu on outside click
 document.addEventListener('click', (e) => {
     if (!hamburgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
