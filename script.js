@@ -8,7 +8,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-hamburgerMenu.addEventListener('click', (e) => {
+hamburgerMenu.addEventListener('click', () => {
     document.body.classList.toggle('no-scroll');
 });
 
