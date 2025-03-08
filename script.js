@@ -18,39 +18,9 @@ document.addEventListener('click', (e) => {
 
 
 
-// script.js
 
-// Simulate an authentication check
-let isLoggedIn = false; // Change this to true if the user is logged in
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    const loginModal = document.getElementById('login-modal');
-    const closeBtn = document.querySelector('.close-btn');
-
-    // Check if user is logged in
-    if (!isLoggedIn) {
-        loginModal.style.display = 'block';
-    }
-
-    closeBtn.addEventListener('click', () => {
-        loginModal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === loginModal) {
-            loginModal.style.display = 'none';
-        }
-    });
-
-    // Handle login form submission
-    const loginForm = document.getElementById('login-form');
-    loginForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        // Here you would typically check the credentials with your backend
-        isLoggedIn = true; // Set to true after successful login
-        loginModal.style.display = 'none';
-        alert('Login successful!');
-    });
+   
 
     // Hamburger Menu Functionality
     const hamburgerMenu = document.querySelector('.hamburger-menu');
