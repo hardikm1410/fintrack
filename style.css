@@ -38,7 +38,7 @@ header {
     padding: 12px 0;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1001;
 }
 
 /* ... your existing CSS ... */
@@ -70,11 +70,12 @@ header {
         text-align: center;
         transform: translateY(-100%); /* Hidden at first */
         z-index: -1; /* Behind Header */
-        
+        transition:2s;
         opacity: 0; /* Invisible initially */
       }
      .nav-link a{
        color: var(--primary-color);
+       z-index: -1;
      }
       
       .no-scroll{
