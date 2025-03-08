@@ -70,14 +70,16 @@ header {
         text-align: center;
         transform: translateY(-100%); /* Hidden at first */
         z-index: -1; /* Behind Header */
-        overflow: hidden;
+        
         opacity: 0; /* Invisible initially */
       }
      .nav-link a{
        color: var(--primary-color);
      }
       
-       
+      .no-scroll{
+         overflow: hidden;
+      }
     
       .nav-links.mobile-nav-active {
         transform: translateY(0);
