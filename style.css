@@ -84,7 +84,7 @@ header {
     
       .nav-links.mobile-nav-active {
         transform: translateY(0);
-        ;
+        
         z-index:-1;
         opacity: 1; /* Make it visible */
       }
