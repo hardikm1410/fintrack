@@ -68,7 +68,7 @@ header {
         font-size:25px;
         padding:15rem 1.5rem;
         text-align: center;
-        transform: translateY(-100%); /* Hidden at first */
+        transform: translateY(-50%); /* Hidden at first */
         z-index: -1; /* Behind Header */
         transition:2s;
         opacity: 0; /* Invisible initially */
