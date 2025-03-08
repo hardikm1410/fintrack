@@ -1194,7 +1194,7 @@ input, select {
     }
 
     .chat-input {
-        font-size: 14px;
+        font-size: 10px;
     }
 
     .send-btn {
@@ -1203,24 +1203,24 @@ input, select {
     }
 
     .features {
-        flex-direction: column;
-        padding: 1rem 0;
+        
+        padding: 15px 0;
         gap: 8px;
     }
 
     .feature-btn {
-        font-size: 0.8rem;
+        font-size: 0.4rem;
     }
 
     .suggestions {
-        flex-wrap: wrap;
+        
         gap: 4px;
-        padding-bottom: 4px;
+        padding-bottom: 2px;
     }
 
     .suggestion-chip {
-        font-size: 0.7rem;
-        padding: 6px 12px;
+        font-size: 0.3rem;
+        padding: 6px 8px;
     }
 
     .message {
