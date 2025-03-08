@@ -1205,11 +1205,11 @@ input, select {
     .features {
         
         padding: 15px 0;
-        gap: 8px;
+        gap: 5px;
     }
 
     .feature-btn {
-        font-size: 0.4rem;
+        font-size: 0rem;
     }
 
     .suggestions {
@@ -1219,7 +1219,7 @@ input, select {
     }
 
     .suggestion-chip {
-        font-size: 0.3rem;
+        font-size: 0.5rem;
         padding: 6px 8px;
     }
 
