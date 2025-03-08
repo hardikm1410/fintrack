@@ -61,7 +61,7 @@ header {
         display: flex;
         flex-direction: column;
         gap: 25px;
-        background-color: black;
+        background-color: rgba(0, 72, 14, 0.32); /* Glass Effect */
         backdrop-filter: blur(6px);
         position:fixed;
         top: 2rem; /* Start from top */
@@ -76,10 +76,7 @@ header {
         
         opacity: 0; /* Invisible initially */
       }
-     .nav-link a{
-       color: var(--primary-color);
-      
-     }
+     
       
       .no-scroll{
          overflow: hidden;
