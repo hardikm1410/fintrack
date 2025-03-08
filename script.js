@@ -6,13 +6,13 @@ hamburgerMenu.addEventListener('click', (e) => {
 });
 
 // Close menu on outside click
-document.addEventListener('click', (a) => {
-    if (!hamburgerMenu.contains(a.target) && !navLinks.contains(a.target)) {
+document.addEventListener('click', (e) => {
+    if (!hamburgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
         navLinks.classList.toggle('mobile-nav-active');
     }
 });
 
-hamburgerMenu.addEventListener('click', (e) => {
+hamburgerMenu.addEventListener('click', () => {
     document.body.classList.toggle('no-scroll');
 });
 
