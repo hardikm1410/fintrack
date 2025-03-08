@@ -24,7 +24,7 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    z-index:150;
+    
 }
 
 .container {
@@ -51,7 +51,7 @@ header {
     display: none;
     font-size: 30px;
     cursor: pointer;
-    z-index: 300;
+   
 }
 
 
@@ -63,7 +63,7 @@ header {
         gap: 25px;
         background-color: black;
         backdrop-filter: blur(6px);
-        position: absolute;
+        position:fixed;
         top: 2rem; /* Start from top */
         left: 0;
         height: 100vh;
@@ -72,7 +72,7 @@ header {
         padding:15rem 1.5rem;
         text-align: center;
         transform: translateY(-40%); /* Hidden at first */
-        z-index: 200; /* Behind Header */
+       
         
         opacity: 0; /* Invisible initially */
       }
@@ -88,7 +88,7 @@ header {
       .nav-links.mobile-nav-active {
         transform: translateY(0);
         transition:2s;
-        z-index: 200; /* Bring it behind header */
+        
         opacity: 1; /* Make it visible */
       }
     
