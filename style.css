@@ -61,38 +61,42 @@ header {
         display: flex;
         flex-direction: column;
         gap: 25px;
-        background-color: rgba(0, 72, 14, 0.32); /* Glass Effect */
+        background-color: rgba(0, 0, 0, 0.8); /* Dark background */
         backdrop-filter: blur(6px);
-        position:fixed;
+        position: fixed;
         top: 0; /* Start from top */
         left: 0;
         height: 100vh;
-        width: 100%; z-index:-1;
-        font-size:25px;
-        padding:15rem 1.5rem;
+        width: 100%;
+        z-index: -1; /* Behind other elements */
+        font-size: 25px;
+        padding: 15rem 1.5rem;
         text-align: center;
         transform: translateY(-40%); /* Hidden at first */
-       transition:1s;
-        
+        transition: 1s;
         opacity: 0; /* Invisible initially */
-      }
-     
-      
-      .no-scroll{
-         overflow: hidden;
-      }
-    
-      .nav-links.mobile-nav-active {
-        transform: translateY(0);
-        
-        z-index:-1;
-        opacity: 1; /* Make it visible */
-      }
-    
-      .hamburger-menu {
-        display: block;
-      }
     }
+
+    .no-scroll {
+        overflow: hidden;
+    }
+
+    .nav-links.mobile-nav-active {
+        transform: translateY(0);
+        z-index: -1; /* Ensure it stays behind */
+        opacity: 1; /* Make it visible */
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .header {
+        position: relative;
+        z-index: 1; /* Ensure header is above navbar */
+    }
+}
+        
 nav {
     display: flex;
     justify-content: space-between;
