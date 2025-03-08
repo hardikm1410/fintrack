@@ -3,6 +3,7 @@ const navLinks = document.querySelector('.nav-links');
 
 hamburgerMenu.addEventListener('click', () => {
     navLinks.classList.toggle('mobile-nav-active');
+    document.body.classList.toggle('no-scroll');
 });
 
 // Close menu on outside click
@@ -13,7 +14,7 @@ document.addEventListener('click', (e) => {
 });
 
 hamburgerMenu.addEventListener('click', () => {
-    document.body.classList.toggle('no-scroll');
+    
 });
 
 
