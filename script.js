@@ -8,7 +8,7 @@ hamburgerMenu.addEventListener('click', () => {
 // Close menu on outside click
 document.addEventListener('click', (e) => {
     if (!hamburgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
-        navLinks.classList.toggle('mobile-nav-active');
+        navLinks.classList.remove('mobile-nav-active');
     }
 });
 
