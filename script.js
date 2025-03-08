@@ -13,26 +13,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// script.js
-document.addEventListener('DOMContentLoaded', (event) => {
-    const loginTrigger = document.getElementById('login-trigger');
-    const loginModal = document.getElementById('login-modal');
-    const closeBtn = document.querySelector('.close-btn');
 
-    loginTrigger.addEventListener('click', () => {
-        loginModal.style.display = 'block';
-    });
-
-    closeBtn.addEventListener('click', () => {
-        loginModal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === loginModal) {
-            loginModal.style.display = 'none';
-        }
-    });
-});
  
 
 
