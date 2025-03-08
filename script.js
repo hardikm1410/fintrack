@@ -1,3 +1,23 @@
+ document.addEventListener('DOMContentLoaded', (event) => {
+    const loginTrigger = document.getElementById('login-trigger');
+    const loginModal = document.getElementById('login-modal');
+    const closeBtn = document.querySelector('.close-btn');
+
+    loginTrigger.addEventListener('click', () => {
+        loginModal.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', () => {
+        loginModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === loginModal) {
+            loginModal.style.display = 'none';
+        }
+    });
+});
+
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const navLinks = document.querySelector('.nav-links');
 
@@ -6,6 +26,11 @@ hamburgerMenu.addEventListener('click', () => {
     document.body.classList.toggle('no-scroll');
 });
 
+const loGin = document.querySelector('modal');
+loGin.addEventListener('click', () => {
+    
+    document.body.classList.toggle('no-scroll');
+});
 // Close menu on outside click
 document.addEventListener('click', (e) => {
     if (!hamburgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
@@ -13,22 +38,10 @@ document.addEventListener('click', (e) => {
     }
 });
 
-
- 
-
-
-
-
-
-   
-
-    // Hamburger Menu Functionality
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const navLinks = document.querySelector('.nav-links');
-
     hamburgerMenu.addEventListener('click', () => {
         navLinks.classList.toggle('mobile-nav-active');
 
+    });
 
 
 function animateCounter(target, duration) {
