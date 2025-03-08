@@ -75,6 +75,7 @@ header {
         text-align: center;
         transform: translateY(-40%); /* Hidden at first */
         transition: 1s;
+        color: var(--primary-color);
         opacity: 0; /* Invisible initially */
     }
 
@@ -91,6 +92,9 @@ header {
     .hamburger-menu {
         display: block;
     }
+    
+    .nav-links a{
+       color: var(--primary-color);
 
     .header {
         position: relative;
