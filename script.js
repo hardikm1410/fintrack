@@ -14,15 +14,23 @@ document.addEventListener('click', (e) => {
 });
 
 
+ 
+
+
+
 // script.js
+
+// Simulate an authentication check
+let isLoggedIn = false; // Change this to true if the user is logged in
+
 document.addEventListener('DOMContentLoaded', (event) => {
-    const loginTrigger = document.getElementById('login-trigger');
     const loginModal = document.getElementById('login-modal');
     const closeBtn = document.querySelector('.close-btn');
 
-    loginTrigger.addEventListener('click', () => {
+    // Check if user is logged in
+    if (!isLoggedIn) {
         loginModal.style.display = 'block';
-    });
+    }
 
     closeBtn.addEventListener('click', () => {
         loginModal.style.display = 'none';
@@ -33,11 +41,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
             loginModal.style.display = 'none';
         }
     });
-});
 
+    // Handle login form submission
+    const loginForm = document.getElementById('login-form');
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        // Here you would typically check the credentials with your backend
+        isLoggedIn = true; // Set to true after successful login
+        loginModal.style.display = 'none';
+        alert('Login successful!');
+    });
 
+    // Hamburger Menu Functionality
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
 
-
+    hamburgerMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-nav-active');
 
 
 
