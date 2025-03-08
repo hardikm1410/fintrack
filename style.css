@@ -41,6 +41,7 @@ header {
     padding: 12px 0;
     position: sticky;
     top: 0;
+    z-index: 1000;
    
 }
 
@@ -61,8 +62,8 @@ header {
         display: flex;
         flex-direction: column;
         gap: 25px;
-        background-color: black; /* Dark background */
-        /*backdrop-filter: blur(6px);*/
+        background-color: transparent;
+        backdrop-filter: blur(10px);
         position: fixed;
         top: 0; /* Start from top */
         left: 0;
