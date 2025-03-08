@@ -2,7 +2,9 @@ const hamburgerMenu = document.querySelector('.hamburger-menu');
 const navLinks = document.querySelector('.nav-links');
 
 
-
+hamburgerMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('mobile-nav-active');
+});
 
 
 
@@ -13,7 +15,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-hamburgerMenu.addEventListener('click', () => {
+hamburgerMenu.addEventListener('click', (e) => {
     document.classList.toggle('no-scroll');
 });
 
