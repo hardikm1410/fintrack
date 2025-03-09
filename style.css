@@ -60,6 +60,15 @@ header {
 
 /* Mobile Menu */
 @media (max-width: 768px) {
+
+    .modal{
+        margin:auto auto;
+    }
+
+    .modal{
+        margin:10% auto;
+     }
+     
     .nav-links {
         display: flex;
         flex-direction: column;
