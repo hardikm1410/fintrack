@@ -62,7 +62,7 @@ header {
 @media (max-width: 768px) {
 
     .modal{
-         margin-top: 40%;
+         padding-bottom: 40%;
      }
     .modal-content{
         margin-top: 40%;
