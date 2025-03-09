@@ -33,11 +33,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-    hamburgerMenu.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-nav-active');
-
-    });
-
+    
 
 function animateCounter(target, duration) {
             const counterElement = document.getElementById('total-balance');
