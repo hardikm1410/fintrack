@@ -61,11 +61,8 @@ header {
 /* Mobile Menu */
 @media (max-width: 768px) {
 
-    .modal{
-        margin:auto auto;
-    }
-
-    .modal{
+    
+    .modal-content{
         margin:40% auto;
      }
      
