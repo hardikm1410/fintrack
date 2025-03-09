@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     loginTrigger.addEventListener('click', () => {
         loginModal.style.display = 'block';
+       document.body.classList.toggle('no-scroll');
     });
 
     closeBtn.addEventListener('click', () => {
@@ -77,9 +78,10 @@ animateCounter(800456, 10000);
         const connectBtn = document.getElementById('connect-btn');
         
         // Show Transaction Modal
-        addTransactionBtn.addEventListener('click', function() {
-            transactionModal.style.display = 'flex';
-        });
+        addTransactionBtn.addEventListener('click',function(){
+        transactionModal.style.display = 'flex';
+       document.body.classList.toggle('no-scroll');
+     });
         
         // Hide Transaction Modal
         function hideTransactionModal() {
@@ -94,6 +96,7 @@ animateCounter(800456, 10000);
         connectAccountBtn.addEventListener('click', function() {
             // Reset form state
             connectionForm.style.display = 'block';
+       document.body.classList.toggle('no-scroll');
             connectingStatus.style.display = 'none';
             connectionSuccess.style.display = 'none';
             
