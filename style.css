@@ -61,12 +61,7 @@ header {
 /* Mobile Menu */
 @media (max-width: 768px) {
 
-    .modal{
-         padding-bottom: 40%;
-     }
-    .modal-content{
-        margin-top: 40%;
-     }
+    
      
     .nav-links {
         display: flex;
@@ -1325,7 +1320,7 @@ input, select {
 }
 .modal-content {
     background-color: #fff;
-    margin: 11% auto;
+    margin: 1% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
