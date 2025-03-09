@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     closeBtn.addEventListener('click', () => {
         loginModal.style.display = 'none';
+       document.body.classList.toggle('no-scroll');
     });
 
     window.addEventListener('click', (event) => {
@@ -86,7 +87,8 @@ animateCounter(800456, 10000);
         // Hide Transaction Modal
         function hideTransactionModal() {
             transactionModal.style.display = 'none';
-            document.getElementById('transaction-form').reset();
+           
+        document.body.classList.toggle('no-scroll'); document.getElementById('transaction-form').reset();
         }
         
         cancelTransactionBtn.addEventListener('click', hideTransactionModal);
@@ -106,6 +108,7 @@ animateCounter(800456, 10000);
         // Hide Connect Modal
         function hideConnectModal() {
             connectModal.style.display = 'none';
+       document.body.classList.toggle('no-scroll');
             document.getElementById('institution-select').value = '';
             document.getElementById('username').value = '';
             document.getElementById('password').value = '';
