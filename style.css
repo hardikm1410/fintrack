@@ -1378,3 +1378,9 @@ input, select {
     background-color: #555;
 }
 
+@media (max-width: 768px) {
+    .modal-content{
+        margin: 40% auto;
+    }
+}
+
