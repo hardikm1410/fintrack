@@ -426,8 +426,8 @@ animateCounter(800456, 10000);
 
  // DOM Elements
  // API Configuration
-const API_KEY = 'your_api_key_here'; // Replace with your actual API key
-const API_ENDPOINT = 'https://api.example-ai-service.com/v1/completions'; // Replace with actual endpoint
+const API_KEY = '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'; // Replace with your actual API key
+const API_ENDPOINT = 'https://huggingface.co/api/models'; // Replace with actual endpoint
 
 // DOM Elements
 const chatForm = document.getElementById('chatForm');
