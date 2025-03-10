@@ -425,59 +425,250 @@ animateCounter(800456, 10000);
     });
 
  // DOM Elements
- const chatForm = document.getElementById('chatForm');
- const chatInput = document.getElementById('chatInput');
- const sendBtn = document.getElementById('sendBtn');
- const chatHistory = document.getElementById('chatHistory');
- const typingIndicator = document.getElementById('typingIndicator');
- const menuBtn = document.getElementById('menuBtn');
- const chatContainer = document.getElementById('chatContainer');
- const sidebarOverlay = document.getElementById('sidebarOverlay');
- const sidebarClose = document.getElementById('sidebarClose');
- const themeToggle = document.getElementById('themeToggle');
- const suggestionChips = document.querySelectorAll('.suggestion-chip');
+ // API Configuration
+const API_KEY = 'your_api_key_here'; // Replace with your actual API key
+const API_ENDPOINT = 'https://api.example-ai-service.com/v1/completions'; // Replace with actual endpoint
 
- // Auto-resize textarea
- chatInput.addEventListener('input', function() {
-     this.style.height = 'auto';
-     this.style.height = (this.scrollHeight) + 'px';
-     
-     // Enable/disable send button based on input
-     sendBtn.disabled = !this.value.trim();
- });
+// DOM Elements
+const chatForm = document.getElementById('chatForm');
+const chatInput = document.getElementById('chatInput');
+const sendBtn = document.getElementById('sendBtn');
+const chatHistory = document.getElementById('chatHistory');
+const typingIndicator = document.getElementById('typingIndicator');
+const menuBtn = document.getElementById('menuBtn');
+const chatContainer = document.getElementById('chatContainer');
+const sidebarOverlay = document.getElementById('sidebarOverlay');
+const sidebarClose = document.getElementById('sidebarClose');
+const themeToggle = document.getElementById('themeToggle');
+const suggestionChips = document.querySelectorAll('.suggestion-chip');
 
- // Handle form submission
- chatForm.addEventListener('submit', function(e) {
-     e.preventDefault();
-     const message = chatInput.value.trim();
-     if (!message) return;
-     
-     addMessage(message, 'user');
-     chatInput.value = '';
-     chatInput.style.height = 'auto';
-     sendBtn.disabled = true;
-     
-     // Simulate AI thinking
-     typingIndicator.style.display = 'flex';
-     setTimeout(() => {
-         typingIndicator.style.display = 'none';
-         
-         // Simulate AI response
-         const responses = [
-             "Sorry, I'm under developement at this time!",
-         ];
-         
-         const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-         addMessage(randomResponse, 'ai');
-         
-         // Scroll to bottom
-         chatHistory.scrollTop = chatHistory.scrollHeight;
-     }, 1500);
-     
-     // Scroll to bottom
-     chatHistory.scrollTop = chatHistory.scrollHeight;
- });
+/**
+ * Send a request to the AI API
+ * @param {string} prompt - The input prompt for the AI
+ * @param {Object} options - Additional parameters for the API request
+ * @returns {Promise} - Promise resolving to the API response
+ */
+async function getAIResponse(prompt, options = {}) {
+    // Default parameters that can be overridden by options
+    const params = {
+        prompt: prompt,
+        max_tokens: 100,
+        temperature: 0.7,
+        top_p: 1,
+        frequency_penalty: 0,
+        presence_penalty: 0,
+        ...options
+    };
+    
+    try {
+        const response = await fetch(API_ENDPOINT, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${API_KEY}`
+            },
+            body: JSON.stringify(params)
+        });
+        
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`API Error: ${errorData.error?.message || response.statusText}`);
+        }
+        
+        return await response.json();
+    } catch (error) {
+        console.error('Error calling AI API:', error);
+        throw error;
+    }
+}
 
+// Auto-resize textarea
+chatInput.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
+    
+    // Enable/disable send button based on input
+    sendBtn.disabled = !this.value.trim();
+});
+
+// Handle form submission
+chatForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const message = chatInput.value.trim();
+    if (!message) return;
+    
+    addMessage(message, 'user');
+    chatInput.value = '';
+    chatInput.style.height = 'auto';
+    sendBtn.disabled = true;
+    
+    // Show typing indicator
+    typingIndicator.style.display = 'flex';
+    
+    try {
+        // Call the AI API instead of using random responses
+        const result = await getAIResponse(message);
+        const aiResponse = result.choices && result.choices[0] ? 
+                          result.choices[0].text : 
+                          "I'm having trouble connecting to my knowledge source right now.";
+        
+        // Hide typing indicator after response
+        typingIndicator.style.display = 'none';
+        
+        // Add the AI response to chat
+        addMessage(aiResponse, 'ai');
+    } catch (error) {
+        // Handle errors
+        typingIndicator.style.display = 'none';
+        addMessage("Sorry, I encountered an error: " + error.message, 'ai');
+    }
+    
+    // Scroll to bottom
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+});
+
+// Add message to chat
+function addMessage(text, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}-message`;
+    
+    const now = new Date();
+    const timeString = now.getHours() + ':' + (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
+    
+    const avatar = sender === 'user' ? 'You' : 'AI';
+    const avatarClass = sender === 'user' ? 'user-avatar' : 'ai-avatar';
+    
+    messageDiv.innerHTML = `
+        <div class="message-wrapper">
+            <div>
+                <div class="message-content">${text}</div>
+                
+                <div class="message-actions">
+                <div class="message-time">${timeString}</div>
+                    <button class="message-action-btn copy-btn" title="Copy to clipboard">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                        </svg>
+                    </button>
+                    ${sender === 'ai' ? `
+                    <button class="message-action-btn regenerate-btn" title="Regenerate response">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                            <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                        </svg>
+                    </button>
+                    ` : ''}
+                </div>
+            </div>
+        </div>
+    `;
+    
+    chatHistory.appendChild(messageDiv);
+    
+    // Add click event for copy button
+    const copyBtn = messageDiv.querySelector('.copy-btn');
+    copyBtn.addEventListener('click', function() {
+        navigator.clipboard.writeText(text).then(() => {
+            this.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                </svg>
+            `;
+            setTimeout(() => {
+                this.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                    </svg>
+                `;
+            }, 2000);
+        });
+    });
+    
+    // Add click event for regenerate button (if AI message)
+    if (sender === 'ai') {
+        const regenerateBtn = messageDiv.querySelector('.regenerate-btn');
+        if (regenerateBtn) {
+            regenerateBtn.addEventListener('click', async function() {
+                // Get the last user message
+                const userMessages = document.querySelectorAll('.user-message');
+                if (userMessages.length > 0) {
+                    const lastUserMessage = userMessages[userMessages.length - 1];
+                    const lastUserText = lastUserMessage.querySelector('.message-content').textContent;
+                    
+                    // Remove the current AI message
+                    messageDiv.remove();
+                    
+                    // Show typing indicator
+                    typingIndicator.style.display = 'flex';
+                    
+                    try {
+                        // Get a new response
+                        const result = await getAIResponse(lastUserText, {
+                            temperature: 1.0 // Increase temperature for more variation
+                        });
+                        
+                        const aiResponse = result.choices && result.choices[0] ? 
+                                          result.choices[0].text : 
+                                          "I'm having trouble connecting to my knowledge source right now.";
+                        
+                        // Hide typing indicator
+                        typingIndicator.style.display = 'none';
+                        
+                        // Add the new AI response
+                        addMessage(aiResponse, 'ai');
+                    } catch (error) {
+                        typingIndicator.style.display = 'none';
+                        addMessage("Sorry, I encountered an error while regenerating: " + error.message, 'ai');
+                    }
+                    
+                    // Scroll to bottom
+                    chatHistory.scrollTop = chatHistory.scrollHeight;
+                }
+            });
+        }
+    }
+}
+
+// Add event listeners for suggestion chips if they exist
+if (suggestionChips.length > 0) {
+    suggestionChips.forEach(chip => {
+        chip.addEventListener('click', function() {
+            const suggestionText = this.textContent;
+            chatInput.value = suggestionText;
+            chatInput.dispatchEvent(new Event('input'));
+            chatForm.dispatchEvent(new Event('submit'));
+        });
+    });
+}
+
+// Add menu toggle functionality if menu button exists
+if (menuBtn && sidebarOverlay) {
+    menuBtn.addEventListener('click', function() {
+        sidebarOverlay.classList.add('active');
+    });
+}
+
+// Add sidebar close functionality if close button exists
+if (sidebarClose && sidebarOverlay) {
+    sidebarClose.addEventListener('click', function() {
+        sidebarOverlay.classList.remove('active');
+    });
+}
+
+// Add theme toggle functionality if theme toggle exists
+if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-theme');
+        localStorage.setItem('darkMode', document.body.classList.contains('dark-theme'));
+    });
+    
+    // Check for saved theme preference
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-theme');
+    }
+}
  // Add message to chat
  function addMessage(text, sender) {
      const messageDiv = document.createElement('div');
