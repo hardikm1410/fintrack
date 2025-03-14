@@ -31,15 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       
       else if (email === 'admin123@gmail.com' && password === 'admin123') {
-       
-       
+       trueMessage.textContent = 'Logged in successfully!';
+       return;
       // Simulate a successful login
       errorMessage.style.display = 'none';
-      trueMessage.textContent = 'Logged in successfully!';
+      
       trueMessage.style.display = 'block';
       loginModal.style.display = 'none';
-        document.body.classList.toggle('no-scroll');
-      return;
+      document.body.classList.toggle('no-scroll');
+      
       }
     });
 
