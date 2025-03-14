@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       else if (email === 'admin123@gmail.com' && password === 'admin123') {
        trueMessage.textContent = 'Logged in successfully!';
-       return;
+       
       // Simulate a successful login
       errorMessage.style.display = 'none';
       alert('Loged in successfully');
