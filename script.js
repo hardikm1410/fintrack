@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (email != 'admin123@gmail.com' || password != 'admin123') {
         errorMessage.textContent = 'Please Enter corret details.';
         errorMessage.style.display = 'block';
-        return;
+        
       }
       
       else if (email === 'admin123@gmail.com' && password === 'admin123') {
@@ -35,11 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
        return;
       // Simulate a successful login
       errorMessage.style.display = 'none';
-      
+      alert('Loged in successfully');
       trueMessage.style.display = 'block';
       loginModal.style.display = 'none';
       document.body.classList.toggle('no-scroll');
-      
+      return;
       }
     });
 
