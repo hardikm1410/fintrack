@@ -5,7 +5,7 @@ const passwordInput = document.getElementById('password');
 const errorMessage = document.getElementById('errorMessage');
 const trueMessage = document.getElementById('trueMessage');
 const loginTrigger = document.getElementById('login-trigger');
-const loginModal = document.getElementById('modal');
+const loginModal = document.getElementById('login-modal');
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -114,12 +114,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // Show Transaction Modal
     addTransactionBtn.addEventListener('click', function () {
         transactionModal.style.display = 'flex';
+        document.body.classList.toggle('no-scroll');
     });
 
     // Hide Transaction Modal
     function hideTransactionModal() {
         transactionModal.style.display = 'none';
-        document.getElementById('transaction-form').reset();
+        document.body.classList.toggle('no-scroll'); document.getElementById('transaction-form').reset();
     }
 
     cancelTransactionBtn.addEventListener('click', hideTransactionModal);
@@ -131,14 +132,14 @@ document.addEventListener('DOMContentLoaded', function () {
         connectionForm.style.display = 'block';
         connectingStatus.style.display = 'none';
         connectionSuccess.style.display = 'none';
-
+        document.body.classList.toggle('no-scroll');
         connectModal.style.display = 'flex';
     });
 
     // Hide Connect Modal
     function hideConnectModal() {
         connectModal.style.display = 'none';
-        document.getElementById('institution-select').value = '';
+       document.body.classList.toggle('no-scroll'); document.getElementById('institution-select').value = '';
         document.getElementById('username').value = '';
         document.getElementById('password').value = '';
     }
