@@ -5,7 +5,7 @@ const passwordInput = document.getElementById('password');
 const errorMessage = document.getElementById('errorMessage');
 const trueMessage = document.getElementById('trueMessage');
 const loginTrigger = document.getElementById('login-trigger');
-const loginModal = document.getElementById('login-modal');
+const loginModal = document.getElementById('modal');
 
 
 document.addEventListener('DOMContentLoaded', () => {
