@@ -44,19 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
  
-const closeBtn = document.querySelector('.close-btn');
-
-loginTrigger.addEventListener('click', () => {
-    loginModal.style.display = 'block';
-    document.body.classList.toggle('no-scroll');
-
-});
-
-closeBtn.addEventListener('click', () => {
-    loginModal.style.display = 'none';
-});
-
-
 
 
 
