@@ -138,49 +138,8 @@ function isValidEmail(email) {
 
 
 
-const form = document.querySelector('form');
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
-const errorMessage = document.getElementById('errorMessage');
-const trueMessage = document.getElementById('trueMessage');
-const loginTrigger = document.getElementById('login-trigger');
-const loginModal = document.getElementById('login-modal');
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    loginModal.style.display = 'block';
-    document.body.classList.toggle('no-scroll');
-
-});
-
-
-    
-
-  
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault(); // stop form from submitting immediately
-      const email = emailInput.value.trim();
-      const password = passwordInput.value.trim();
-  
-      if (email != 'admin123@gmail.com' || password != 'admin123') {
-        errorMessage.textContent = 'Please Enter corret details.';
-        errorMessage.style.display = 'block';
-        
-      }
-      
-      else if (email === 'admin123@gmail.com' && password === 'admin123') {
-       trueMessage.textContent = 'Logged in successfully!';
-       
-      // Simulate a successful login
-      errorMessage.style.display = 'none';
-      alert('Loged in successfully');
-      trueMessage.style.display = 'block';
-      loginModal.style.display = 'none';
-      document.body.classList.toggle('no-scroll');
-      return;
-      }
-    });
 
  
 
