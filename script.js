@@ -1,147 +1,62 @@
-   // Flip Card Logic
-const flipCard = document.getElementById('flip-card');
-const showSignup = document.getElementById('showSignup');
-const showLogin = document.getElementById('showLogin');
 
-showSignup.addEventListener('click', () => {
-  flipCard.classList.add('flipped');
+const form = document.querySelector('form');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const errorMessage = document.getElementById('errorMessage');
+const trueMessage = document.getElementById('trueMessage');
+const loginTrigger = document.getElementById('login-trigger');
+const loginModal = document.getElementById('login-modal');
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    loginModal.style.display = 'block';
+    document.body.classList.toggle('no-scroll');
+
 });
 
-showLogin.addEventListener('click', () => {
-  flipCard.classList.remove('flipped');
-});
 
-// Password Show/Hide Toggle
-const toggleIcons = document.querySelectorAll('.toggle-password');
+    
 
-toggleIcons.forEach(icon => {
-  icon.addEventListener('click', () => {
-    const input = document.querySelector(icon.getAttribute('toggle'));
-    if (input.type === 'password') {
-      input.type = 'text';
-      icon.classList.remove('fa-eye');
-      icon.classList.add('fa-eye-slash');
-    } else {
-      input.type = 'password';
-      icon.classList.remove('fa-eye-slash');
-      icon.classList.add('fa-eye');
-    }
-  });
-});
+  
 
-// LocalStorage Helpers
-function saveUser(user) {
-  localStorage.setItem('fintrackUser', JSON.stringify(user));
-}
-
-function getUser() {
-  return JSON.parse(localStorage.getItem('fintrackUser'));
-}
-
-// Login Form Logic
-const loginForm = document.getElementById('loginForm');
-const loginError = document.getElementById('loginError');
-
-loginForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  const email = document.getElementById('loginEmail').value.trim();
-  const password = document.getElementById('loginPassword').value.trim();
-  const storedUser = getUser();
-
-  if (!email || !password) {
-    loginError.textContent = 'Please fill in all fields.';
-    return;
-  }
-
-  if (!storedUser || storedUser.email !== email || storedUser.password !== password) {
-    loginError.textContent = 'Invalid email or password.';
-    return;
-  }
-
-  loginError.textContent = '';
-  alert('Login Successful! 🎉');
-  // Redirect or proceed to dashboard
-});
-
-// Signup Form Logic
-const signupForm = document.getElementById('signupForm');
-const signupError = document.getElementById('signupError');
-
-signupForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  const username = document.getElementById('signupUsername').value.trim();
-  const email = document.getElementById('signupEmail').value.trim();
-  const password = document.getElementById('signupPassword').value.trim();
-
-  if (!username || !email || !password) {
-    signupError.textContent = 'All fields are required.';
-    return;
-  }
-
-  if (password.length < 6) {
-    signupError.textContent = 'Password must be at least 6 characters.';
-    return;
-  }
-
-  const newUser = { username, email, password };
-  saveUser(newUser);
-
-  signupError.textContent = '';
-  alert('Signup Successful! 🎉');
-  flipCard.classList.remove('flipped');
-  signupForm.reset();
-});
-
-// Field Validation (Live Feedback)
-const signupInputs = [
-  document.getElementById('signupUsername'),
-  document.getElementById('signupEmail'),
-  document.getElementById('signupPassword')
-];
-
-signupInputs.forEach(input => {
-  input.addEventListener('input', () => validateInput(input));
-});
-
-const loginInputs = [
-  document.getElementById('loginEmail'),
-  document.getElementById('loginPassword')
-];
-
-loginInputs.forEach(input => {
-  input.addEventListener('input', () => validateInput(input));
-});
-
-function validateInput(input) {
-  if (!input.value.trim()) {
-    input.classList.remove('valid');
-    input.classList.add('invalid');
-  } else {
-    if (input.type === 'email' && !isValidEmail(input.value.trim())) {
-      input.classList.remove('valid');
-      input.classList.add('invalid');
-    } else if (input.type === 'password' && input.value.trim().length < 6) {
-      input.classList.remove('valid');
-      input.classList.add('invalid');
-    } else {
-      input.classList.remove('invalid');
-      input.classList.add('valid');
-    }
-  }
-}
-
-function isValidEmail(email) {
-  const re = /\S+@\S+\.\S+/;
-  return re.test(email);
-
-
-
-
-
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // stop form from submitting immediately
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
+  
+      if (email != 'admin123@gmail.com' || password != 'admin123') {
+        errorMessage.textContent = 'Please Enter corret details.';
+        errorMessage.style.display = 'block';
+        return;
+      }
+      
+      else if (email === 'admin123@gmail.com' && password === 'admin123') {
+       
+       
+      // Simulate a successful login
+      errorMessage.style.display = 'none';
+      trueMessage.textContent = 'Logged in successfully!';
+      trueMessage.style.display = 'block';
+      loginModal.style.display = 'none';
+        document.body.classList.toggle('no-scroll');
+      return;
+      }
+    });
 
  
+const closeBtn = document.querySelector('.close-btn');
+
+loginTrigger.addEventListener('click', () => {
+    loginModal.style.display = 'block';
+    document.body.classList.toggle('no-scroll');
+
+});
+
+closeBtn.addEventListener('click', () => {
+    loginModal.style.display = 'none';
+});
+
+
 
 
 
@@ -212,13 +127,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // Show Transaction Modal
     addTransactionBtn.addEventListener('click', function () {
         transactionModal.style.display = 'flex';
-        document.body.classList.toggle('no-scroll');
     });
 
     // Hide Transaction Modal
     function hideTransactionModal() {
         transactionModal.style.display = 'none';
-        document.body.classList.toggle('no-scroll'); document.getElementById('transaction-form').reset();
+        document.getElementById('transaction-form').reset();
     }
 
     cancelTransactionBtn.addEventListener('click', hideTransactionModal);
@@ -230,14 +144,14 @@ document.addEventListener('DOMContentLoaded', function () {
         connectionForm.style.display = 'block';
         connectingStatus.style.display = 'none';
         connectionSuccess.style.display = 'none';
-        document.body.classList.toggle('no-scroll');
+
         connectModal.style.display = 'flex';
     });
 
     // Hide Connect Modal
     function hideConnectModal() {
         connectModal.style.display = 'none';
-       document.body.classList.toggle('no-scroll'); document.getElementById('institution-select').value = '';
+        document.getElementById('institution-select').value = '';
         document.getElementById('username').value = '';
         document.getElementById('password').value = '';
     }
@@ -552,8 +466,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// API Configuration
-
+// API Configuration // Replace with actual endpoint
 // DOM Elements
 const chatForm = document.getElementById('chatForm');
 const chatInput = document.getElementById('chatInput');
