@@ -1497,38 +1497,38 @@ input, select {
     backface-visibility: hidden;
   }
   
- .flip-card-inner >> .flip-card-front {
+ .flip-card-inner .flip-card-front {
     z-index: 2;
   }
- .flip-card-inner >> 
+ .flip-card-inner  
   .flip-card-back {
     transform: rotateY(180deg);
   }
   
   /* Headings */
 .flip-card-inner >>  h1 {
-    text-align: center;
+    text-align: center  ;
     margin-bottom: 30px;
     color: #60ad5e;
   }
   
   /* Form and input groups */
- .flip-card-inner >> form {
+ .flip-card-inner  form {
     display: flex;
     flex-direction: column;
   }
   
- .flip-card-inner >> .input-group {
+ .flip-card-inner  .input-group {
     margin-bottom: 20px;
   }
   
- .flip-card-inner >> .input-group label {
+ .flip-card-inner .input-group label {
     font-size: 14px;
     margin-bottom: 5px;
     display: block;
   }
   
- .flip-card-inner >> .input-group input {
+ .flip-card-inner .input-group input {
     width: 100%;
     padding: 12px;
     border-radius: 8px;
@@ -1537,14 +1537,14 @@ input, select {
     color: #fff;
   }
   
- .flip-card-inner >> .input-group input:focus {
+ .flip-card-inner  .input-group input:focus {
     outline: none;
     border-color: #60ad5e;
     background-color: #333;
   }
   
   /* Buttons */
-.flip-card-inner >>  .btn {
+.flip-card-inner  .btn {
     padding: 12px;
     background-color:#60ad5e;
     color: #121212;
@@ -1555,24 +1555,24 @@ input, select {
     transition: background-color 0.3s;
   }
   
-.flip-card-inner >>  .btn:hover {
+.flip-card-inner  .btn:hover {
     background-color: #77f073;
   }
   
   /* Toggle links */
- .flip-card-inner >> p {
-    text-align: center;
+ .flip-card-inner  p {
+    text-align: center ;
     margin-top: 15px;
     font-size: 14px;
   }
   
-.flip-card-inner >>  p span {
+.flip-card-inner p span {
     color: #00bcd4;
     cursor: pointer;
     text-decoration: underline;
   }
   
- .flip-card-inner >> .error-message {
+ .flip-card-inner .error-message {
     color: #ff5252;
     font-size: 13px;
     margin-top: 10px;
@@ -1582,7 +1582,7 @@ input, select {
  
   
   
-  .flip-card-inner >>  .logo {
+  .flip-card-inner  .logo {
       font-size: 50px;
       font-weight: bold;
       display: flex;
@@ -1595,30 +1595,30 @@ input, select {
   
   
   
-  .flip-card-inner >>   h2 {
+  .flip-card-inner  h2 {
     text-align: center;
     color: #ffffff;
     margin-bottom: 5px;
   }
   
-  .flip-card-inner >> .subtitle {
+  .flip-card-inner .subtitle {
     text-align: center;
     color: #888;
     margin-bottom: 30px;
   }
   
-  .flip-card-inner >> .input-group {
+  .flip-card-inner input-group {
     margin-bottom: 20px;
   }
   
-  .flip-card-inner >> .input-group label {
+  .flip-card-inner .input-group label {
     display: block;
     margin-bottom: 8px;
     color: #ccc;
     font-size: 14px;
   }
   
-  .flip-card-inner >>  .input-group input {
+  .flip-card-inner  .input-group input {
     width: 100%;
     padding: 12px 15px;
     border: none;
@@ -1630,34 +1630,34 @@ input, select {
     transition: background 0.3s ease;
   }
   
-   .flip-card-inner >> .input-group input:focus {
+   .flip-card-inner .input-group input:focus {
     background: #333333;
   }
   
-  .flip-card-inner >>  #errorMessage{
+  .flip-card-inner#errorMessage{
     color: red;
     font-size: 15px;
     
   }
   
-   .flip-card-inner >> .actions {
+   .flip-card-inner.actions {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 20px;
   }
   
- .flip-card-inner >> .forgot-password {
+ .flip-card-inner .forgot-password {
     color: #888;
     font-size: 12px;
     text-decoration: none;
     transition: color 0.3s ease;
   }
   
- .flip-card-inner >> .forgot-password:hover {
+ .flip-card-inner .forgot-password:hover {
     color: #ffffff;
   }
   
-.flip-card-inner >>  .btn-login {
+.flip-card-inner  .btn-login {
     width: 100%;
     background: #4CAF50;
     color: white;
@@ -1670,11 +1670,11 @@ input, select {
     transition: background 0.3s ease;
   }
   
- .flip-card-inner >> .btn-login:hover {
+ .flip-card-inner.btn-login:hover {
     background: #43A047;
   }
 
- .flip-card-inner >> .btn-signup {
+ .flip-card-inner .btn-signup {
     width: 100%;
     background: #4CAF50;
     color: white;
@@ -1687,32 +1687,32 @@ input, select {
     transition: background 0.3s ease;
   }
   
-.flip-card-inner >>  .btn-signup:hover {
+.flip-card-inner .btn-signup:hover {
     background: #43A047;
   }
   
   
-.flip-card-inner >>  #trueMessage{
+.flip-card-inner #trueMessage{
     color: #4CAF50;
     font-size: 15px;
     
   }
   
- .flip-card-inner >> .divider {
+ .flip-card-inner .divider {
     display: flex;
     align-items: center;
     text-align: center;
     margin: 20px 0;
   }
   
-  .flip-card-inner >>.divider span {
+  .flip-card-inner .divider span {
     flex-grow: 1;
     border-top: 1px solid #333;
     position: relative;
     /* opacity:0; */
   }
   
-  .flip-card-inner >>.divider span::after {
+  .flip-card-inner .divider span::after {
     content: "or";
     position: absolute;
     top: -12px;
@@ -1724,7 +1724,7 @@ input, select {
     font-size: 12px;
   }
   
-  .flip-card-inner >>.btn-google {
+  .flip-card-inner .btn-google {
     width: 100%;
     background: #ffffff;
     color: #333;
@@ -1740,29 +1740,29 @@ input, select {
     transition: background 0.3s ease;
   }
   
-  .flip-card-inner >>.btn-google img {
+  .flip-card-inner .btn-google img {
     width: 18px;
     margin-right: 10px;
   }
   
-  .flip-card-inner >>.btn-google:hover {
+  .flip-card-inner .btn-google:hover {
     background: #e0e0e0;
   }
   
-  .flip-card-inner >>.signup-text {
+  .flip-card-inner .signup-text {
     text-align: center;
     margin-top: 20px;
     font-size: 13px;
     color: #888;
   }
   
-  .flip-card-inner >>.signup-text a {
+  .flip-card-inner >.signup-text a {
     color: #4CAF50;
     text-decoration: none;
     font-weight: 600;
   }
   
-  .flip-card-inner >>.signup-text a:hover {
+  .flip-card-inner .signup-text a:hover {
     text-decoration: underline;
   }
   
@@ -1771,20 +1771,20 @@ input, select {
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .flip-card-inner >> .login-text {
+  .flip-card-inner > .login-text {
     text-align: center;
     margin-top: 20px;
     font-size: 13px;
     color: #888;
   }
   
-  .flip-card-inner >> .login-text a {
+  .flip-card-inner > .login-text a {
     color: #4CAF50;
     text-decoration: none;
     font-weight: 600;
   }
   
-  .flip-card-inner >> .login-text a:hover {
+  .flip-card-inner > .login-text a:hover {
     text-decoration: underline;
   }
 
