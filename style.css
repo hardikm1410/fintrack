@@ -1626,7 +1626,7 @@ input, select {
     --secondary-color: #42a5f5;
     --text-color: #e0e0e0;
     --text-light: #b0b0b0;
-    --bg-color: #ffffff;
+    --bg-color: #000000;
     --card-color: #1f1f1f;
     
     --ai-bg-color: #1a2620;
@@ -1638,7 +1638,7 @@ input, select {
 .dark-mode .stat-card,
 .dark-mode .chart-card,
 .dark-mode .ai-message,
-
+.dark-mode .footer,
 
 .dark-mode .dashboard-content,
 .dark-mode .transaction-table th {
@@ -1683,6 +1683,7 @@ input, select {
 
 .dark-mode .filter-btn{
     background-color: #4a4a4a;
+    color: white;
 }
 
 .dark-mode .filter-btn.active {
@@ -1735,6 +1736,8 @@ input, select {
 .dark-mode input,select{
     background-color: #484848;
 }
+
+
 
 /* Theme Toggle */
 .theme-toggle {
