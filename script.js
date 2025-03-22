@@ -33,11 +33,11 @@ const loginTrigger = document.getElementById('login-trigger');
 const loginModal = document.getElementById('login-modal');
 
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     loginModal.style.display = 'block';
-//     document.body.classList.toggle('no-scroll');
+ document.addEventListener('DOMContentLoaded', () => {
+     loginModal.style.display = 'block';
+     document.body.classList.toggle('no-scroll');
 
-// });
+ });
 
 
     
