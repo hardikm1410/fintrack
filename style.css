@@ -1540,7 +1540,7 @@ input, select {
 }
 
 #trueMessage{
-  color: red;
+  color: #2e7d32;
   font-size: 15px;
   
 }
@@ -1740,7 +1740,7 @@ input, select {
 .dark-mode .login-modal{
    background-color: 040404;
 }
-.dark-mode .avtar{
+.dark-mode .user-profile .avtar{
     background-color: 070707;
 }
 
