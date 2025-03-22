@@ -1626,7 +1626,7 @@ input, select {
     --secondary-color: #42a5f5;
     --text-color: #e0e0e0;
     --text-light: #b0b0b0;
-    --bg-color: #000000;
+    --bg-color: #121212;
     --card-color: #1f1f1f;
     
     --ai-bg-color: #1a2620;
@@ -1638,7 +1638,7 @@ input, select {
 .dark-mode .stat-card,
 .dark-mode .chart-card,
 .dark-mode .ai-message,
-.dark-mode .footer,
+.dark-mode footer,
 
 .dark-mode .dashboard-content,
 .dark-mode .transaction-table th {
