@@ -1318,7 +1318,7 @@ input, select {
 }
 
 .avtar {
-    background-color: #070707;
+    background-color: #333333;
     color: #fff;
     border-radius: 50%;
     width: 40px;
@@ -1437,7 +1437,7 @@ input, select {
 }
 
 .login-modal {
-  background: #040404;
+  background: #333333;
   padding: 40px 30px;
   border-radius: 16px;
   box-shadow: 0 15px 25px rgba(0,0,0,0.5);
@@ -1737,7 +1737,12 @@ input, select {
     background-color: #484848;
 }
 
-
+.dark-mode .login-modal{
+   background-color: 040404;
+}
+.dark-mode .avtar{
+    background-color: 070707;
+}
 
 /* Theme Toggle */
 .theme-toggle {
