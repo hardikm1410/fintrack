@@ -237,6 +237,7 @@
 
                     <div class="charts-container">
                         <div class="chart" id="income-expense-chart">
+                            
                             <!-- Chart will be rendered here via JS -->
                             <canvas id="incomeExpenseCanvas" height="300"></canvas>
                         </div>
@@ -438,7 +439,7 @@
                     </button>
                     <button class="feature-btn" id="uploadBtn" title="Upload file">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M.5<path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
                             <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
                         </svg>
                         Upload
@@ -612,20 +613,14 @@
                     <button type="button" class="btn btn-primary" id="connect-btn">Connect Account</button>
                 </div>
             </div>
-
-            <div id="connecting-status" \>
-                <div class="loading-animation">
-                    <div class="spinner"></div>
-                </div>
-                <p style="text-align: center; margin-top: 15px;">Connecting to your account. This may take a moment...</p>
-            </div>
-
-            <div id="connection-success" style="display: none;">
-                <div style="text-align: center; color: var(--primary-color); font-size: 50px; margin: 20px 0;">
-                
+        </div>
+    </div>        
+    <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+    </div>               
                   <!-- Add this right before the closing </body> tag -->
 <script src="script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-<script src="./fintrack-interactivity.js"></script>
+
 </body>
 </html>
