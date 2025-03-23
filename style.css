@@ -1306,6 +1306,10 @@ input ,select {
         width: 6px;
         height: 6px;
     }
+    
+    .user-profile span{
+       display:none;
+    }
 }
 
 /* styles.css */
