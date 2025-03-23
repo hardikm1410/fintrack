@@ -1,4 +1,4 @@
-   :root {
+  :root {
     --primary-color: #2e7d32;
     --primary-light: #60ad5e;
     --primary-dark: #005005;
@@ -1152,7 +1152,8 @@ label {
     font-weight: 500;
 }
 
-input, select {
+input ,select {
+    background-color: white;
     color: var(--text-color);
     width: 100%;
     padding: 12px;
@@ -1318,7 +1319,7 @@ input, select {
 }
 
 .avtar {
-    background-color: #070707;
+    background-color: #333333;
     color: #fff;
     border-radius: 50%;
     width: 40px;
@@ -1540,7 +1541,7 @@ input, select {
 }
 
 #trueMessage{
-  color: #2e7d32;
+  color: red;
   font-size: 15px;
   
 }
@@ -1619,6 +1620,9 @@ input, select {
 }
 
 /* Dark Mode Styles (Optional) */
+* .dark-mode{
+    transition: all ease 0.3s;
+}
 .dark-mode {
     --primary-color: #002c00;
     --primary-light: #8edd92;
@@ -1634,87 +1638,64 @@ input, select {
     --ai-text: #a5d6a7;
 }
 
-* .dark-mode{
-transition: all ease 0.85s;
-}
-
 .dark-mode .feature-card,
 .dark-mode .stat-card,
 .dark-mode .chart-card,
 .dark-mode .ai-message,
-.dark-mode footer,
+
 
 .dark-mode .dashboard-content,
 .dark-mode .transaction-table th {
     background-color: var(--card-color);
-    transition: all ease 0.75s;
 }
 
 .dark-mode .transaction-table td {
     border-bottom-color: #333;
-    transition: all ease 0.75s;
-
 }
 
 .dark-mode .transaction-table tr:hover {
     background-color: #2a2a2a;
-    transition: all ease 0.75s;
-
 }
 
 .dark-mode .transaction-category.category-food {
     background-color: #0d47a1;
     color: #bbdefb;
-   transition: all ease 0.75s;
-
 }
 
 .dark-mode .transaction-category.category-shopping {
     background-color: #4a5219;
     color: #f0f4c3;
-   transition: all ease 0.75s;
-
 }
 
 .dark-mode .transaction-category.category-income {
     background-color: #1b5e20;
     color: #c8e6c9;
-   transition: all ease 0.75s;
-
 }
 
 .dark-mode .suggestion-chip {
     background-color: #1d201d;
-    color: white;
-  transition: all ease 0.75s
-}
+    color: white;}
 
 
 .dark-mode.income {
     color: #84cc88;
-     transition: all ease 0.75s
 }
 
 .dark-mode .expense {
     color: #ff9292;
-  transition: all ease 0.75s
 }
 
 .dark-mode .filter-btn{
     background-color: #4a4a4a;
-    color: white;
-  transition: all ease 0.75s
 }
 
 .dark-mode .filter-btn.active {
     background-color: #045308;
     color: white;
     border-color: var(--primary-light);
-  transition: all ease 0.75s
 }
 .dark-mode .slider-dot {
     background-color: #555;
-  transition: all ease 0.75s
 }
 
 .dark-mode .chat-input {
@@ -1755,15 +1736,8 @@ transition: all ease 0.85s;
     background-color: var(--card-color);
 }
 
-.dark-mode input,select{
+.dark-mode select{
     background-color: #484848;
-}
-
-.dark-mode .login-modal{
-   background-color: 040404;
-}
-.dark-mode .user-profile >.avtar{
-    background-color: 070707;
 }
 
 /* Theme Toggle */
@@ -1782,7 +1756,7 @@ transition: all ease 0.85s;
     cursor: pointer;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     z-index: 100;
-    transition: all 0.85s;
+    transition: all 0.3s;
 }
 
 .theme-toggle:hover {
