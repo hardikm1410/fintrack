@@ -1634,6 +1634,10 @@ input, select {
     --ai-text: #a5d6a7;
 }
 
+* .dark-mode{
+transition: all ease 0.85s;
+}
+
 .dark-mode .feature-card,
 .dark-mode .stat-card,
 .dark-mode .chart-card,
@@ -1643,56 +1647,74 @@ input, select {
 .dark-mode .dashboard-content,
 .dark-mode .transaction-table th {
     background-color: var(--card-color);
+    transition: all ease 0.75s;
 }
 
 .dark-mode .transaction-table td {
     border-bottom-color: #333;
+    transition: all ease 0.75s;
+
 }
 
 .dark-mode .transaction-table tr:hover {
     background-color: #2a2a2a;
+    transition: all ease 0.75s;
+
 }
 
 .dark-mode .transaction-category.category-food {
     background-color: #0d47a1;
     color: #bbdefb;
+   transition: all ease 0.75s;
+
 }
 
 .dark-mode .transaction-category.category-shopping {
     background-color: #4a5219;
     color: #f0f4c3;
+   transition: all ease 0.75s;
+
 }
 
 .dark-mode .transaction-category.category-income {
     background-color: #1b5e20;
     color: #c8e6c9;
+   transition: all ease 0.75s;
+
 }
 
 .dark-mode .suggestion-chip {
     background-color: #1d201d;
-    color: white;}
+    color: white;
+  transition: all ease 0.75s
+}
 
 
 .dark-mode.income {
     color: #84cc88;
+     transition: all ease 0.75s
 }
 
 .dark-mode .expense {
     color: #ff9292;
+  transition: all ease 0.75s
 }
 
 .dark-mode .filter-btn{
     background-color: #4a4a4a;
     color: white;
+  transition: all ease 0.75s
 }
 
 .dark-mode .filter-btn.active {
     background-color: #045308;
     color: white;
     border-color: var(--primary-light);
+  transition: all ease 0.75s
 }
 .dark-mode .slider-dot {
     background-color: #555;
+  transition: all ease 0.75s
 }
 
 .dark-mode .chat-input {
