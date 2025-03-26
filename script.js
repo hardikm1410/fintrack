@@ -71,11 +71,26 @@ document.addEventListener('DOMContentLoaded', () => {
  
 
 
-loginTrigger.addEventListener('click', () => {
-    loginModal.style.display = 'block';
-    document.body.classList.toggle('no-scroll');
+const logoutModal = document.getElementById('logout-modal');
+const logout= document.getElementById('logout');
+const closeBtn=document.getElementById('close-btn');
 
-});
+ loginTrigger.addEventListener('click', () => {
+        logoutModal.style.display = 'block';
+        document.body.classList.toggle('no-scroll');
+    
+        logout.addEventListener('click', () => {
+            logoutModal.style.display ='none';
+            loginModal.style.display ='block';
+            document.body.classList.toggle('no-scroll');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            logoutModal.style.display= 'none';
+            document.body.classList.toggle('no-scroll');
+        });
+    
+    });
 
 
 
