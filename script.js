@@ -81,7 +81,7 @@ const closeBtn=document.getElementById('close-btn');
     
         logout.addEventListener('click', () => {
             logoutModal.style.display ='none';
-            loginModal.style.display ='block';
+            document.body.reload();
             document.body.classList.toggle('no-scroll');
         });
 
