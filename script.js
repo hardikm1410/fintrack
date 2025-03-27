@@ -2,6 +2,7 @@
 const themeToggle = document.querySelector('.toogle-theme');
 
 
+
 themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     const icon = themeToggle.querySelector('i');
@@ -505,6 +506,22 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // API Configuration
+
+const chatContainer= document.getElementById('chat-container');
+const aiToggle= document.getElementById('ai-toggle');
+const closeAi=document.getElementById('close-bttn');
+
+
+aiToggle.addEventListener('click', () => {
+    chatContainer.style.display='block';
+    document.body.classList.toggle('no-scroll');
+    
+        closeAi.addEventListener('click', () => {
+            chatContainer.style.display='none';
+            document.body.classList.toggle('no-scroll');
+        });
+   
+});
 
 // DOM Elements
 const chatForm = document.getElementById('chatForm');
