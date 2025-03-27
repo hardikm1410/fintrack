@@ -1271,7 +1271,7 @@ input ,select {
        font-size :0px;
     }
 
-    .feature-btn > #close-bttn {
+    .feature-btn  #close-bttn {
        font-size: 0.9 rem;
     }
     .suggestions {
