@@ -1308,7 +1308,8 @@ input ,select {
     }
     
     .user-profile span{
-       display:none;
+       font-size: 20px;
+
     }
 }
 
