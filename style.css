@@ -1307,7 +1307,11 @@ input ,select {
         height: 6px;
     }
     
-    .user-profile span{
+    .user-profile span {
+       display:none;
+    }
+    
+    #logout-modal > .user-profile span{
        font-size: 20px;
 
     }
