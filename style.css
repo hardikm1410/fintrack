@@ -1,4 +1,4 @@
-  :root {
+   :root {
     --primary-color: #2e7d32;
     --primary-light: #60ad5e;
     --primary-dark: #005005;
@@ -652,6 +652,7 @@ main {
 }
 
 .chat-history {
+    margin-top:3rem;
     flex: 1;
     overflow-y: auto;
     padding: 1.5rem;
@@ -812,7 +813,9 @@ main {
 }
 
 .chat-input-container {
-    padding: 1.25rem;
+    margin-top:48vh;
+
+    padding: 1rem;
     border-top: 1px solid rgba(0,0,0,0.05);
     background-color:var(--ai-bg-color);
     
@@ -966,6 +969,7 @@ button:focus, textarea:focus {
     
     .chat-history {
         padding: 1rem;
+
     }
     
     .message {
@@ -1246,11 +1250,7 @@ input ,select {
         pointer-events: all;
     }
 
-    .chat-input-container {
-        padding: 1rem;
-        border-top: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
+  
     .chat-input {
         font-size: 15px;
     }
