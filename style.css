@@ -1268,9 +1268,12 @@ input ,select {
 
     .feature-btn {
         
-       
+       font-size :0px;
     }
 
+    .feature-btn > #close-bttn {
+       font-size: 0.9 rem;
+    }
     .suggestions {
         
         gap: 4px;
