@@ -585,8 +585,9 @@ main {
     display: flex; 
     flex-direction: column;
     overflow: auto;
-    
-   
+    transform: translateY(+100%); /* Hidden at first */
+    transition: 1s;
+    opacity:0;
     border: 1px solid rgba(0,0,0,0.04);
     position: fixed;
     z-index: 200;
@@ -595,6 +596,11 @@ main {
     width: 100%;
 
    
+}
+
+.chat-container .bot-visible{
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .ai-message {

@@ -513,11 +513,11 @@
     const closeAi=document.getElementById('close-bttn');
     
     aiToggle.addEventListener('click', () => {
-        chatContainer.style.display='block';
+        chatContainer.classList.toggle('bot-visible');
         document.body.classList.toggle('no-scroll');
         
             closeAi.addEventListener('click', () => {
-                chatContainer.style.display='none';
+                chatContainer.classList.remove('bot-visible');
                 document.body.classList.toggle('no-scroll');
             });
        
