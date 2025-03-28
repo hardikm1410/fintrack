@@ -724,7 +724,7 @@ main {
     padding: 1rem 1.25rem;
     border-radius: 1.2rem;
     line-height: 1.6;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.37);
     transition: var(--transition);
 }
 
