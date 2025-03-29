@@ -507,13 +507,16 @@
     });
     
     // API Configuration
+
+chatContainer.style.display='none';
     
     const chatContainer= document.getElementById('chat-container');
     const aiToggle= document.getElementById('ai-toggle');
     const closeAi=document.getElementById('close-bttn');
     
     aiToggle.addEventListener('click', () => {
-        chatContainer.classList.toggle('bot-visible');
+        
+       chatContainer.style.display='block';
         
        
        
