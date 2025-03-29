@@ -55,7 +55,7 @@
             return;
           }
           
-          else if (email === 'admin123@gmail.com' && password === 'admin123') {
+          else if (email === 'admin001@gmail.com' && password === 'admin001@fin') {
            
            
           // Simulate a successful login
