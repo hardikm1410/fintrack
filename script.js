@@ -49,7 +49,7 @@
           const email = emailInput.value.trim();
           const password = passwordInput.value.trim();
       
-          if (email != 'admin123@gmail.com' || password != 'admin123') {
+          if (email != 'admin001@gmail.com' || password != 'admin001@fin') {
             errorMessage.textContent = 'Please Enter corret details.';
             errorMessage.style.display = 'block';
             return;
