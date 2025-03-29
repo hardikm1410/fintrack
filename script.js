@@ -515,11 +515,7 @@
     aiToggle.addEventListener('click', () => {
         chatContainer.classList.toggle('bot-visible');
         
-        
-            closeAi.addEventListener('click', () => {
-                chatContainer.classList.remove('bot-visible');
-                
-            });
+       
        
     });
     
