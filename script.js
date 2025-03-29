@@ -161,7 +161,7 @@
         const connectionSuccess = document.getElementById('connection-success');
         const connectBtn = document.getElementById('connect-btn');
     
-        chatContainer.style.display='none';
+        
     
         // Show Transaction Modal
         addTransactionBtn.addEventListener('click', function () {
