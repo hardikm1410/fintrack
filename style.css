@@ -558,7 +558,7 @@ main {
     font-size: 15px;
     resize: none;
     outline: none;
- 
+   
     overflow-y:auto;
     max-height: 3rem;
     scroll-behavior: smooth;
@@ -567,7 +567,7 @@ main {
 
 .chat-history {
     flex: 1;
-    height: 62vh;
+    height: 58vh;
     padding: 1.5rem;
     scroll-behavior: smooth;
     overflow-y: auto;
@@ -585,7 +585,6 @@ main {
     display: flex; 
     flex-direction: column;
     overflow: auto;
-    
    
     border: 1px solid rgba(0,0,0,0.04);
     position: fixed;
