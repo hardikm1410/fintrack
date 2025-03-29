@@ -16,11 +16,10 @@
             --bg-color: #f5f5f5;
             --card-color: #ffffff;
             --border-radius: 8px;
-            --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
             --ai-bg-color: #e8f5e9;
             --ai-accent: #2e7d32;
             --ai-text: #1b5e20;
-            --shadow : 0 2px 7px rgba(33, 33, 33, 0.6);
         }
         
         * {
@@ -31,7 +30,7 @@
         }
         
         body {
-
+            background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
         }
@@ -45,7 +44,7 @@
         
         /* Header */
         header {
-            background-color: var(--bg-color);
+            background-color: var(--primary-color);
             position: fixed;
             width: 100%;
             top: 0;
@@ -57,7 +56,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 0.5rem 0;
         }
         
         .logo {
@@ -65,14 +64,14 @@
             align-items: center;
         }
         
-        .logo img {
+        .logo i {
             height: 40px;
             margin-right: 10px;
         }
         
         .logo h1 {
             font-size: 1.8rem;
-            color: var(--primary-color);
+            color: white;
         }
         
         .nav-links {
@@ -85,45 +84,22 @@
         }
         
         .nav-links a {
+            color: white;
             text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s;
+            padding: 4px 12px;
+            font-weight:400;
+            border-bottom:0.5px solid var(--primary-color);
+            transition:0.2s;
         }
         
         .nav-links a:hover {
-            color: var(--primary-color);
+            
+            border-bottom:0.5px solid #fff; 
+           
         }
+       
         
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--bg-color);
-            padding: 0.7rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-        }
-        
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--primary-color);
-            color: var(--bg-color);
-        }
+       
         
         .menu-toggle {
             display: none;
@@ -134,16 +110,16 @@
         .menu-toggle span {
             width: 25px;
             height: 3px;
-            background-color: var(--text-color);
+            background-color: white;
             margin: 2px 0;
             transition: 0.3s;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('/api/placeholder/1200/600');
-            background-size: cover;
-            background-position: center;
+             background: linear-gradient(to right, rgba(204, 250, 209, 0.9), rgba(255, 255, 255, 0.7)), url('/api/placeholder/1200/600');
+             background-size: cover;
+             background-position: center;
             padding: 140px 0 80px;
             text-align: center;
         }
@@ -174,7 +150,7 @@
         /* Features Section */
         .features {
             padding: 80px 0;
-            background-color: var(--ai-bg-color);
+             -color: var(--ai-bg-color);
         }
         
         .section-title {
@@ -198,7 +174,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background-color: var(--primary-color);
+            background-color: var(--primary-light);
             border-radius: 2px;
         }
         
@@ -209,11 +185,11 @@
         }
         
         .feature-card {
-            background-color: var(--bg-color);
+             background-color: var(--card-color);
             border-radius: 8px;
             padding: 2rem;
             transition: transform 0.3s;
-            box-shadow: var(--shadow);
+            box-shadow: var(--box-shadow);
 
         }
         
@@ -224,7 +200,7 @@
         .feature-icon {
             width: 70px;
             height: 70px;
-            background-color: rgba(46, 204, 113, 0.1);
+             background-color:var(--ai-bg-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -245,7 +221,7 @@
         /* AI Advisor Section */
         .ai-advisor {
             padding: 80px 0;
-            background-color: var(--ai-bg-color);
+             background-color: var(--ai-bg-color);
         }
         
         .ai-container {
@@ -278,7 +254,7 @@
         }
         
         .ai-feature-item i {
-            color: var(--primary-color);
+            color: var(--primary-light);
             margin-right: 1rem;
         }
         
@@ -289,15 +265,13 @@
         }
         
         .ai-image img {
-            max-width: 100%;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
+            max-width: 80%;
         }
         
         /* Security Section */
         .security {
             padding: 80px 0;
-            background-color: var(--bg-color);
+             background-color: var(--bg-color);
         }
         
         .security-container {
@@ -322,33 +296,42 @@
         .security-content h2 {
             font-size: 2.2rem;
             margin-bottom: 1.5rem;
+            margin-top: 4px;
         }
         
         .security-content p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.75rem;
         }
         
         .security-features {
+            margin-top:2.25rem;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
+            
+
         }
         
         .security-feature {
+            
             display: flex;
             align-items: flex-start;
+            background-color: #b2c0b93d;
+            border-radius: 25px;
+            padding: 9px 25px;
         }
         
         .security-feature i {
-            color: var(--primary-color);
+            color: var(--primary-light);
             margin-right: 1rem;
             font-size: 1.5rem;
+            margin-top: 13px;
         }
         
         /* CTA Section */
         .cta {
             padding: 100px 0;
-            background: linear-gradient(135deg,#ffffff, var(--primary-light));
+             background: var(--ai-bg-color);
             color: var(--primary-dark);
             text-align: center;
         }
@@ -376,10 +359,10 @@
         }
         
         .cta .btn:hover {
-            background-color: rgba(255, 255, 255, 0.9);
+             background-color: var(--ai-bg-color);
         }
         footer {
-            background-color: #333;
+             background-color: rgb(16, 16, 16);
             color: white;
             padding: 20px 0;
             margin-top: 50px;
@@ -455,7 +438,7 @@
                 top: 70px;
                 left: -100%;
                 width: 100%;
-                background-color: var(--bg-color);
+                 -color: var(--bg-color);
                 flex-direction: column;
                 padding: 2rem;
                 box-shadow: var(--shadow);
@@ -496,16 +479,37 @@
             --text-color: #e0e0e0;
             --text-light: #b0b0b0;
             --bg-color: #060606;
-            --card-color: #383838;
+            --card-color: #282828;
             --shadow : 0 2px 7px rgba(0, 255, 51, 0.435);
             --ai-bg-color: #2d4a3b;
             --ai-accent: #4caf50;
             --ai-text: #a5d6a7;
         }
+
+
         
         .dark-mode header {
-            background-color: var(--primary-dark);
+             -color: var(--primary-color);
         }
+
+        .dark-mode  .hero {
+            background: linear-gradient(to right, rgba(0, 39, 5, 0.271), rgba(0, 0, 0, 0.7));
+        }
+
+        .dark-mode .feature-icon i{
+            color: var(--primary-light);
+        }
+
+        .dark-mode .ai-advisor{
+            background-color:#001a003f;
+        }
+
+        .dark-mode .cta{
+            background-color: black;
+            color:#8edd92;
+        }
+
+
     </style>
 </head>
 <body>
@@ -590,6 +594,14 @@
                     <h3>Account Connectivity</h3>
                     <p>Connect multiple bank accounts securely and manage all your finances in one place with support for various financial institutions.</p>
                 </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Account Connectivity</h3>
+                    <p>Connect multiple bank accounts securely and manage all your finances in one place with support for various financial institutions.</p>
+                </div>
+                 
             </div>
         </div>
     </section>
@@ -625,7 +637,7 @@
                 </div>
                 
                 <div class="ai-image">
-                    <img src="/api/placeholder/500/400" alt="AI Financial Advisor">
+                    <img src="ai advisor.png" alt="AI Financial Advisor">
                 </div>
             </div>
         </div>
