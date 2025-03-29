@@ -601,7 +601,7 @@ main {
 .chat-container .bot-visible{
     transition: 2s;
     opacity:1;
-    transform: translateY(-50%);
+    transform: translateY(50%);
    
 }
 
