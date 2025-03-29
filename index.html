@@ -3,509 +3,726 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="icon" href="android-chrome-512x512.png" type="image/png">
     <title>FinTrack - Personal Finance Management</title>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="style.css">
-  
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --primary-light: #60ad5e;
+            --primary-dark: #005005;
+            --secondary-color: #1565c0;
+            --text-color: #333;
+            --text-light: #757575;
+            --bg-color: #f5f5f5;
+            --card-color: #ffffff;
+            --border-radius: 8px;
+            --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --ai-bg-color: #e8f5e9;
+            --ai-accent: #2e7d32;
+            --ai-text: #1b5e20;
+            --shadow : 0 2px 7px rgba(33, 33, 33, 0.6);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--bg-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 2px 0;
+            transition: 0.3s;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            padding: 140px 0 80px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--card-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--text-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: transform 0.3s;
+            box-shadow: var(--shadow);
+
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(46, 204, 113, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-icon i {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* AI Advisor Section */
+        .ai-advisor {
+            padding: 80px 0;
+            background-color: var(--ai-bg-color);
+        }
+        
+        .ai-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .ai-content {
+            flex: 1;
+        }
+        
+        .ai-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .ai-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .ai-features {
+            margin-bottom: 2rem;
+        }
+        
+        .ai-feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .ai-feature-item i {
+            color: var(--primary-color);
+            margin-right: 1rem;
+        }
+        
+        .ai-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .ai-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Security Section */
+        .security {
+            padding: 80px 0;
+            background-color: var(--ai-bg-color);
+        }
+        
+        .security-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .security-image {
+            flex: 1;
+        }
+        
+        .security-image img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        
+        .security-content {
+            flex: 1;
+        }
+        
+        .security-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .security-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .security-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .security-feature {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .security-feature i {
+            color: var(--primary-color);
+            margin-right: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--bg-color);
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta .btn {
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
+        }
+        
+        .cta .btn:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            color:#bbb;
+            font-size: 17px;
+        
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #555;
+            color: #bbb;
+        }
+        
+       
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .ai-container, .security-container {
+                flex-direction: column;
+            }
+            
+            .security-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background-color: var(--bg-color);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow);
+                transition: left 0.3s;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .dark-mode {
+            --primary-color: #002c00;
+            --primary-light: #8edd92;
+            --primary-dark: #087f23;
+            --secondary-color: #42a5f5;
+            --text-color: #e0e0e0;
+            --text-light: #b0b0b0;
+            --bg-color: #121212;
+            --card-color: #1f1f1f;
+            
+            --ai-bg-color: #1a2620;
+            --ai-accent: #4caf50;
+            --ai-text: #a5d6a7;
+        }
+        
+        .dark-mode .feature-card,
+        .dark-mode .stat-card,
+        .dark-mode .chart-card,
+        .dark-mode .ai-message,
+        
+        
+        .dark-mode .dashboard-content,
+        .dark-mode .transaction-table th {
+            background-color: var(--card-color);
+        }
+        
+        .dark-mode .transaction-table td {
+            border-bottom-color: #333;
+        }
+        
+        .dark-mode .transaction-table tr:hover {
+            background-color: #2a2a2a;
+        }
+        
+        .dark-mode .transaction-category.category-food {
+            background-color: #0d47a1;
+            color: #bbdefb;
+        }
+        
+        .dark-mode .transaction-category.category-shopping {
+            background-color: #4a5219;
+            color: #f0f4c3;
+        }
+        
+        .dark-mode .transaction-category.category-income {
+            background-color: #1b5e20;
+            color: #c8e6c9;
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <div class="container no-scroll">
-            <nav>
+        <div class="container">
+            <nav class="navbar">
                 <div class="logo">
-                    <i class="fas fa-wallet"></i> FinTrack
+                    <h1>FinTrack</h1>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#ai-advisor">AI Advisor</a></li>
+                    <li><a href="#security">Security</a></li>
+                    <li><a href="dashboard.html">Login</a></li>
+                </ul>
+                
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
 
-                
-                <div class="nav-links">
-                    <a href="#" class="active">Dashboard</a>
-                    <a href="#">Transactions</a>
-                    <a href="#">Budgets</a>
-                    <a href="#">Reports</a>
-                    <a href="#">Goals</a>
-                </div>
-
-        
-                <div class="user-profile" id="login-trigger">
-                    <div class="avtar" id="login-trigger">AD</div>
-                    <span>Admin</span>
-                </div>
-
-              
-               <div id="login-modal" class="modal">
-                
-                <div class="containerlog">
-                    <div class="login-modal">
-                        
-                        
-                      <div class="logo">
-                        <i class="fas fa-wallet"></i>
-                      </div>
-                
-                      <h2>Welcome Back</h2>
-                      <p class="subtitle">Login to your Fintrack account</p>
-                
-                      <form>
-                        <div class="input-group" id="login-Form">
-                          <label for="email">Email</label>
-                          <input type="email" id="email" placeholder="Enter your email" required>
-                        </div>
-                
-                        <div class="input-group">
-                          <label for="password">Password</label>
-                          <input type="password" id="password" placeholder="Enter your password" required>
-                        </div>
-                        <div id="errorMessage"></div>
-                        
-                        <div class="actions">
-                          <a href="#" class="forgot-password">Forgot Password?</a>
-                        </div>
-                
-                        <button type="submit" class="btn-login" id="submit">Login</button>
-                        <div id="trueMessage"></div>
-                      </form>
-                
-                      <div class="divider">
-                        <span></span>
-                      </div>
-                
-                      <button class="btn-google">
-                        <img src="data:image/png;base64,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" alt="Google Icon">
-                        Continue with Google
-                      </button>
-                
-                      <p class="signup-text">
-                        Don't have an account? <a href="#">Sign up</a>
-                      </p>
-                    </div>
-                </div>
-            </div>
                 <div class="toogle-theme">
-                       <i class="fas fa-moon"></i>
-                </div>
-                <div class="hamburger-menu">
-                    ☰
-                </div>
-
-           <div id="logout-modal" class="modal">
-                        
-                    <div class="containerlog">
-                        <div class="login-modal">
-                            <div class="close-btn" id="close-btn">x</div>
-                            
-                          <div class="logo">
-                            <i class="fas fa-wallet"></i>
-                          </div>
-                        <div class="user-profile">
-                          <div class="avtar" id="login-trigger">AD</div>
-                          <span>Admin<span>
-                        </div>
-                          <form>
-                        
-                            <button type="submit" class="btn-login" id="logout">Logout</button>
-                            <div id="trueMessage"></div>
-                          </form>
-                    
-                          
-                    
-                         
-                        </div>
-                       </div>
-                    </div>
-                </div>
+                    <i class="fas fa-moon"></i>
+                 </div>
             </nav>
         </div>
     </header>
-    
 
-    <main class="container">
-        
-    
-            <div id="welcome-box" style="display: none;">
-                <h2>Welcome, Admin!</h2>
-                <button onclick="logout()">Logout</button>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Take Control of Your Finances with AI-Powered Insights</h2>
+                <p>FinTrack helps you track expenses, analyze spending patterns, and make smarter financial decisions with personalized AI recommendations.</p>
+                <div class="hero-buttons">
+                    <a href="dashboard.html" class="btn">Get Started for Free</a>
+                    <a href="#" class="btn btn-outline">How It Works</a>
+                </div>
             </div>
         </div>
-        <div class="dashboard">
-            <div class="sidebar">
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">Total Balance</h2>
-                        <i class="fas fa-ellipsis-h"></i>
-                    </div>
-                    <div class="total-balance" id="total-balance">₹0.0</div>
-                    <button class="btn btn-primary" id="add-transaction-btn">
-                        <i class="fas fa-plus"></i> Add Transaction
-                    </button>
-                </div>
+    </section>
 
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">Your Accounts</h2>
-                        <button class="btn btn-outlined" id="connect-account-btn">
-                            <i class="fas fa-plus"></i> Add
-                        </button>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Powerful Features</h2>
+            </div>
+            
+            <div class="features-container">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <ul class="account-list">
-                        <li class="account-item">
-                            <div class="account-name">
-                                <div class="account-icon bank">
-                                    <i class="fas fa-university"></i>
-                                </div>
-                                <div>
-                                    <div>Bank Of India (BOI)</div>
-                                    <div style="font-size: 12px; color: #757575;">Checking</div>
-                                </div>
-                            </div>
-                            <div class="account-balance"> ₹4,12,350.75</div>
-                        </li>
-                        <li class="account-item">
-                            <div class="account-name">
-                                <div class="account-icon bank">
-                                    <i class="fas fa-university"></i>
-                                </div>
-                                <div>
-                                    <div>HDFC Bank</div>
-                                    <div style="font-size: 12px; color: #757575;">Savings</div>
-                                </div>
-                            </div>
-                            <div class="account-balance"> ₹2,28,724.10</div>
-                        </li>
-                        <li class="account-item">
-                            <div class="account-name">
-                                <div class="account-icon wallet">
-                                    <i class="fa-brands fa-google-pay"></i>
-                                </div>
-                                <div>
-                                    <div>UPI Wallet</div>
-                                    <div style="font-size: 12px; color: #757575;">Wallet</div>
-                                </div>
-                            </div>
-                            <div class="account-balance"> ₹12,188.00</div>
-                        </li>
-                        <li class="account-item">
-                            <div class="account-name">
-                                <div class="account-icon credit">
-                                    <i class="fas fa-credit-card"></i>
-                                </div>
-                                <div>
-                                    <div>HDFC Bank</div>
-                                    <div style="font-size: 12px; color: #757575;">Credit Card</div>
-                                </div>
-                            </div>
-                            <div class="account-balance">- ₹1,200.00</div>
-                        </li>
-                    </ul>
+                    <h3>Interactive Dashboard</h3>
+                    <p>Get a complete overview of your finances with our intuitive dashboard featuring balance summaries, account management, and interactive charts.</p>
                 </div>
-
-                                <!-- New AI Financial Advisor Section -->
-                                <div class="ai-advisor">
-                                    <div class="ai-header">
-                                        <i class="fas fa-robot"></i>
-                                        <div class="ai-title">FinTrack AI Advisor</div>
-                                    </div>
-                                    <div class="ai-content">
-                                        <div class="ai-message">
-                                            <div class="ai-message-header">
-                                                <i class="fas fa-lightbulb ai-icon"></i>
-                                                <div class="ai-message-title">Reduce Food Expenses</div>
-                                            </div>
-                                            <div class="ai-message-content">
-                                                You spent 15% more on dining out this month. I've analyzed your patterns and created a dining budget plan that could save you ₹3,000.
-                                            </div>
-                                            <div class="ai-buttons">
-                                                <button class="ai-action-btn" id="view-plan-btn">View Plan</button>
-                                                <button class="ai-action-btn" id="ignore-tip-btn">Ignore</button>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="ai-message">
-                                            <div class="ai-message-header">
-                                                <i class="fas fa-chart-line ai-icon"></i>
-                                                <div class="ai-message-title">Investment Opportunity</div>
-                                            </div>
-                                            <div class="ai-message-content">
-                                                I've identified that you have ₹50,000 sitting idle in your checking account. Would you like me to suggest some safe investment options?
-                                            </div>
-                                            <div class="ai-buttons">
-                                                <button class="ai-action-btn" id="show-investments-btn">Show Options</button>
-                                                <button class="ai-action-btn" id="remind-later-btn">Remind Later</button>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="ai-message">
-                                            <div class="ai-message-header">
-                                                <i class="fas fa-exclamation-triangle ai-icon" style="color: #f57c00;"></i>
-                                                <div class="ai-message-title">Unusual Transaction Alert</div>
-                                            </div>
-                                            <div class="ai-message-content">
-                                                I detected an unusual spending pattern: ₹5,000 at an online merchant yesterday. Does this look familiar?
-                                            </div>
-                                            <div class="ai-buttons">
-                                                <button class="ai-action-btn" id="confirm-transaction-btn">Yes, It's Mine</button>
-                                                <button class="ai-action-btn" style="background-color: #c62828;" id="report-transaction-btn">Report Issue</button>
-                                            </div>
-                                        </div>
-                                        
-                                       
-                                    </div>
-                                </div>
-                            </div>
                 
-            <div class="main-content">
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">Monthly Overview</h2>
-                        <select id="month-selector">
-                            <option value="march">March 2025</option>
-                            <option value="february">February 2025</option>
-                            <option value="january">January 2025</option>
-                        </select>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
                     </div>
-
-                    <div class="charts-container">
-                        <div class="chart" id="income-expense-chart">
-                            
-                            <!-- Chart will be rendered here via JS -->
-                            <canvas id="incomeExpenseCanvas" height="300"></canvas>
-                        </div>
-                        <div class="chart" id="category-chart">
-                            <!-- Chart will be rendered here via JS -->
-                            <canvas id="categoryCanvas" height="300"></canvas>
-                        </div>
-                    </div>
+                    <h3>Transaction Management</h3>
+                    <p>Easily add, filter, and view transactions with automatic categorization and detailed transaction history at your fingertips.</p>
                 </div>
-
-                <div class="card">
-                    <div class="transactions-header">
-                        <h2 class="card-title">Recent Transactions</h2>
-                        <div class="filter-options">
-                            <button class="filter-btn active">All</button>
-                            <button class="filter-btn">Income</button>
-                            <button class="filter-btn">Expenses</button>
-                        </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
                     </div>
-
-                    <ul class="transaction-list">
-                        <li class="transaction-item">
-                            <div class="transaction-info">
-                                <div class="transaction-icon shopping">
-                                    <i class="fas fa-shopping-bag"></i>
-                                </div>
-                                <div class="transaction-details">
-                                    <div class="transaction-name">Amazon</div>
-                                    <div class="transaction-date">March 2, 2025</div>
-                                </div>
-                            </div>
-                            <div class="transaction-amount expense">- ₹785.43</div>
-                        </li>
-                        <li class="transaction-item">
-                            <div class="transaction-info">
-                                <div class="transaction-icon food">
-                                    <i class="fas fa-utensils"></i>
-                                </div>
-                                <div class="transaction-details">
-                                    <div class="transaction-name">Grocery Store</div>
-                                    <div class="transaction-date">March 1, 2025</div>
-                                </div>
-                            </div>
-                            <div class="transaction-amount expense">- ₹1132.00</div>
-                        </li>
-                        <li class="transaction-item">
-                            <div class="transaction-info">
-                                <div class="transaction-icon bank">
-                                    <i class="fas fa-money-bill-wave"></i>
-                                </div>
-                                <div class="transaction-details">
-                                    <div class="transaction-name">Salary Deposit</div>
-                                    <div class="transaction-date">February 28, 2025</div>
-                                </div>
-                            </div>
-                            <div class="transaction-amount income">+ ₹45,000.00</div>
-                        </li>
-                        <li class="transaction-item">
-                            <div class="transaction-info">
-                                <div class="transaction-icon transport">
-                                    <i class="fas fa-gas-pump"></i>
-                                </div>
-                                <div class="transaction-details">
-                                    <div class="transaction-name">Gas Station</div>
-                                    <div class="transaction-date">February 27, 2025</div>
-                                </div>
-                            </div>
-                            <div class="transaction-amount expense">- ₹200.00</div>
-                        </li>
-                        <li class="transaction-item">
-                            <div class="transaction-info">
-                                <div class="transaction-icon shopping">
-                                    <i class="fas fa-tshirt"></i>
-                                </div>
-                                <div class="transaction-details">
-                                    <div class="transaction-name">Clothing Store</div>
-                                    <div class="transaction-date">February 25, 2025</div>
-                                </div>
-                            </div>
-                            <div class="transaction-amount expense">- ₹1428.50</div>
-                        </li>
-                    </ul>
-
-                    <div style="text-align: center; margin-top: 20px;">
-                        <button class="btn btn-outlined">View All Transactions</button>
-                    </div>
+                    <h3>AI Financial Advisor</h3>
+                    <p>Receive personalized financial tips, expense analysis, and investment recommendations from our advanced AI assistant.</p>
                 </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Account Connectivity</h3>
+                    <p>Connect multiple bank accounts securely and manage all your finances in one place with support for various financial institutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- <div class="connect-account">
-                    <h3 class="connect-title">Connect More Accounts to Get a Complete Financial Picture</h3>
-                    <p>Link your bank accounts, credit cards, investment accounts, and digital wallets to see all your finances in one place.</p>
+    <!-- AI Advisor Section -->
+    <section class="ai-advisor" id="ai-advisor">
+        <div class="container">
+            <div class="ai-container">
+                <div class="ai-content">
+                    <h2>Your Personal AI Financial Advisor</h2>
+                    <p>FinTrack's AI-powered financial assistant analyzes your spending habits and provides personalized recommendations to help you achieve your financial goals.</p>
                     
-                    <div class="bank-options">
-                        <div class="bank-option">
-                            <img src= alt="Wells Fargo">
+                    <div class="ai-features">
+                        <div class="ai-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Personalized financial tips based on your spending patterns</span>
                         </div>
-                        <div class="bank-option">
-                            <i class="fas fa-credit-card"></i>
+                        <div class="ai-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Smart expense analysis to identify saving opportunities</span>
                         </div>
-                        <div class="bank-option">
-                            <img src="/api/placeholder/50/50" alt="PayPal">
+                        <div class="ai-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Investment recommendations tailored to your financial situation</span>
                         </div>
-                        <div class="bank-option">
-                            <img src="/api/placeholder/50/50" alt="Venmo">
-                        </div>
-                        <div class="bank-option">
-                            <img src="/api/placeholder/50/50" alt="More">
+                        <div class="ai-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Unusual transaction alerts to protect your accounts</span>
                         </div>
                     </div>
-                </div> -->
+                    
+                    <a href="#" class="btn">Try AI Assistant</a>
+                </div>
+                
+                <div class="ai-image">
+                    <img src="/api/placeholder/500/400" alt="AI Financial Advisor">
+                </div>
             </div>
         </div>
-       
-    
-        <div class="chat-container" id="chat-container" >
-            <!-- Sidebar -->
-            
-            <div class="chat-sidebar" id="chatSidebar">
-                <div class="sidebar-header">
-                    <h3>Chat History</h3>
-                    <button class="sidebar-close" id="sidebarClose">×</button>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security" id="security">
+        <div class="container">
+            <div class="security-container">
+                <div class="security-image">
+                    <img src="/api/placeholder/500/400" alt="Bank-Level Security">
                 </div>
-                <button class="chat-history-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                    </svg>
-                    New Chat
-                </button>
-                <button class="chat-history-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                    </svg>
-                    Data Analysis Questions
-                </button>
-                <button class="chat-history-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                    </svg>
-                    Creative Writing Help
-                </button>
-                <button class="chat-history-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                    </svg>
-                    Travel Recommendations
-                </button>
-            </div>
-            
-            <!-- Sidebar Overlay -->
-            <div class="sidebar-overlay" id="sidebarOverlay"></div>
-    
-            <div class="chat-history" id="chatHistory">
-                <!-- Welcome message -->
-                <div class="message ai-message">
-                    <div class="message-wrapper">
-                        <!-- <div class="message-avatar ai-avatar"><i class="fas fa-wallet"></i> </div> -->
-                        <div>
-                            <div class="message-content">
-                                👋 Hello! I'm FinTrack AI Advisor, how can I help you today?
+                
+                <div class="security-content">
+                    <h2>Bank-Level Security</h2>
+                    <p>Your financial data is protected with the highest security standards. FinTrack uses bank-level encryption to ensure your information remains safe and private.</p>
+                    
+                    <div class="security-features">
+                        <div class="security-feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>256-bit Encryption</h4>
+                                <p>Military-grade encryption for all your data</p>
                             </div>
-                            
-                           
+                        </div>
+                        
+                        <div class="security-feature">
+                            <i class="fas fa-fingerprint"></i>
+                            <div>
+                                <h4>Biometric Authentication</h4>
+                                <p>Secure access with fingerprint and face ID</p>
+                            </div>
+                        </div>
+                        
+                        <div class="security-feature">
+                            <i class="fas fa-user-lock"></i>
+                            <div>
+                                <h4>Two-Factor Authentication</h4>
+                                <p>Extra layer of security for your account</p>
+                            </div>
+                        </div>
+                        
+                        <div class="security-feature">
+                            <i class="fas fa-lock"></i>
+                            <div>
+                                <h4>Data Privacy</h4>
+                                <p>Your data is never sold to third parties</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-    
-            <div class="typing-indicator" id="typingIndicator">
-   
-                <div class="typing-indicator-text">FinTrack is thinking</div>
-                <div class="dots-container">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                </div>
-            </div>
-    
-            <div class="chat-input-container">
-                <div class="features">
-                    <button class="feature-btn menu-btn" id="menuBtn" title="Menu">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                        </svg>
-                        Menu
-                    </button>
-                    <button class="feature-btn" id="voiceBtn" title="Voice input">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M8 8a3 3 0 0 0 3-3V3a3 3 0 0 0-6 0v2a3 3 0 0 0 3 3z"/>
-                            <path d="M5 6.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-                            <path d="M11 8a3 3 0 0 1-6 0H4a4 4 0 0 0 8 0H11z"/>
-                            <path d="M8 9a4 4 0 0 0 4-4V3a4 4 0 0 0-8 0v2a4 4 0 0 0 4 4z"/>
-                            <path d="M8 12a6 6 0 0 0 6-6H2a6 6 0 0 0 6 6z"/>
-                        </svg>
-                        Voice
-                    </button>
-                    <button class="feature-btn" id="uploadBtn" title="Upload file">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-                            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
-                        </svg>
-                        Upload
-                    </button>
-                    <button class="feature-btn" id="clearBtn" title="Clear chat">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                        </svg>
-                        Clear
-                    </button>
-<button class="feature-btn close-bttn" id="close-bttn">x</button>
-                </div>
-    
-                <form class="chat-input-form" id="chatForm">
-                    <textarea class="chat-input" id="chatInput" placeholder="Type your message here..." rows="1"></textarea>
-                    <button type="submit" class="send-btn" id="sendBtn" disabled>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
-                        </svg>
-                    </button>
-                </form>
-    
-                <div class="suggestions">
-                    <div class="suggestion-chip">Help me analyze some data</div>
-                    <div class="suggestion-chip">Write a short story about space</div>
-                    <div class="suggestion-chip">Explain quantum computing</div>
-                    <div class="suggestion-chip">Recommend books on leadership</div>
-                    <div class="suggestion-chip">Create a workout plan</div>
-                </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Financial Life?</h2>
+                <p>Join thousands of users who are already making smarter financial decisions with FinTrack.</p>
+                <a href="#" class="btn">Create Free Account</a>
             </div>
         </div>
-    </div>
-    </main>
+    </section>
 
-
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -549,110 +766,63 @@
             </div>
         </div>
     </footer>
+    <script>
 
-    <!-- Modal for adding a new transaction -->
-  
-        <!-- Modal for adding a new transaction -->
-<!-- Modal for adding a new transaction -->
-    <div class="modal" id="transaction-modal">
-        <div class="modal-content">
-            <span class="close-modal">x</span>
-            <h2 class="modal-title">Add New Transaction</h2>
-            <form id="transaction-form" class="two-column-form">
-                <div class="column">
-                    <div class="form-group">
-                        <label for="transaction-type">Transaction Type</label>
-                        <select id="transaction-type" name="transaction-type" required>
-                            <option value="expense">Expense</option>
-                            <option value="income">Income</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="transaction-amount">Amount</label>
-                        <input type="number" id="transaction-amount" name="transaction-amount" placeholder="0.00" step="0.01" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="transaction-category">Category</label>
-                        <select id="transaction-category" name="transaction-category" required>
-                            <option value="food">Food & Dining</option>
-                            <option value="shopping">Shopping</option>
-                            <option value="transport">Transportation</option>
-                            <option value="bills">Bills & Utilities</option>
-                            <option value="entertainment">Entertainment</option>
-                            <option value="salary">Salary</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="form-group">
-                        <label for="transaction-date">Date</label>
-                        <input type="date" id="transaction-date" name="transaction-date" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="transaction-description">Description</label>
-                        <input type="text" id="transaction-description" name="transaction-description" placeholder="Enter description">
-                    </div>
-                    <div class="form-group">
-                        <label for="transaction-account">Account</label>
-                        <select id="transaction-account" name="transaction-account" required>
-                            <option value="chase">Bank Of India (BOI) - Savings</option>
-                            <option value="bofa">HDFC Bank - Savings</option>
-                            <option value="coinbase">UPI Wallet</option>
-                            <option value="citi">HDFC Bank - Credit Card</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-actions">
-                    <button type="button" class="btn btn-outlined" id="cancel-transaction">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Add Transaction</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- Modal for connecting a new account -->
-    <div class="modal" id="connect-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 class="modal-title">Connect a New Account</h2>
-            <div class="form-group">
-                <label>Select Institution</label>
-                <select id="institution-select">
-                    <option value="">Select your bank or financial service</option>
-                    <option value="wells-fargo">SBI</option>
-                    <option value="us-bank">Kotak Bank</option>
-                    <option value="fidelity">ICICI Bank</option>
-                    <option value="robinhood">HDFC Bank</option>
-                    <option value="paypal">BOI</option>
+        const themeToggle = document.querySelector('.toogle-theme');
+
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = themeToggle.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Check saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            const icon = themeToggle.querySelector('i');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+       
+        
+        
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (this.getAttribute('href') !== '#') {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
                     
-                    <option value="other">Other...</option>
-                </select>
-            </div>
-
-            <div id="connection-form" >
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="Your institution username">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Your institution password">
-                </div>
-                <p style="font-size: 12px; color: #757575; margin-bottom: 20px;">Your credentials are securely encrypted and never stored in our database. We use bank-level security to protect your information.</p>
-                <div class="modal-actions">
-                    <button type="button" class="btn btn-outlined" id="cancel-connect">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="connect-btn">Connect Account</button>
-                </div>
-            </div>
-        </div>
-    </div>        
-    <div class="ai-toggle" id="ai-toggle">
-        <i class="fas fa-wallet"></i> 
-    </div>
-              
-                  <!-- Add this right before the closing </body> tag -->
-<script src="script.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

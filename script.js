@@ -33,11 +33,11 @@
     const loginModal = document.getElementById('login-modal');
     
     
-    // document.addEventListener('DOMContentLoaded', () => {
-    //     loginModal.style.display = 'block';
-    //     document.body.classList.toggle('no-scroll');
+    document.addEventListener('DOMContentLoaded', () => {
+        loginModal.style.display = 'block';
+        document.body.classList.toggle('no-scroll');
     
-    // });
+    });
     
     
         
@@ -161,7 +161,6 @@
         const connectionSuccess = document.getElementById('connection-success');
         const connectBtn = document.getElementById('connect-btn');
     
-        chatContainer.style.display='none';
     
         // Show Transaction Modal
         addTransactionBtn.addEventListener('click', function () {
@@ -510,18 +509,18 @@
 
 
     
-    const chatContainer= document.getElementById('chat-container');
-    const aiToggle= document.getElementById('ai-toggle');
+    const chatContainer= document.querySelector('chat-container');
+    const aiToggle= document.querySelector('ai-toggle');
     const closeAi=document.getElementById('close-bttn');
     
     aiToggle.addEventListener('click', () => {
-        chatContainer.style.display='block';
+        chatContainer.classList.toggle('bot-visible');
         document.body.classList.toggle('no-scroll');
         
-            closeAi.addEventListener('click', () => {
-                chatContainer.style.display='none';
-                document.body.classList.toggle('no-scroll');
-            });
+            // closeAi.addEventListener('click', () => {
+            //     chatContainer.classList.remove('bot-visible');
+            //     document.body.classList.toggle('no-scroll');
+            // });
        
     });
     
