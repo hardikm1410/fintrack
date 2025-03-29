@@ -585,8 +585,9 @@ main {
     display: flex; 
     flex-direction: column;
     overflow: auto;
-    
-   
+    transform: translateY(80%); /* Hidden at first */
+    transition: 2s;
+    opacity:1;
     border: 1px solid rgba(0,0,0,0.04);
     position: fixed;
     z-index: 200;
@@ -594,6 +595,12 @@ main {
     top: 5.3rem;
     width: 100%;
 
+   
+}
+
+.chat-container .bot-visible{
+    opacity:1;
+    transform: translateY(-40%);
    
 }
 
@@ -724,7 +731,7 @@ main {
     padding: 1rem 1.25rem;
     border-radius: 1.2rem;
     line-height: 1.6;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.37);
     transition: var(--transition);
 }
 
@@ -1276,7 +1283,7 @@ input ,select {
        font-size :0px;
     }
 
-    .feature-btn  .close-bttn {
+     .close-bttn {
        font-size: 1.1 rem;
     }
     .suggestions {
@@ -1761,6 +1768,8 @@ input ,select {
 
 .dark-mode .message-content{
     box-shadow: 0 2px 6px rgba(255 ,255 ,255 ,0.20);
+}
+
 .dark-mode select{
     background-color: #484848;
 }
