@@ -514,11 +514,11 @@
     
     aiToggle.addEventListener('click', () => {
         chatContainer.classList.toggle('bot-visible');
-        document.body.classList.toggle('no-scroll');
+        
         
             closeAi.addEventListener('click', () => {
                 chatContainer.classList.remove('bot-visible');
-                document.body.classList.toggle('no-scroll');
+                
             });
        
     });
