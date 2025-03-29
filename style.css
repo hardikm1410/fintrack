@@ -585,9 +585,8 @@ main {
     display: flex; 
     flex-direction: column;
     overflow: auto;
-    transform: translateY(80%); /* Hidden at first */
-    transition: 2s;
-    opacity:1;
+    
+   
     border: 1px solid rgba(0,0,0,0.04);
     position: fixed;
     z-index: 200;
@@ -595,12 +594,6 @@ main {
     top: 5.3rem;
     width: 100%;
 
-   
-}
-
-.chat-container .bot-visible{
-    opacity:1;
-    transform: translateY(-40%);
    
 }
 
@@ -997,9 +990,7 @@ button:focus, textarea:focus {
         width: 280px;
     }
 
-    .chat-container{
-        flex-direction: column;
-    }
+    
 }
 
 @media (max-width: 768px) {
@@ -1235,14 +1226,7 @@ input ,select {
 
 
 @media (max-width: 768px) {
-    .chat-container {
-       
-        
-       
-        border-radius: 0;
-        box-shadow: none;
-        height: 100vh; /* Full height for mobile */
-    }
+    
 
     .chat-sidebar {
         display:none;
