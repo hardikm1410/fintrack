@@ -174,7 +174,7 @@
         /* Features Section */
         .features {
             padding: 80px 0;
-            background-color: var(--card-color);
+            background-color: var(--ai-bg-color);
         }
         
         .section-title {
@@ -297,7 +297,7 @@
         /* Security Section */
         .security {
             padding: 80px 0;
-            background-color: var(--ai-bg-color);
+            background-color: var(--bg-color);
         }
         
         .security-container {
@@ -348,8 +348,8 @@
         /* CTA Section */
         .cta {
             padding: 100px 0;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--bg-color);
+            background: linear-gradient(135deg,#ffffff, var(--primary-light));
+            color: var(--primary-dark);
             text-align: center;
         }
         
@@ -495,46 +495,16 @@
             --secondary-color: #42a5f5;
             --text-color: #e0e0e0;
             --text-light: #b0b0b0;
-            --bg-color: #121212;
-            --card-color: #1f1f1f;
-            
-            --ai-bg-color: #1a2620;
+            --bg-color: #060606;
+            --card-color: #383838;
+            --shadow : 0 2px 7px rgba(0, 255, 51, 0.435);
+            --ai-bg-color: #2d4a3b;
             --ai-accent: #4caf50;
             --ai-text: #a5d6a7;
         }
         
-        .dark-mode .feature-card,
-        .dark-mode .stat-card,
-        .dark-mode .chart-card,
-        .dark-mode .ai-message,
-        
-        
-        .dark-mode .dashboard-content,
-        .dark-mode .transaction-table th {
-            background-color: var(--card-color);
-        }
-        
-        .dark-mode .transaction-table td {
-            border-bottom-color: #333;
-        }
-        
-        .dark-mode .transaction-table tr:hover {
-            background-color: #2a2a2a;
-        }
-        
-        .dark-mode .transaction-category.category-food {
-            background-color: #0d47a1;
-            color: #bbdefb;
-        }
-        
-        .dark-mode .transaction-category.category-shopping {
-            background-color: #4a5219;
-            color: #f0f4c3;
-        }
-        
-        .dark-mode .transaction-category.category-income {
-            background-color: #1b5e20;
-            color: #c8e6c9;
+        .dark-mode header {
+            background-color: var(--primary-dark);
         }
     </style>
 </head>
