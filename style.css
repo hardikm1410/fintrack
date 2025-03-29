@@ -585,7 +585,7 @@ main {
     display: flex; 
     flex-direction: column;
     
-    transform: translateY(100%); /* Hidden at first */
+    /* Hidden at first */
     
     
     border: 1px solid rgba(0,0,0,0.04);
@@ -594,7 +594,7 @@ main {
     left: 0;
     top: 5.3rem;
     width: 100%;
-     opacity:0;
+     opacity:1;
    transition: 1s;
 }
 
