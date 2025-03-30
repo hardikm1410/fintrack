@@ -319,6 +319,7 @@
         .security-image img {
             max-width: 100%;
             border-radius: 8px;
+            filter: drop-shadow(0 2px 15px rgba(0, 255, 128, 0.575));
         }
         
         .security-content {
@@ -384,14 +385,15 @@
         }
         
         .cta .btn {
-            background-color: var(--bg-color);
-            color: var(--primary-color);
+            background-color: var(--primary-color);
+            
             font-size: 1.1rem;
             padding: 1rem 2rem;
         }
         
         .cta .btn:hover {
-             background-color: var(--ai-bg-color);
+             background-color: var(--primary-color);
+             transform: translateY(-5px);
         }
         footer {
              background-color: rgb(16, 16, 16);
@@ -680,7 +682,7 @@
         <div class="container">
             <div class="security-container">
                 <div class="security-image">
-                    <img src="/api/placeholder/500/400" alt="Bank-Level Security">
+                    <img src="security.png" alt="Bank-Level Security">
                 </div>
                 
                 <div class="security-content">
