@@ -32,15 +32,21 @@
     const loginTrigger = document.getElementById('login-trigger');
     const loginModal = document.getElementById('login-modal');
     
-    
+    const loggedIn = localStorage.getItem('loggedIn');
     document.addEventListener('DOMContentLoaded', () => {
-        loginModal.style.display = 'block';
+
+       
+    if (loggedIn === 'yes') {
+        loginModal.style.display = 'none';
         document.body.classList.toggle('no-scroll');
-    
+    }
+       else if(loggedIn === 'no') {loginModal.style.display = 'block';
+        document.body.classList.toggle('no-scroll');
+    }
     });
     
     
-        
+    
     
       
     
@@ -52,6 +58,7 @@
           if (email != 'admin001@gmail.com' || password != 'admin001@fin') {
             errorMessage.textContent = 'Please Enter corret details.';
             errorMessage.style.display = 'block';
+            localStorage.setItem('loggedIn', 'no');
             return;
           }
           
@@ -64,6 +71,7 @@
           trueMessage.style.display = 'block';
           loginModal.style.display = 'none';
             document.body.classList.toggle('no-scroll');
+            localStorage.setItem('loggedIn', 'yes');
           return;
           }
         });
@@ -81,6 +89,7 @@
         
             logout.addEventListener('click', () => {
                 logoutModal.style.display ='none';
+                localStorage.setItem('loggedIn', 'no');
                 document.body.reload();
                 document.body.classList.toggle('no-scroll');
             });
@@ -507,20 +516,24 @@
     
     // API Configuration
 
+    
+
 
     
-    const chatContainer= document.querySelector('chat-container');
-    const aiToggle= document.querySelector('ai-toggle');
-    const closeAi=document.getElementById('close-bttn');
+    const aiToggle= document.querySelector('.ai-toggle');
+    const chatContainer= document.querySelector('.chat-container');
+    const closeAi=document.getElementById('.close-bttn');
     
     aiToggle.addEventListener('click', () => {
         chatContainer.classList.toggle('bot-visible');
         document.body.classList.toggle('no-scroll');
         
-            // closeAi.addEventListener('click', () => {
-            //     chatContainer.classList.remove('bot-visible');
-            //     document.body.classList.toggle('no-scroll');
-            // });
+       
+
+        closeAi.addEventListener('click', ()=> {
+            chatContainer.classList.remove('bot-visible');
+            document.body.classList.toggle('no-scroll');
+        });
        
     });
     
