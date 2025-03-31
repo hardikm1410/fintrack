@@ -1,3 +1,57 @@
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    if (this.getAttribute('href') !== '#') {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Close mobile menu if open
+    }
+});
+});
+
+// Fade-in section observer
+const fadeInObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+    if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+    }
+});
+}, {
+threshold: 0.1 // Trigger when 10% of the element is visible
+});
+
+// Observe all sections with fade-in class
+document.querySelectorAll('.fade-in-section').forEach(section => {
+fadeInObserver.observe(section);
+});
+
+// Observe feature cards for staggered animation
+document.querySelectorAll('.feature-card').forEach(card => {
+fadeInObserver.observe(card);
+});
+
+// Observe security features for staggered animation
+document.querySelectorAll('.security-feature').forEach(feature => {
+fadeInObserver.observe(feature);
+});
+
+// Observe AI feature items for staggered animation
+document.querySelectorAll('.ai-feature-item').forEach(item => {
+fadeInObserver.observe(item);
+});
+
+// Add fade-in effect for hero section immediately
+
+    
     // Dark mode toggle
     const themeToggle = document.querySelector('.toogle-theme');
 
@@ -15,6 +69,7 @@
             localStorage.setItem('theme', 'light');
         }
     });
+
     
     // Check saved theme preference
     const savedTheme = localStorage.getItem('theme');
@@ -24,6 +79,10 @@
         icon.classList.remove('fa-moon');
         icon.classList.add('fa-sun');
     }
+
+     
+       
+        
     const form = document.querySelector('form');
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
@@ -38,10 +97,12 @@
        
     if (loggedIn === 'yes') {
         loginModal.style.display = 'none';
-        document.body.classList.toggle('no-scroll');
+        
     }
-       else if(loggedIn === 'no') {loginModal.style.display = 'block';
+       else if(loggedIn === 'no') {
+        loginModal.style.display = 'block';
         document.body.classList.toggle('no-scroll');
+
     }
     });
     
@@ -522,7 +583,7 @@
     
     const aiToggle= document.querySelector('.ai-toggle');
     const chatContainer= document.querySelector('.chat-container');
-    const closeAi=document.getElementById('.close-bttn');
+    const closeAi=document.querySelector('.close-bttn');
     
     aiToggle.addEventListener('click', () => {
         chatContainer.classList.toggle('bot-visible');

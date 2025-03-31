@@ -595,9 +595,9 @@ main {
     left: 0;
     height: 85vh;
     width: 100%;
-    z-index: 200; /* Behind other elements */
+    z-index: -1; /* Behind other elements */
     
-    display: block;
+    transform:  translateY(80%);
    opacity:0;
 
    
@@ -605,7 +605,8 @@ main {
 
 .chat-container.bot-visible{
     transition: 0.75s;
-   
+    transform: translateY(0);
+   z-index:200;
     opacity: 1; /* Invisible initially */
     
         
