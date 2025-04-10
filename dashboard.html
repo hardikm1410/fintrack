@@ -20,7 +20,7 @@
 
                 
                 <div class="nav-links">
-                    <a href="#" class="active">Dashboard</a>
+                    <a href="#dshboard" class="active">Dashboard</a>
                     <a href="#">Transactions</a>
                     <a href="#">Budgets</a>
                     <a href="#">Reports</a>
@@ -128,7 +128,7 @@
                 <button onclick="logout()">Logout</button>
             </div>
         </div>
-        <div class="dashboard">
+        <div class="dashboard" id="dshboard">
             <div class="sidebar">
                 <div class="card">
                     <div class="card-header">
@@ -201,7 +201,7 @@
                 </div>
 
                                 <!-- New AI Financial Advisor Section -->
-                                <div class="ai-advisor">
+                                <div class="ai-advisor" id="ai-advs">
                                     <div class="ai-header">
                                         <i class="fas fa-robot"></i>
                                         <div class="ai-title">FinTrack AI Advisor</div>
@@ -265,7 +265,7 @@
                         </select>
                     </div>
 
-                    <div class="charts-container">
+                    <div class="charts-container" id="chrts">
                         <div class="chart" id="income-expense-chart">
                             
                             <!-- Chart will be rendered here via JS -->
