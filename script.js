@@ -95,15 +95,10 @@ fadeInObserver.observe(item);
     document.addEventListener('DOMContentLoaded', () => {
 
        
-    if (loggedIn === 'yes') {
-        loginModal.style.display = 'none';
-        
-    }
-       else if(loggedIn === 'no') {
         loginModal.style.display = 'block';
         document.body.classList.toggle('no-scroll');
 
-    }
+    
     });
     
     
