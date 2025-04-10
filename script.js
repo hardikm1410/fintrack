@@ -577,8 +577,8 @@ fadeInObserver.observe(item);
     
     // API Configuration
 
-    const API_KEY= 0sO6qqlL1sr0jtB4UZ3wMNqjwZ2hYqZY;
-    const API_ENDPOINT= https://mistral.ai;
+    // const API_KEY= 0sO6qqlL1sr0jtB4UZ3wMNqjwZ2hYqZY;
+    // const API_ENDPOINT= https://mistral.ai;
 
 
     
