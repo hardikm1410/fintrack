@@ -136,6 +136,7 @@ function signup() {
        
     } else {
         localStorage.setItem(username, password);
+        localStorage.setItem("name",name);
         errorMessage.style.display = 'none';
         trueMessage.textContent = 'Sign Up Successful!';
         trueMessage.style.display = 'block';
@@ -146,7 +147,7 @@ function signup() {
 
 // Login Function
 function login() {
-    let name = document.getElementById("signup-user").value; 
+    let name = localStorage.getItem("name");
     let username = document.getElementById("login-username").value;
     let password = document.getElementById("login-password").value;
 
