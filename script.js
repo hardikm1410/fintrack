@@ -95,12 +95,12 @@ fadeInObserver.observe(item);
 
        
     // if (loggedIn === 'yes') {
-    //     loginModal.style.display = 'none';
+    //    loginModal.style.display = 'none';
         
     // }
     //    else if(loggedIn === 'no') {
     //     loginModal.style.display = 'block';
-    //     document.body.classList.toggle('no-scroll');
+    
 
     // }
     // });
@@ -159,7 +159,7 @@ fadeInObserver.observe(item);
     // Show signup form, hide login
 function showSignup() {
     document.getElementById("signup-modal").style.display = "block";
-    document.getElementById("login-modal").style.display = "none";
+   document.body.classList.toggle('no-scroll'); document.getElementById("login-modal").style.display = "none";
 }
 
 // Show login form, hide signup
@@ -196,7 +196,7 @@ function login() {
     if (localStorage.getItem(username) === password) {
         
         document.getElementById("user-name").innerText = username;
-        document.getElementById("login-modal").style.display = "none";
+    document.body.classList.toggle('no-scroll');    document.getElementById("login-modal").style.display = "none";
         // document.getElementById("welcome-box").style.display = "block";
         errorMessage.style.display = 'none';
         trueMessage.textContent = 'Logged in successfully!';
