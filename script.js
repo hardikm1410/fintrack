@@ -165,7 +165,7 @@ function login() {
 // Logout Function
 function logout() {
     localStorage.removeItem("loggedInUser");
-     document.getElementById("welcome-box").style.display = "none";
+     document.getElementById("logout-modal").style.display = "none";
     showLogin();
 }
 
