@@ -83,55 +83,9 @@ fadeInObserver.observe(item);
      
        
         
-    // const form = document.querySelector('form');
-    // const emailInput = document.getElementById('email');
-    // const passwordInput = document.getElementById('password');
+    
     const errorMessage = document.getElementById('errorMessage');
     const trueMessage = document.getElementById('trueMessage');
-    // const loginModal = document.getElementById('login-modal');
-    
-    // const loggedIn = localStorage.getItem('loggedIn');
-    // document.addEventListener('DOMContentLoaded', () => {
-
-       
-    // if (loggedIn === 'yes') {
-    //    loginModal.style.display = 'none';
-        
-    // }
-    //    else if(loggedIn === 'no') {
-    //     loginModal.style.display = 'block';
-    
-
-    // }
-    // });
-    
-    
-    
-    
-      
-    
-    //     form.addEventListener('submit', (e) => {
-    //       e.preventDefault(); // stop form from submitting immediately
-    //       const email = emailInput.value.trim();
-    //       const password = passwordInput.value.trim();
-      
-    //       if (email != 'admin001@gmail.com' || password != 'admin001@fin') {
-    //         
-    //         localStorage.setItem('loggedIn', 'no');
-    //         return;
-    //       }
-          
-    //       else if (email === 'admin001@gmail.com' && password === 'admin001@fin') {
-           
-           
-    //       // Simulate a successful login
-          
-    //       loginModal.style.display = 'none';
-    //         document.body.classList.toggle('no-scroll');
-    //         localStorage.setItem('loggedIn', 'yes');
-    //       return;
-    //       }
-    //     });
     
      
     
@@ -154,17 +108,17 @@ fadeInObserver.observe(item);
         });
     
     
-    
-    
     // Show signup form, hide login
 function showSignup() {
     document.getElementById("signup-modal").style.display = "block";
-   document.body.classList.toggle('no-scroll'); document.getElementById("login-modal").style.display = "none";
+    document.getElementById("login-modal").style.display = "none";
 }
 
 // Show login form, hide signup
 function showLogin() {
-    document.getElementById("signup-modal").style.display = "none";
+   
+    document.body.classList.toggle('no-scroll');
+     document.getElementById("signup-modal").style.display = "none";
     document.getElementById("login-modal").style.display = "block";
 }
 
@@ -216,12 +170,12 @@ function logout() {
 }
 
 // Auto-login if already logged in
-window.onload = function () {
-    let loggedInUser = localStorage.getItem("loggedInUser");
-    if (loggedInUser) {
+//window.onload = function () {
+   // let loggedInUser = //localStorage.getItem("loggedInUser");
+    //if (loggedInUser) {
         document.getElementById("user-name").innerText = loggedInUser;
-        document.getElementById("login-modal").style.display = "none";
-        document.getElementById("signup-modal").style.display = "none";
+        //document.getElementById("login-modal").style.display = "none";
+        //document.getElementById("signup-modal").style.display = "none";
         // document.getElementById("welcome-box").style.display = "block";
     }
     else{
