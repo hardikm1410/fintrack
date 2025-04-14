@@ -124,6 +124,7 @@ function showLogin() {
 
 // Signup Function
 function signup() {
+    let name = document.getElementById("signup-user").value;
     let username = document.getElementById("signup-username").value;
     let password = document.getElementById("signup-password").value;
 
@@ -144,7 +145,7 @@ function signup() {
 
 // Login Function
 function login() {
-    let name = document.getElementById("user-name").value;
+    
     let username = document.getElementById("login-username").value;
     let password = document.getElementById("login-password").value;
 
