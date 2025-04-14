@@ -139,8 +139,9 @@ function signup() {
         errorMessage.style.display = 'none';
         trueMessage.textContent = 'Sign Up Successful!';
         trueMessage.style.display = 'block';
-        
+        return localStorage;
     }
+ 
 }
 
 // Login Function
