@@ -124,7 +124,7 @@ function showLogin() {
 
 // Signup Function
 function signup() {
-    let name = document.getElementById("signup-user").value;
+    const name = document.getElementById("signup-user").value;
     let username = document.getElementById("signup-username").value;
     let password = document.getElementById("signup-password").value;
 
@@ -151,7 +151,7 @@ function login() {
 
     if (localStorage.getItem(username) === password) {
         
-        document.getElementById("signup-user").innerText = name;
+        document.getElementById("user-name").innerText = name;
     document.body.classList.toggle('no-scroll');    document.getElementById("login-modal").style.display = "none";
          document.getElementById("welcome-box").style.display = "block";
         errorMessage.style.display = 'none';
