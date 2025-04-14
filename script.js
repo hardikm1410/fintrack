@@ -175,7 +175,7 @@ function logout() {
 window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
     if (loggedInUser) {
-        document.getElementById("user-name").innerText = loggedInUser;
+        document.getElementById("signup-name").innerText = loggedInUser;
         document.getElementById("login-modal").style.display = "none";
         document.getElementById("signup-modal").style.display = "none";
         // document.getElementById("welcome-box").style.display = "block";
