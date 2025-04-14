@@ -102,7 +102,7 @@ fadeInObserver.observe(item);
     
             closeBtn.addEventListener('click', () => {
                 logoutModal.style.display= 'none';
-                document.body.classList.toggle('no-scroll');
+                logout(); document.body.classList.toggle('no-scroll');
             });
         
         });
@@ -151,7 +151,7 @@ function login() {
         
         document.getElementById("user-name").innerText = username;
     document.body.classList.toggle('no-scroll');    document.getElementById("login-modal").style.display = "none";
-        // document.getElementById("welcome-box").style.display = "block";
+         document.getElementById("welcome-box").style.display = "block";
         errorMessage.style.display = 'none';
         trueMessage.textContent = 'Logged in successfully!';
         trueMessage.style.display = 'block';
@@ -165,23 +165,11 @@ function login() {
 // Logout Function
 function logout() {
     localStorage.removeItem("loggedInUser");
-    // document.getElementById("welcome-box").style.display = "none";
+     document.getElementById("welcome-box").style.display = "none";
     showLogin();
 }
 
-// Auto-login if already logged in
-//window.onload = function () {
-   // let loggedInUser = //localStorage.getItem("loggedInUser");
-    //if (loggedInUser) {
-        document.getElementById("user-name").innerText = loggedInUser;
-        //document.getElementById("login-modal").style.display = "none";
-        //document.getElementById("signup-modal").style.display = "none";
-        // document.getElementById("welcome-box").style.display = "block";
-    }
-    else{
-        showLogin()
-    }
-};
+
 
     
     
