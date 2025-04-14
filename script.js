@@ -135,7 +135,8 @@ function signup() {
         errorMessage.style.display = 'block';
        
     } else {
-        localStorage.setItem(username, password, name);
+        localStorage.setItem(username, password);
+        localStorage.setItem(name, username);
         
         errorMessage.style.display = 'none';
         trueMessage.textContent = 'Sign Up Successful!';
