@@ -139,7 +139,7 @@ function signup() {
         errorMessage.style.display = 'none';
         trueMessage.textContent = 'Sign Up Successful!';
         trueMessage.style.display = 'block';
-        return localStorage;
+        
     }
  
 }
@@ -152,9 +152,9 @@ function login() {
 
     if (localStorage.getItem(username) === password) {
         
-        document.getElementById("user-name").innerText = name;
+      localStorage.setItem("loggedInUser", username);  document.getElementById("user-name").innerText = name;
     document.body.classList.toggle('no-scroll');    document.getElementById("login-modal").style.display = "none";
-        localStorage.setItem("loggedInUser"); document.getElementById("welcome-box").style.display = "block";
+         document.getElementById("welcome-box").style.display = "block";
         errorMessage.style.display = 'none';
         trueMessage.textContent = 'Logged in successfully!';
         trueMessage.style.display = 'block';
