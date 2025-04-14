@@ -97,12 +97,12 @@ fadeInObserver.observe(item);
      loginTrigger.addEventListener('click', () => {
             logoutModal.style.display = 'block';
             document.body.classList.toggle('no-scroll');
-        
+           
            
     
             closeBtn.addEventListener('click', () => {
                 logoutModal.style.display= 'none';
-                logout(); document.body.classList.toggle('no-scroll');
+                 document.body.classList.toggle('no-scroll');
             });
         
         });
