@@ -124,7 +124,7 @@ function showLogin() {
 
 // Signup Function
 function signup() {
-    let name = document.getElementById("signup-user").value;
+    
     let username = document.getElementById("signup-username").value;
     let password = document.getElementById("signup-password").value;
 
@@ -136,7 +136,7 @@ function signup() {
        
     } else {
         localStorage.setItem(username, password);
-        localStorage.setItem(name);
+        localStorage.setItem("name", document.getElementById("signup-user").value);
         errorMessage.style.display = 'none';
         trueMessage.textContent = 'Sign Up Successful!';
         trueMessage.style.display = 'block';
@@ -147,7 +147,7 @@ function signup() {
 
 // Login Function
 function login() {
-    let name = localStorage.getItem(name);
+    let name = localStorage.getItem("name");
     let username = document.getElementById("login-username").value;
     let password = document.getElementById("login-password").value;
 
