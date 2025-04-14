@@ -170,8 +170,10 @@ function logout() {
 }
 
 
+document.addEventListener('DOMContentLoaded', function () {
+showLogin();
+});
 
-    
     
     
     const hamburgerMenu = document.querySelector('.hamburger-menu');
