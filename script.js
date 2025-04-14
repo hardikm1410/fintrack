@@ -124,7 +124,7 @@ function showLogin() {
 
 // Signup Function
 function signup() {
-    
+    let name= document.getElementById("signup-user").value;
     let username = document.getElementById("signup-username").value;
     let password = document.getElementById("signup-password").value;
 
@@ -136,7 +136,7 @@ function signup() {
        
     } else {
         localStorage.setItem(username, password);
-        localStorage.setItem("name", document.getElementById("signup-user").value);
+        localStorage.setItem("loggedInUsername",name);
         errorMessage.style.display = 'none';
         trueMessage.textContent = 'Sign Up Successful!';
         trueMessage.style.display = 'block';
@@ -147,13 +147,16 @@ function signup() {
 
 // Login Function
 function login() {
-    let name = localStorage.getItem("name");
+    
     let username = document.getElementById("login-username").value;
     let password = document.getElementById("login-password").value;
 
     if (localStorage.getItem(username) === password) {
         
-      localStorage.setItem("loggedInUser", username);  document.getElementById("user-name").innerText = name;
+      localStorage.setItem("loggedInUser", username); 
+
+
+ document.getElementById("user-name").innerText = name;
     document.body.classList.toggle('no-scroll');    document.getElementById("login-modal").style.display = "none";
          document.getElementById("welcome-box").style.display = "block";
         errorMessage.style.display = 'none';
@@ -176,8 +179,9 @@ function logout() {
 
 window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
+     let loggedInUsername = localStorage.getItem("loggedInUsername");
     if (loggedInUser) {
-        document.getElementById("user-name").innerText = loggedInUser;
+        document.getElementById("user-name").innerText = loggedInUsername;
         document.getElementById("login-modal").style.display = "none";
         document.getElementById("signup-modal").style.display = "none";
         // document.getElementById("welcome-box").style.display = "block";
