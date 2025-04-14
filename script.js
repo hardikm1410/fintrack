@@ -153,7 +153,7 @@ function login() {
 
     if (localStorage.getItem(username) === password) {
         
-      localStorage.setItem("loggedInUser", username);  document.getElementById("user-name").innerText = name;
+      localStorage.setItem("loggedInUser", username);  document.getElementById("user-name").innerText = username;
     document.body.classList.toggle('no-scroll');    document.getElementById("login-modal").style.display = "none";
          document.getElementById("welcome-box").style.display = "block";
         errorMessage.style.display = 'none';
