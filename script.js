@@ -153,7 +153,7 @@ function login() {
         
         document.getElementById("user-name").innerText = name;
     document.body.classList.toggle('no-scroll');    document.getElementById("login-modal").style.display = "none";
-         document.getElementById("welcome-box").style.display = "block";
+        localStorage.setItem("loggedInUser"); document.getElementById("welcome-box").style.display = "block";
         errorMessage.style.display = 'none';
         trueMessage.textContent = 'Logged in successfully!';
         trueMessage.style.display = 'block';
