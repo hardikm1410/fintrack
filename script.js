@@ -1,4 +1,4 @@
-
+ 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 anchor.addEventListener('click', function(e) {
@@ -83,72 +83,68 @@ fadeInObserver.observe(item);
      
        
         
-    const form = document.querySelector('form');
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
+    // const form = document.querySelector('form');
+    // const emailInput = document.getElementById('email');
+    // const passwordInput = document.getElementById('password');
     const errorMessage = document.getElementById('errorMessage');
     const trueMessage = document.getElementById('trueMessage');
-    const loginTrigger = document.getElementById('login-trigger');
-    const loginModal = document.getElementById('login-modal');
+    // const loginModal = document.getElementById('login-modal');
     
-    const loggedIn = localStorage.getItem('loggedIn');
-    document.addEventListener('DOMContentLoaded', () => {
+    // const loggedIn = localStorage.getItem('loggedIn');
+    // document.addEventListener('DOMContentLoaded', () => {
 
        
-        loginModal.style.display = 'block';
-        document.body.classList.toggle('no-scroll');
+    // if (loggedIn === 'yes') {
+    //     loginModal.style.display = 'none';
+        
+    // }
+    //    else if(loggedIn === 'no') {
+    //     loginModal.style.display = 'block';
+    //     document.body.classList.toggle('no-scroll');
 
-    
-    });
+    // }
+    // });
     
     
     
     
       
     
-        form.addEventListener('submit', (e) => {
-          e.preventDefault(); // stop form from submitting immediately
-          const email = emailInput.value.trim();
-          const password = passwordInput.value.trim();
+    //     form.addEventListener('submit', (e) => {
+    //       e.preventDefault(); // stop form from submitting immediately
+    //       const email = emailInput.value.trim();
+    //       const password = passwordInput.value.trim();
       
-          if (email != 'admin001@gmail.com' || password != 'admin001@fin') {
-            errorMessage.textContent = 'Please Enter corret details.';
-            errorMessage.style.display = 'block';
-            localStorage.setItem('loggedIn', 'no');
-            return;
-          }
+    //       if (email != 'admin001@gmail.com' || password != 'admin001@fin') {
+    //         
+    //         localStorage.setItem('loggedIn', 'no');
+    //         return;
+    //       }
           
-          else if (email === 'admin001@gmail.com' && password === 'admin001@fin') {
+    //       else if (email === 'admin001@gmail.com' && password === 'admin001@fin') {
            
            
-          // Simulate a successful login
-          errorMessage.style.display = 'none';
-          trueMessage.textContent = 'Logged in successfully!';
-          trueMessage.style.display = 'block';
-          loginModal.style.display = 'none';
-            document.body.classList.toggle('no-scroll');
-            localStorage.setItem('loggedIn', 'yes');
-          return;
-          }
-        });
+    //       // Simulate a successful login
+          
+    //       loginModal.style.display = 'none';
+    //         document.body.classList.toggle('no-scroll');
+    //         localStorage.setItem('loggedIn', 'yes');
+    //       return;
+    //       }
+    //     });
     
      
     
+    const loginTrigger = document.getElementById('login-trigger');
     
     const logoutModal = document.getElementById('logout-modal');
-    const logout= document.getElementById('logout');
     const closeBtn=document.getElementById('close-btn');
     
      loginTrigger.addEventListener('click', () => {
             logoutModal.style.display = 'block';
             document.body.classList.toggle('no-scroll');
         
-            logout.addEventListener('click', () => {
-                logoutModal.style.display ='none';
-                localStorage.setItem('loggedIn', 'no');
-                document.body.reload();
-                document.body.classList.toggle('no-scroll');
-            });
+           
     
             closeBtn.addEventListener('click', () => {
                 logoutModal.style.display= 'none';
@@ -160,6 +156,79 @@ fadeInObserver.observe(item);
     
     
     
+    // Show signup form, hide login
+function showSignup() {
+    document.getElementById("signup-modal").style.display = "block";
+    document.getElementById("login-modal").style.display = "none";
+}
+
+// Show login form, hide signup
+function showLogin() {
+    document.getElementById("signup-modal").style.display = "none";
+    document.getElementById("login-modal").style.display = "block";
+}
+
+// Signup Function
+function signup() {
+    let username = document.getElementById("signup-username").value;
+    let password = document.getElementById("signup-password").value;
+
+    
+
+    if (localStorage.getItem(username)) {
+        errorMessage.textContent = 'User already exists! Please';
+        errorMessage.style.display = 'block';
+       
+    } else {
+        localStorage.setItem(username, password);
+        errorMessage.style.display = 'none';
+        trueMessage.textContent = 'Sign Up Successful!';
+        trueMessage.style.display = 'block';
+        
+    }
+}
+
+// Login Function
+function login() {
+    let username = document.getElementById("login-username").value;
+    let password = document.getElementById("login-password").value;
+
+    if (localStorage.getItem(username) === password) {
+        
+        document.getElementById("user-name").innerText = username;
+        document.getElementById("login-modal").style.display = "none";
+        // document.getElementById("welcome-box").style.display = "block";
+        errorMessage.style.display = 'none';
+        trueMessage.textContent = 'Logged in successfully!';
+        trueMessage.style.display = 'block';
+    } else {
+        errorMessage.textContent = 'Please Enter corret details.';
+        errorMessage.style.display = 'block';
+        
+    }
+}
+
+// Logout Function
+function logout() {
+    localStorage.removeItem("loggedInUser");
+    // document.getElementById("welcome-box").style.display = "none";
+    showLogin();
+}
+
+// Auto-login if already logged in
+window.onload = function () {
+    let loggedInUser = localStorage.getItem("loggedInUser");
+    if (loggedInUser) {
+        document.getElementById("user-name").innerText = loggedInUser;
+        document.getElementById("login-modal").style.display = "none";
+        document.getElementById("signup-modal").style.display = "none";
+        // document.getElementById("welcome-box").style.display = "block";
+    }
+    else{
+        showLogin()
+    }
+};
+
     
     
     
@@ -256,7 +325,7 @@ fadeInObserver.observe(item);
         function hideConnectModal() {
             connectModal.style.display = 'none';
                document.body.classList.toggle('no-scroll'); document.getElementById('institution-select').value = '';
-            document.getElementById('username').value = '';
+            document.getElementById('uname').value = '';
             document.getElementById('password').value = '';
         }
     
@@ -267,10 +336,10 @@ fadeInObserver.observe(item);
         connectBtn.addEventListener('click', function () {
             // Validate form
             const institution = document.getElementById('institution-select').value;
-            const username = document.getElementById('username').value;
+            const uname = document.getElementById('uname').value;
             const password = document.getElementById('password').value;
     
-            if (!institution || !username || !password) {
+            if (!institution || !uname || !password) {
                 alert('Please fill in all fields');
                 return;
             }
@@ -572,8 +641,7 @@ fadeInObserver.observe(item);
     
     // API Configuration
 
-    // const API_KEY= 0sO6qqlL1sr0jtB4UZ3wMNqjwZ2hYqZY;
-    // const API_ENDPOINT= https://mistral.ai;
+    
 
 
     
