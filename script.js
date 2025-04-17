@@ -135,8 +135,8 @@ function signup() {
         errorMessage.style.display = 'block';
        
     } else {
-        localStorage.setItem(username, password);
-        localStorage.setItem("user",name);
+        localStorage.setItem(username, password, name);
+        
         
         errorMessage.style.display = 'none';
         trueMessage.textContent = 'Sign Up Successful!';
@@ -152,9 +152,10 @@ function login() {
     let username = document.getElementById("login-username").value;
     let password = document.getElementById("login-password").value;
 
-    if (localStorage.getItem(username) === password) {
+    if (localStorage.getItem(username) === password === name) {
+      let name= localStorage.getItem(name);
         
-      localStorage.setItem("loggedInUser", username); 
+      localStorage.setItem("loggedInUser", name); 
       document.getElementById("user-name").innerText= username;
 document.getElementById("user-name2").innerText= username;
  
