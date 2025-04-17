@@ -122,12 +122,14 @@ function showLogin() {
     document.getElementById("login-modal").style.display = "block";
 }
 
+
 // Signup Function
 function signup() {
     let name= document.getElementById("signup-user").value;
     let username = document.getElementById("signup-username").value;
     let password = document.getElementById("signup-password").value;
-
+    const user="user";
+    
     
 
     if (localStorage.getItem(username)) {
@@ -135,7 +137,7 @@ function signup() {
         errorMessage.style.display = 'block';
        
     } else {
-        localStorage.setItem(username, password);
+        setMultipleLocalStorageItems(user,name, username, password););
         
         
         
@@ -149,16 +151,18 @@ function signup() {
 
 // Login Function
 function login() {
+     
     
     let username = document.getElementById("login-username").value;
     let password = document.getElementById("login-password").value;
+    const usercred=getMultipleLocalStorageItems(user);
 
-    if (localStorage.getItem(username) === password) {
-      let name= localStorage.getItem(name);
+    if ( usercred.username === password) {
+      
         
-      localStorage.setItem("loggedInUser", name); 
-      document.getElementById("user-name").innerText= name;
-document.getElementById("user-name2").innerText= name;
+      localStorage.setItem("loggedInUser", usercred.username); 
+      document.getElementById("user-name").innerText= usercred.name;
+document.getElementById("user-name2").innerText= usercred.name;
  
     document.body.classList.toggle('no-scroll');    document.getElementById("login-modal").style.display = "none";
          document.getElementById("welcome-box").style.display = "block";
@@ -183,9 +187,8 @@ function logout() {
 window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
     
-   
     if (loggedInUser) {
-        document.getElementById("user-name").innerText = loggedInUser;
+        document.getElementById("user-name").innerText = usercred.name;
        
 document.getElementById("user-name2").innerText = loggedInUser; document.getElementById("login-modal").style.display = "none";
         document.getElementById("signup-modal").style.display = "none";
