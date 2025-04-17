@@ -136,7 +136,7 @@ function signup() {
        
     } else {
         localStorage.setItem(username, password);
-        localStorage.setItem(username, name);
+        
         
         
         errorMessage.style.display = 'none';
