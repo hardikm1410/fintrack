@@ -180,7 +180,7 @@ function logout() {
 
 window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
-    let user = LocalStorage.getItem("user");
+    let user = localStorage.getItem("user");
    
     if (loggedInUser) {
         document.getElementById("user-name").innerText = user;
