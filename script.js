@@ -136,8 +136,8 @@ function signup() {
        
     } else {
         localStorage.setItem(username, password);
-        localStorage.setItem("username", name);
-        document.getElementById("user-name").innerText = name;
+        
+        
         errorMessage.style.display = 'none';
         trueMessage.textContent = 'Sign Up Successful!';
         trueMessage.style.display = 'block';
@@ -155,7 +155,7 @@ function login() {
     if (localStorage.getItem(username) === password) {
         
       localStorage.setItem("loggedInUser", username); 
-      
+      document.getElementById("user-name").innerText = name;
 
  
     document.body.classList.toggle('no-scroll');    document.getElementById("login-modal").style.display = "none";
@@ -180,9 +180,9 @@ function logout() {
 
 window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
-     let loggedInUsername = localStorage.getItem("Username");
+   
     if (loggedInUser) {
-        document.getElementById("user-name").innerText = loggedInUsername;
+        document.getElementById("user-name").innerText = name;
         document.getElementById("login-modal").style.display = "none";
         document.getElementById("signup-modal").style.display = "none";
         // document.getElementById("welcome-box").style.display = "block";
