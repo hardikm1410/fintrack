@@ -156,6 +156,7 @@ function login() {
         
       localStorage.setItem("loggedInUser", username); 
       document.getElementById("user-name").innerText= username;
+document.getElementById("user-name2").innerText= username;
  
     document.body.classList.toggle('no-scroll');    document.getElementById("login-modal").style.display = "none";
          document.getElementById("welcome-box").style.display = "block";
@@ -183,7 +184,8 @@ window.onload = function () {
    
     if (loggedInUser) {
         document.getElementById("user-name").innerText = loggedInUser;
-        document.getElementById("login-modal").style.display = "none";
+       
+document.getElementById("user-name2").innerText = loggedInUser; document.getElementById("login-modal").style.display = "none";
         document.getElementById("signup-modal").style.display = "none";
         // document.getElementById("welcome-box").style.display = "block";
     }
