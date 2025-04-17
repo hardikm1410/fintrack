@@ -1282,6 +1282,10 @@ input ,select {
        font-size :0px;
     }
 
+    .feature-btn > #close-btn {
+        
+       font-size :12px;
+    }
      .close-bttn {
        font-size: 1.1 rem;
     }
