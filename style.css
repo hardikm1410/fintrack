@@ -931,6 +931,15 @@ main {
     transition: var(--transition);
 }
 
+.feature-btn i {
+    font-size: 15px;
+    transition: var(--transition);
+}
+
+.feature-btn:hover i {
+    transform: scale(1.2);
+}
+
 .feature-btn:hover svg {
     transform: scale(1.2);
 }
