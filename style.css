@@ -34,6 +34,11 @@ vertical-align: super;
 font-size: x-small;
 }
 
+supn {
+vertical-align: 50%;
+font-size: x-small;
+}
+
 .container {
     max-width: 1200px;
     margin: auto auto;
