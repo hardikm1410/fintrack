@@ -128,7 +128,7 @@ function signup() {
     let name= document.getElementById("signup-user").value;
     let username = document.getElementById("signup-username").value;
     let password = document.getElementById("signup-password").value;
-    const user="user";
+    let user="user";
     
     
 
@@ -155,13 +155,13 @@ function login() {
     
     let username = document.getElementById("login-username").value;
     let password = document.getElementById("login-password").value;
-    const usercred=getMultipleLocalStorageItems(user);
+    
 
     if (localStorage.getItem (username) === password) {
       
         
       localStorage.setItem("loggedInUser",username); 
-      document.getElementById("user-name").innerText= usercred.name;
+  let usercred=getMultipleLocalStorageItems(user);    document.getElementById("user-name").innerText= usercred.name;
 document.getElementById("user-name2").innerText= usercred.name;
  
     document.body.classList.toggle('no-scroll');    document.getElementById("login-modal").style.display = "none";
