@@ -194,9 +194,9 @@ document.getElementById("user-name2").innerText = loggedInUser; document.getElem
         document.getElementById("signup-modal").style.display = "none";
         // document.getElementById("welcome-box").style.display = "block";
     }
-    else{
-        showLogin()
-    }
+    //else{
+        //showLogin()
+    //}
 };
 
     
