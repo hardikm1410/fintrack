@@ -29,6 +29,11 @@ body {
     
 }
 
+sup {
+vertical-align: super;
+font-size: smaller;
+}
+
 .container {
     max-width: 1200px;
     margin: auto auto;
