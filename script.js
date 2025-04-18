@@ -125,8 +125,7 @@ const ratingValue = document.getElementById('rating-value');
 
 stars.forEach(star => {
   star.addEventListener('click', () => {
-    const value = star.getAttribute('data-value');
-
+    
     // Update the active class for selected stars
     stars.forEach(s => s.classList.remove('active'));
     for (let i = 0; i < stars.length; i++) {
@@ -136,7 +135,7 @@ stars.forEach(star => {
     }
 
     // Display the selected rating
-    ratingValue.textContent = `Rating: ${value}`;
+    
   });
 });   
     
