@@ -121,12 +121,11 @@ if (time < 12) {
 
 
     const stars = document.querySelectorAll('.star');
-    const ratingValue = document.getElementById('rating-value');
-
+    
     stars.forEach(star => {
         star.addEventListener('click', () => {
             const value = star.getAttribute('data-value');
-            ratingValue.textContent = `Rating: ${value}`;
+            
 
             // Reset and highlight the selected stars
             stars.forEach(s => s.classList.remove('selected'));
