@@ -137,7 +137,7 @@ function signup() {
         errorMessage.style.display = 'block';
        
     } else {
-        setMultipleLocalStorageItems(user,name, username, password););
+        setMultipleLocalStorageItems(user,name, username, password);
         
         
         
