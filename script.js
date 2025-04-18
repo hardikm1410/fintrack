@@ -123,21 +123,7 @@ if (time < 12) {
  const stars = document.querySelectorAll('.star-rating .star');
 const ratingValue = document.getElementById('rating-value');
 
-stars.forEach(star => {
-  star.addEventListener('click', () => {
-    
-    // Update the active class for selected stars
-    stars.forEach(s => s.classList.remove('active'));
-    for (let i = 0; i < stars.length; i++) {
-      if (i >= stars.length - value) {
-        stars[i].classList.add('active');
-      }
-    }
 
-    // Display the selected rating
-    
-  });
-});   
     
     // Show signup form, hide login
 function showSignup() {
