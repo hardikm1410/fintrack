@@ -120,9 +120,38 @@ if (time < 12) {
 }
 
 
- const stars = document.querySelectorAll('.star-rating .star');
-const ratingValue = document.getElementById('rating-value');
+    const stars = document.querySelectorAll('.star');
+    const ratingValue = document.getElementById('rating-value');
 
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            const value = star.getAttribute('data-value');
+            ratingValue.textContent = `Rating: ${value}`;
+
+            // Reset and highlight the selected stars
+            stars.forEach(s => s.classList.remove('selected'));
+            star.classList.add('selected');
+
+            // Highlight all previous stars
+            for (let i = 0; i < value; i++) {
+                stars[i].classList.add('selected');
+            }
+        });
+
+        // Optional: Add hover effect for better user interaction
+        star.addEventListener('mouseover', () => {
+            stars.forEach(s => s.classList.remove('selected'));
+            for (let i = 0; i < star.getAttribute('data-value'); i++) {
+                stars[i].classList.add('selected');
+            }
+        });
+
+        // Remove hover effect when mouse leaves
+        star.addEventListener('mouseout', () => {
+            stars.forEach(s => s.classList.remove('selected'));
+        });
+    });
+});
 
     
     // Show signup form, hide login
