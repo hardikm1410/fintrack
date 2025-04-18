@@ -112,13 +112,13 @@ const time = d.getHours();
 const grt=document.getElementById ("greetings");
 
 if (time < 12) {
-  grt.innerText= "Good morning!";
+  grt.innerText= "Good morning";
 }
 if (time > 12 && time < 16) {
-  grt.innerText="Good afternoon!";
+  grt.innerText="Good afternoon";
 }
 if (time > 16) {
-  grt.innerText="Good evening!";
+  grt.innerText="Good evening";
 }
 
 
