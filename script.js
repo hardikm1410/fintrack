@@ -117,7 +117,7 @@ if (time < 12) {
 if (time > 12 && time < 16) {
   grt.innerText="Good afternoon";
 }
-if (time > 16 || time = 16) {
+if (time > 16 ) {
   grt.innerText="Good evening";
 }
 
