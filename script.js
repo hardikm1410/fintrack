@@ -160,7 +160,7 @@ function login() {
     if ( usercred.username === password) {
       
         
-      localStorage.setItem("loggedInUser", usercred.username); 
+      localStorage.setItem("loggedInUser",username); 
       document.getElementById("user-name").innerText= usercred.name;
 document.getElementById("user-name2").innerText= usercred.name;
  
