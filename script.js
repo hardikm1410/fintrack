@@ -148,7 +148,7 @@ function signup() {
     }
  
 }
-const name= localStorage.getItem("name");
+let name= localStorage.getItem("name");
 // Login Function
 function login() {
      
