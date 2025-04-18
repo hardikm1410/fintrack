@@ -1833,11 +1833,11 @@ input ,select {
 .star {
   font-size: 2rem;
   color: #ccc;
-  transition: color 0.3s;
+  transition:transition 0.6s;
 }
 
 .star:hover,
-.star:hover ~ .star {
+.star:hover  .star {
   color: #f39c12;
 }
 
@@ -1845,6 +1845,6 @@ input ,select {
   color: #f39c12;
 }
 
-.star.active ~ .star {
+.star.active  .star {
   color: #ccc;
 }
