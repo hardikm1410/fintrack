@@ -1824,4 +1824,53 @@ input ,select {
     justify-content: center;
 }
 
+/* Modern Star Rating Container */
+.modern-star-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* Star Style */
+.star {
+    width: 50px;
+    height: 50px;
+    fill: #ccc; /* Default star color */
+    transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect */
+.star:hover,
+.star:hover ~ .star {
+    fill: url(#hover-gradient); /* Gradient on hover */
+    transform: scale(1.2); /* Slight zoom on hover */
+}
+
+/* Selected stars */
+.star.selected,
+.star.selected ~ .star {
+    fill: url(#selected-gradient); /* Gradient for selected stars */
+    transform: scale(1.1); /* Slightly larger size for selected stars */
+}
+
+/* Smooth transition for hover and selection */
+.star:hover ~ .star {
+    transform: scale(1);
+    fill: #ccc;
+}
+
+/* Gradients */
+svg {
+    position: relative;
+}
+
+svg defs {
+    display: none;
+}
+
+svg:first-child defs {
+    display: block;
+}
  
