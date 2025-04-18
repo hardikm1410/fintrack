@@ -1824,27 +1824,4 @@ input ,select {
     justify-content: center;
 }
 
-
-.star-rating {
-  display: inline-flex;
-  cursor: pointer;
-}
-
-.star {
-  font-size: 2rem;
-  color: #ccc;
-  transition:transition 0.6s;
-}
-
-.star:hover,
-.star:hover  .star {
-  color: #f39c12;
-}
-
-.star.active {
-  color: #f39c12;
-}
-
-.star.active  .star {
-  color: #ccc;
-}
+ 
