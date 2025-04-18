@@ -109,18 +109,15 @@ fadeInObserver.observe(item);
 
 const d = new Date();
 const time = d.getHours();
-const grt=document.getElementById ("greetings");
+const grt = document.getElementById("greetings");
 
 if (time < 12) {
-  grt.innerText= "Good morning";
+  grt.innerText = "Good morning";
+} else if (time >= 12 && time < 16) {
+  grt.innerText = "Good afternoon";
+} else if (time >= 16) {
+  grt.innerText = "Good evening";
 }
-if (time > 12 && time < 16) {
-  grt.innerText="Good afternoon";
-}
-if (time > 16 ) {
-  grt.innerText="Good evening";
-}
-
 
     
     
