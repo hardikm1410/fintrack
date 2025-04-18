@@ -137,8 +137,8 @@ function signup() {
         errorMessage.style.display = 'block';
        
     } else {
-        setMultipleLocalStorageItems(user,name, username, password);
-        
+        localStorage.setItem(username, password);
+        localStorage.setItem("name",name);
         
         
         errorMessage.style.display = 'none';
@@ -148,7 +148,7 @@ function signup() {
     }
  
 }
-
+const name= localStorage.getItem("name");
 // Login Function
 function login() {
      
@@ -161,8 +161,8 @@ function login() {
       
         
       localStorage.setItem("loggedInUser",username); 
-  let usercred=getMultipleLocalStorageItems(user);    document.getElementById("user-name").innerText= usercred.name;
-document.getElementById("user-name2").innerText= usercred.name;
+      document.getElementById("user-name").innerText=name;
+document.getElementById("user-name2").innerText=name;
  
     document.body.classList.toggle('no-scroll');    document.getElementById("login-modal").style.display = "none";
          document.getElementById("welcome-box").style.display = "block";
@@ -188,7 +188,7 @@ window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
     
     if (loggedInUser) {
-        document.getElementById("user-name").innerText = usercred.name;
+        document.getElementById("user-name").innerText = name;
        
 document.getElementById("user-name2").innerText = loggedInUser; document.getElementById("login-modal").style.display = "none";
         document.getElementById("signup-modal").style.display = "none";
