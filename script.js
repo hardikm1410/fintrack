@@ -106,6 +106,21 @@ fadeInObserver.observe(item);
             });
         
         });
+
+const d = new Date();
+const time = d.getHours();
+const grt=document.getElementById ("greetings");
+
+if (time < 12) {
+  grt.innerText("<b>Good morning!</b>");
+}
+if (time > 12) {
+  grt.innerText("<b>Good afternoon!</b>");
+}
+if (time == 12) {
+  grt.innerText("<b>Go eat lunch!</b>");
+}
+
     
     
     // Show signup form, hide login
@@ -175,6 +190,8 @@ document.getElementById("user-name2").innerText=name;
         
     }
 }
+
+
 
 // Logout Function
 function logout() {
