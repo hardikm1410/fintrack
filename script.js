@@ -188,7 +188,7 @@ window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
     
     if (loggedInUser) {
-        document.getElementById("user-name").innerText = name;
+       document.title= name+ "'s FinTrack"; document.getElementById("user-name").innerText = name;
        
 document.getElementById("user-name2").innerText = name; document.getElementById("login-modal").style.display = "none";
         document.getElementById("signup-modal").style.display = "none";
