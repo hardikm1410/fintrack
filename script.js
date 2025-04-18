@@ -190,7 +190,7 @@ window.onload = function () {
     if (loggedInUser) {
         document.getElementById("user-name").innerText = name;
        
-document.getElementById("user-name2").innerText = loggedInUser; document.getElementById("login-modal").style.display = "none";
+document.getElementById("user-name2").innerText = name; document.getElementById("login-modal").style.display = "none";
         document.getElementById("signup-modal").style.display = "none";
         // document.getElementById("welcome-box").style.display = "block";
     }
