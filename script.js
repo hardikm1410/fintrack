@@ -157,7 +157,7 @@ function login() {
     let password = document.getElementById("login-password").value;
     const usercred=getMultipleLocalStorageItems(user);
 
-    if ( usercred.username === password) {
+    if (localStorage.getItem (username) === password) {
       
         
       localStorage.setItem("loggedInUser",username); 
