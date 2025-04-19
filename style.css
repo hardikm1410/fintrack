@@ -150,7 +150,7 @@ nav {
 
 @keyframes combine {
      
-   50%{ transform: translateX(-30px);} 
+   0%{ transform: translateX(-30px);} 
     
 
 } 
@@ -176,7 +176,7 @@ nav {
 
 
 @keyframes combo {
-    60%{ transform: translateX(70px);}
+    50%{ transform: translateX(70px);}
     
     
 
