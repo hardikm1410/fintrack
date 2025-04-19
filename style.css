@@ -142,10 +142,8 @@ nav {
     justify-content: center;
     margin-bottom: 1.5rem;
     color: #71ce75;
-    transform: translateX(20px) ;
-    animation: combine 2s infinite;
-     animation-iteration-count: 1;
-}
+    
+    
 
 @keyframes combine {
      
@@ -165,10 +163,10 @@ nav {
     align-items: center;
     justify-content: center;
   
-    animation: combo 2s infinite;
+    
     font-size: 15px;
     z-index: -1;
-    animation-iteration-count: 1;
+    
 }
 
 @keyframes combo {
