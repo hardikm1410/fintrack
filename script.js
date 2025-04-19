@@ -223,6 +223,7 @@ window.onload = function () {
 document.getElementById("user-name2").innerText = fstname;
 
 document.getElementById("profile-icon").innerText= prf1+ prf2;
+document.getElementById("profile-icon2").innerText= prf1+ prf2;
 
  document.getElementById("login-modal").style.display = "none";
         document.getElementById("signup-modal").style.display = "none";
