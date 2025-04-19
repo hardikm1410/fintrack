@@ -159,6 +159,8 @@ function signup() {
         localStorage.setItem(username, password);
         localStorage.setItem("fstname",fstname);
         localStorage.setItem("lstname",lstname);
+        localStorage.setItem("prf1",profile1);
+        localStorage.setItem("prf2)",profile2);
         
         
         errorMessage.style.display = 'none';
@@ -171,6 +173,8 @@ function signup() {
 
 let fstname= localStorage.getItem("fstname");
 let lstname= localStorage.getItem("lstname");
+let prf1= localStorage.getItem("prf1");
+let prf2= localStorage.getItem("prf2");
 
 // Login Function
 function login() {
@@ -186,6 +190,8 @@ function login() {
       localStorage.setItem("loggedInUser",username); 
       document.getElementById("user-name").innerText=fstname+ lstname;
 document.getElementById("user-name2").innerText=fstname;
+
+document.getElementById("profile-icon").innerText= prf1+ prf2;
  
     document.body.classList.toggle('no-scroll');    document.getElementById("login-modal").style.display = "none";
          document.getElementById("welcome-box").style.display = "block";
@@ -214,6 +220,8 @@ window.onload = function () {
     
     if (loggedInUser) {
        document.title= fstname+"'s FinTrack"; document.getElementById("user-name").innerText = fstname+ lstname;
+
+document.getElementById("profile-icon").innerText= prf1+ prf2;
        
 document.getElementById("user-name2").innerText = fstname; document.getElementById("login-modal").style.display = "none";
         document.getElementById("signup-modal").style.display = "none";
