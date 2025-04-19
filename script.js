@@ -140,7 +140,8 @@ function showLogin() {
 
 // Signup Function
 function signup() {
-    let name= document.getElementById("signup-user").value;
+    let fstname= document.getElementById("user-first").value;
+    let lstname= document.getElementById("user-last").value;
     let username = document.getElementById("signup-username").value;
     let password = document.getElementById("signup-password").value;
     let user="user";
@@ -153,7 +154,7 @@ function signup() {
        
     } else {
         localStorage.setItem(username, password);
-        localStorage.setItem("name",name);
+        localStorage.setItem("name",fstname);
         
         
         errorMessage.style.display = 'none';
@@ -176,8 +177,8 @@ function login() {
       
         
       localStorage.setItem("loggedInUser",username); 
-      document.getElementById("user-name").innerText=name;
-document.getElementById("user-name2").innerText=name;
+      document.getElementById("user-name").innerText=fstname+ lstname;
+document.getElementById("user-name2").innerText=fstname;
  
     document.body.classList.toggle('no-scroll');    document.getElementById("login-modal").style.display = "none";
          document.getElementById("welcome-box").style.display = "block";
@@ -205,9 +206,9 @@ window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
     
     if (loggedInUser) {
-       document.title= name+"'s FinTrack"; document.getElementById("user-name").innerText = name;
+       document.title= name+"'s FinTrack"; document.getElementById("user-name").innerText = fstname+ lstname;
        
-document.getElementById("user-name2").innerText = name; document.getElementById("login-modal").style.display = "none";
+document.getElementById("user-name2").innerText = fstname; document.getElementById("login-modal").style.display = "none";
         document.getElementById("signup-modal").style.display = "none";
         // document.getElementById("welcome-box").style.display = "block";
     }
