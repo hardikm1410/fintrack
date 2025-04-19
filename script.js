@@ -215,7 +215,7 @@ window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
     
     if (loggedInUser) {
-       document.title= fstname+"'s FinTrack"; document.getElementById("user-name").innerText = fstname+ lstname;
+       document.title=fstname+"'s FinTrack"; document.getElementById("user-name").innerText = fstname+ lstname;
 
 
 document.getElementById("user-name2").innerText = fstname; document.getElementById("login-modal").style.display = "none";
