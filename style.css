@@ -142,7 +142,7 @@ nav {
     justify-content: center;
     margin-bottom: 1.5rem;
     color: #71ce75;
-    
+    animation: combine 1s all ease;
    
  }   
 
@@ -150,7 +150,7 @@ nav {
 
 @keyframes combine {
      
-   50%{ transform: translateX(-40px);} 
+   50%{ transform: translateX(-30px);} 
     
 
 } 
@@ -169,13 +169,14 @@ nav {
     margin-left: 0px;
     z-index:-1;
     font-size: 15px;
+    animation : combo 1s all ease
     
     
 }
 
 
 @keyframes combo {
-    50%{ transform: translateX(40px);}
+    60%{ transform: translateX(70px);}
     
     
 
