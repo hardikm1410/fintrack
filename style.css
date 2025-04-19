@@ -142,7 +142,7 @@ nav {
     justify-content: center;
     margin-bottom: 1.5rem;
     color: #71ce75;
-    margin-right: -30px;
+    margin-right: -40px;
     
  }   
 
@@ -164,12 +164,13 @@ nav {
     align-items: center;
     justify-content: center;
     
-    margin-left: 50px;
+    margin-left: 60px;
     
     font-size: 15px;
     
     
 }
+
 
 @keyframes combo {
     50%{ transform: translateX(40px);}
