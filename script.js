@@ -158,7 +158,7 @@ function signup() {
         localStorage.setItem("fstname",fstname);
         localStorage.setItem("lstname",lstname);
             localStorage.setItem("prf1",fstname.slice(1));
-        localStorage.setItem("prf2",lstname.slice(1));
+        localStorage.setItem("prf2",lstname.slice(+1));
         
         
         errorMessage.style.display = 'none';
