@@ -134,6 +134,28 @@ nav {
     
 }
 
+.avtar2 {
+    background-color: #333333;
+    color: #fff;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-70px);
+    animation: combo 2s infinite;
+    font-size: 15px;
+}
+
+@keyframes combo {
+    0%{ transform: translateX(60px);}
+    50% { transform: rotate(-30deg); }
+    100% { transform: rotate(30deg); }
+    
+
+} 
+
 .nav-links {
     display: flex;
     gap: 20px;
@@ -1823,27 +1845,7 @@ input ,select {
 
 }  
 
-.avtar2 {
-    background-color: #333333;
-    color: #fff;
-    border-radius: 50%;
-    width: 70px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translateX(-30px);
-    animation: combo 2s infinite;
-    font-size: 15px;
-}
-
-@keyframes combo {
-    0%{ transform: translateX(60px);}
-    50% { transform: rotate(-30deg); }
-    100% { transform: rotate(30deg); }
-    
-
-}  
+ 
 
 
 
