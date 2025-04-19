@@ -214,9 +214,6 @@ function logout() {
     showLogin();
 }
 
-window.onload = function () {
- localStorage.clear();
-}
 
 
 window.onload = function () {
