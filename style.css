@@ -165,8 +165,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    margin-left: -80px;
+    transform: translateX(-80px);
+    margin-left: 30px;
     
     font-size: 15px;
     
