@@ -1823,7 +1823,7 @@ input ,select {
 
 }  
 
-#logout-modal >.avtar {
+.login-modal >.avtar {
     background-color: #333333;
     color: #fff;
     border-radius: 50%;
