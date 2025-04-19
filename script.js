@@ -160,7 +160,7 @@ function signup() {
         localStorage.setItem("fstname",fstname);
         localStorage.setItem("lstname",lstname);
         localStorage.setItem("prf1",profile1);
-        localStorage.setItem("prf2)",profile2);
+        localStorage.setItem("prf2",profile2);
         
         
         errorMessage.style.display = 'none';
