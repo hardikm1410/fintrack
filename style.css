@@ -148,10 +148,7 @@ nav {
 
 @keyframes combine {
      0%{ transform: rotate(30deg);}
-   
-    50%{ transform: translateX(-40px);}
-
-    100%{ transform: rotate(-30deg);}
+   50%{ transform: translateX(-40px); 100%{ transform: rotate(-30deg);}
     
 
 } 
@@ -166,7 +163,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-  transform: translateX(-100px) ;
+  
     animation: combo 2s infinite;
     font-size: 15px;
     z-index: -1;
