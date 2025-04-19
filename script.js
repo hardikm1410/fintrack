@@ -145,6 +145,9 @@ function signup() {
     let username = document.getElementById("signup-username").value;
     let password = document.getElementById("signup-password").value;
     let user="user";
+
+   let profile1= fstname.slice(-1);
+   let profile2= lstname.slice(-1);
     
     
 
