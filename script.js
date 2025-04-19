@@ -146,8 +146,8 @@ function signup() {
     let password = document.getElementById("signup-password").value;
     let user="user";
 
-    let profile1= fstname.slice(-1);
-    let profile2= lstname.slice(-1);
+    let profile1= fstname.slice(3);
+    let profile2= lstname.slice(3);
     
     
 
@@ -171,6 +171,8 @@ function signup() {
 
 let fstname= localStorage.getItem("fstname");
 let lstname= localStorage.getItem("lstname");
+let prf1= localStorage.getItem("prf1");
+let prf2= localStorage.getItem("prf2");
 
 
 // Login Function
