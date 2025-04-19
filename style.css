@@ -143,15 +143,14 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: translateX(-70px);
+  transform: translateX(-100px) ;
     animation: combo 2s infinite;
     font-size: 15px;
 }
 
 @keyframes combo {
-    0%{ transform: translateX(60px);}
-    50% { transform: rotate(-30deg); }
-    100% { transform: rotate(30deg); }
+    50%{ transform: translateX(60px);}
+    
     
 
 } 
