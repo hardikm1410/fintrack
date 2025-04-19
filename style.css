@@ -167,7 +167,7 @@ nav {
     justify-content: center;
     transform: translateX(-50px);
     margin-left: 0px;
-    
+    z-index:-1;
     font-size: 15px;
     
     
