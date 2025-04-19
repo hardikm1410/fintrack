@@ -166,11 +166,13 @@ function signup() {
  
 }
 
+let fstname= localStorage.getItem("fstname");
+let lstname= localStorage.getItem("lstname");
+
 // Login Function
 function login() {
      
-    let fstname= localStorage.getItem("fstname");
-let lstname= localStorage.getItem("lstname");
+    
     let username = document.getElementById("login-username").value;
     let password = document.getElementById("login-password").value;
     
@@ -206,8 +208,6 @@ function logout() {
 
 window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
-    let fstname= localStorage.getItem("fstname");
-let lstname= localStorage.getItem("lstname");
     
     if (loggedInUser) {
        document.title= name+"'s FinTrack"; document.getElementById("user-name").innerText = fstname+ lstname;
