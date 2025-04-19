@@ -143,8 +143,14 @@ nav {
     margin-bottom: 1.5rem;
     color: #71ce75;
     margin-right: -70px;
-    
+   
  }   
+.login-modal > .logo2 i{
+    
+    margin-left: 70px;
+   
+ }   
+
 
 @keyframes combine {
      
