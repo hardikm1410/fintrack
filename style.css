@@ -134,6 +134,25 @@ nav {
     
 }
 
+.login-modal > .logo2 {
+    font-size: 60px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: #71ce75;
+    animation: combo2 2s infinite;
+}
+
+@keyframes combo2 {
+    0%{ transform: translateX(-40px);}
+   
+    
+
+} 
+
+
 .avtar2 {
     background-color: #333333;
     color: #fff;
@@ -146,10 +165,11 @@ nav {
   transform: translateX(-100px) ;
     animation: combo 2s infinite;
     font-size: 15px;
+    z-index: -1
 }
 
 @keyframes combo {
-    50%{ transform: translateX(60px);}
+    50%{ transform: translateX(40px);}
     
     
 
