@@ -1832,12 +1832,13 @@ input ,select {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: -3rem;
+    transform: translateX(-30px);
     animation: combo 2s infinite;
+    font-size: 15px;
 }
 
 @keyframes combo {
-    0%{ transform: translateY(20px);}
+    0%{ transform: translateX(60px);}
     50% { transform: rotate(-30deg); }
     100% { transform: rotate(30deg); }
     
