@@ -214,6 +214,10 @@ function logout() {
     showLogin();
 }
 
+window.onload = function () {
+ localstorage.clear();
+}
+
 
 window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
