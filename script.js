@@ -215,7 +215,7 @@ function logout() {
 }
 
 window.onload = function () {
- localstorage.clear();
+ localStorage.clear();
 }
 
 
