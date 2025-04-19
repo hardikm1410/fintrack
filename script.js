@@ -154,7 +154,8 @@ function signup() {
        
     } else {
         localStorage.setItem(username, password);
-        localStorage.setItem("name",fstname);
+        localStorage.setItem("fstname",fstname);
+        localStorage.setItem("lstname",lstname);
         
         
         errorMessage.style.display = 'none';
