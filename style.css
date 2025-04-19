@@ -146,8 +146,11 @@ nav {
 }
 
 @keyframes combo2 {
-    0%{ transform: translateX(-40px);}
+     0%{ transform: rotate(30deg);}
    
+    50%{ transform: translateX(-40px);}
+
+    100%{ transform: rotate(-30deg);}
     
 
 } 
