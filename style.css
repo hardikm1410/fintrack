@@ -1823,7 +1823,7 @@ input ,select {
 
 }  
 
-.login-modal >.avtar {
+.avtar2 {
     background-color: #333333;
     color: #fff;
     border-radius: 50%;
@@ -1833,7 +1833,17 @@ input ,select {
     align-items: center;
     justify-content: center;
     margin-top: -3rem;
+    animation: combo 2s infinite;
 }
+
+@keyframes combo {
+    0%{ transform: translateY(20px);}
+    50% { transform: rotate(-30deg); }
+    100% { transform: rotate(30deg); }
+    
+
+}  
+
 
 
 
