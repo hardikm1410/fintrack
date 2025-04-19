@@ -145,11 +145,7 @@ nav {
     margin-right: -70px;
    
  }   
-.login-modal > .logo2 i{
-    
-    margin-left: 70px;
-   
- }   
+
 
 
 @keyframes combine {
@@ -170,7 +166,7 @@ nav {
     align-items: center;
     justify-content: center;
     
-    margin-left: 30px;
+    margin-left: -30px;
     
     font-size: 15px;
     
