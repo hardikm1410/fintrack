@@ -225,7 +225,7 @@ window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
     
     if (loggedInUser) {
-   window.location.replace("https://fintrack1456.vercel.app/dashboard.html");
+   
        document.title=fstname+"'s FinTrack"; document.getElementById("user-name").innerText = fstname +" "+ lstname;
 document.getElementById("user-name2").innerText = fstname;
 
