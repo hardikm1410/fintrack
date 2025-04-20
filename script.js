@@ -237,10 +237,10 @@ document.getElementById("profile-icon2").innerText= prf1+ prf2;
 };
 
 const home= document.getElementById('home');
-const yes= "yes";
+
 
 homemav.addEventListener('click', () => {
-   localStorage.setItem(home,yes);
+   localStorage.setItem(home,"yes");
   }  
     
     const hamburgerMenu = document.querySelector('.hamburger-menu');
