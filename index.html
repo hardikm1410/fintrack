@@ -850,12 +850,8 @@
          window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
     
-    if (loggedInUser) { if(First){
-          window.location.replace("/dashboard.html");
-         }
-         else{
-          console.log("Page will not change");
-         }
+    if (loggedInUser) {
+       window.location.replace("/dashboard.html");
      }
    };
    </script>
