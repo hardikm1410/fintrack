@@ -239,7 +239,7 @@ document.getElementById("profile-icon2").innerText= prf1+ prf2;
 const home= document.getElementById('home');
 
 
-homemav.addEventListener('click', () => {
+home.addEventListener('click', () => {
    localStorage.setItem(home,"yes");
   }  
     
