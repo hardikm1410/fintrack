@@ -369,29 +369,7 @@ document.getElementById("profile-icon2").innerText= prf1+ prf2;
     
     
         // ===== Navigation Tabs =====
-        const navLinks = document.querySelectorAll('.nav-links a');
-    
-        navLinks.forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-    
-                // Remove active class from all links
-                navLinks.forEach(l => l.classList.remove('active'));
-    
-                // Add active class to clicked link
-                this.classList.add('active');
-    
-                // You would typically load different content here based on the tab
-                const pageName = this.textContent.trim();
-                console.log(`Navigating to ${pageName} page`);
-    
-                // For demo purposes, show an alert
-                if (pageName !== 'Dashboard' && pageName !== 'Home') {
-                    alert(`The ${pageName} page would load here. This is a demo.`);
-                }
-            });
-        });
-    
+        
     
     
         // ===== Transaction Filters =====
