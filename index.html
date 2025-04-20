@@ -849,12 +849,14 @@
     <script>
          window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
+
+    let home= localStorage.getItem("home");
     
-    if (loggedInUser) { if(First){
-          window.location.replace("/dashboard.html");
+    if (loggedInUser) { if(home == 'yes'){
+          console.log("The page remains same");
          }
          else{
-          console.log("Page will not change");
+          window.location.replace("/dashboard.html");
          }
      }
    };
