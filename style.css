@@ -177,7 +177,9 @@ nav {
 #vr {
     border-left: 1px solid #fff;
     height:45px;
-    margin-left: 30x
+    margin-left: 30px;
+}
+
 @keyframes combo {
     50%{ transform: translateX(70px);}
     
