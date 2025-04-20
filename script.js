@@ -1,9 +1,4 @@
- window.onload = function () {
-    
-    
-    if (loggedInUser) {
-   window.location.href("https://fintrack1456.vercel.app/dashboard.html");
-}
+ 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 anchor.addEventListener('click', function(e) {
