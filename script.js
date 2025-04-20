@@ -215,10 +215,10 @@ function logout() {
 }
 
 
-let loggedInUser = localStorage.getItem("loggedInUser");
+
 window.onload = function () {
     
-    
+    let loggedInUser = localStorage.getItem("loggedInUser");
     if (loggedInUser) {
    
        document.title=fstname+"'s FinTrack"; document.getElementById("user-name").innerText = fstname +" "+ lstname;
