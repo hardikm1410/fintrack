@@ -236,7 +236,11 @@ document.getElementById("profile-icon2").innerText= prf1+ prf2;
     }
 };
 
-    
+const home= document.getElementById('home');
+
+home.addEventListener('click', () => {
+   localStorage.setItem("home","yes");
+  }  
     
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const navLinks = document.querySelector('.nav-links');
