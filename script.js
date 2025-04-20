@@ -386,7 +386,7 @@ document.getElementById("profile-icon2").innerText= prf1+ prf2;
                 console.log(`Navigating to ${pageName} page`);
     
                 // For demo purposes, show an alert
-                if (pageName !== 'Dashboard') {
+                if (pageName !== 'Dashboard' && pageName !== 'Home') {
                     alert(`The ${pageName} page would load here. This is a demo.`);
                 }
             });
