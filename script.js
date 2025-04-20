@@ -1,6 +1,6 @@
 const hom=document.querySelector(".hom");
 hom.addEventListener( 'click', () => {
-  localStorage.setItem("home",0);
+  localStorage.setItem("home","0");
 });
 
 let home= localStorage.getItem("home");
