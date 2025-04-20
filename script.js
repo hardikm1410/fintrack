@@ -217,14 +217,13 @@ function logout() {
 
 
 window.onload = function () {
-    
     let loggedInUser = localStorage.getItem("loggedInUser");
+    
     if (loggedInUser) {
-   
        document.title=fstname+"'s FinTrack"; document.getElementById("user-name").innerText = fstname +" "+ lstname;
 document.getElementById("user-name2").innerText = fstname;
 
-document.getElementById("profile-icon").innerText= prf1+ prf2;let loggedInUser = localStorage.getItem("loggedInUser");let loggedInUser = localStorage.getItem("loggedInUser");
+document.getElementById("profile-icon").innerText= prf1+ prf2;
 document.getElementById("profile-icon2").innerText= prf1+ prf2;
 
  document.getElementById("login-modal").style.display = "none";
