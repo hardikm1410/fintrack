@@ -2,7 +2,7 @@
     
     
     if (loggedInUser) {
-   window.location.replace("https://fintrack1456.vercel.app/dashboard.html");
+   window.location.href("https://fintrack1456.vercel.app/dashboard.html");
 }
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
