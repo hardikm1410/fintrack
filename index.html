@@ -849,9 +849,16 @@
     <script>
     window.onload = function () {
        let loggedInUser = localStorage.getItem("loggedInUser");
+
+let home= localStorage.getItem("home");
     
         if (loggedInUser) {
-           window.location.replace("/dashboard.html");
+            if(home == 0){
+              //do nothing
+            }
+            else {
+               window.location.replace("/dashboard.html");
+            }
      }
    };
    </script>
