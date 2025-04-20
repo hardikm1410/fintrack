@@ -850,9 +850,8 @@
          window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
 
-    let home= localStorage.getItem("home");
     
-    if (loggedInUser) { if localstorage(home) == 'yes'){
+    if (loggedInUser) { if localStorage.getItem(home) === yes){
           console.log("The page remains same");
          }
          else{
