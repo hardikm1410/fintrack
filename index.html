@@ -846,5 +846,14 @@
         </div>
     </footer>
     <script src="script.js"></script>
+<script>
+         window.onload = function () {
+    let loggedInUser = localStorage.getItem("loggedInUser");
+    
+    if (loggedInUser) {
+       window.location.href = "/dashboard.html";
+     } ;
+   });
+</script[
 </body>
 </html>
