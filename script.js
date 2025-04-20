@@ -236,9 +236,9 @@ document.getElementById("profile-icon2").innerText= prf1+ prf2;
     }
 };
 
-const home= document.getElementById('home');
+const homenav= document.getElementById('home');
 
-home.addEventListener('click', () => {
+homemav.addEventListener('click', () => {
    localStorage.setItem("home","yes");
   }  
     
