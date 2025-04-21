@@ -619,6 +619,7 @@
                 </div>
                 
                 <ul class="nav-links">
+                       <li><a href="/dashboard.html">Dashboard</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#ai-advisor">AI Advisor</a></li>
                     <li><a href="#security">Security</a></li>
@@ -849,8 +850,12 @@
          window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
     
-    if (loggedInUser) {
-       window.location.replace("/dashboard.html");
+    if (loggedInUser) { if(First){
+          window.location.replace("/dashboard.html");
+         }
+         else{
+          console.log("Page will not change");
+         }
      }
    };
    </script>
