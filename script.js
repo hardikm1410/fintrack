@@ -1,4 +1,8 @@
+const home= document.querySelector(".hom");
 
+home.addEventListener('click' , () => {
+    localStorage.setItem(home,0);
+});
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -175,11 +179,7 @@ let lstname= localStorage.getItem("lstname");
 let prf1= localStorage.getItem("prf1");
 let prf2= localStorage.getItem("prf2");
 
-const home= document.querySelector(".hom");
 
-home.addEventListener('click' , () => {
-    localStorage.setItem(home,0);
-});
 
 // Login Function
 function login() {
