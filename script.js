@@ -238,12 +238,7 @@ document.getElementById("profile-icon2").innerText= prf1+ prf2;
     }
 };
 
-let home= document.querySelector('.hom');
 
-home.addEventListener('click' , () => {
-    localStorage.setItem(home,"0");
-});
-    
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const navLinks = document.querySelector('.nav-links');
     
