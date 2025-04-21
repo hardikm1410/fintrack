@@ -1,10 +1,7 @@
-
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+ Document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 anchor.addEventListener('click', function(e) {
     e.preventDefault();
-    
+
     if (this.getAttribute('href') !== '#') {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -13,7 +10,7 @@ anchor.addEventListener('click', function(e) {
                 behavior: 'smooth'
             });
         }
-        
+
         // Close mobile menu if open
     }
 });
@@ -52,7 +49,7 @@ fadeInObserver.observe(item);
 
 // Add fade-in effect for hero section immediately
 
-    
+
     // Dark mode toggle
     const themeToggle = document.querySelector('.toogle-theme');
 
@@ -71,7 +68,7 @@ fadeInObserver.observe(item);
         }
     });
 
-    
+
     // Check saved theme preference
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
@@ -81,31 +78,31 @@ fadeInObserver.observe(item);
         icon.classList.add('fa-sun');
     }
 
-     
-       
-        
-    
+
+
+
+
     const errorMessage = document.getElementById('errorMessage');
     const trueMessage = document.getElementById('trueMessage');
-    
-     
-    
+
+
+
     const loginTrigger = document.getElementById('login-trigger');
-    
+
     const logoutModal = document.getElementById('logout-modal');
     const closeBtn=document.getElementById('close-btn');
-    
+
      loginTrigger.addEventListener('click', () => {
             logoutModal.style.display = 'block';
             document.body.classList.toggle('no-scroll');
-           
-           
-    
+
+
+
             closeBtn.addEventListener('click', () => {
                 logoutModal.style.display= 'none';
                  document.body.classList.toggle('no-scroll');
             });
-        
+
         });
 
 const d = new Date();
@@ -121,9 +118,9 @@ if (time < 12) {
 }
 
 
-    
 
-    
+
+
     // Show signup form, hide login
 function showSignup() {
     document.getElementById("signup-modal").style.display = "block";
@@ -132,7 +129,7 @@ function showSignup() {
 
 // Show login form, hide signup
 function showLogin() {
-   
+
     document.body.classList.toggle('no-scroll');
      document.getElementById("signup-modal").style.display = "none";
     document.getElementById("login-modal").style.display = "block";
@@ -147,27 +144,27 @@ function signup() {
     let password = document.getElementById("signup-password").value;
     let user="user";
 
-    
-    
+
+
 
     if (localStorage.getItem(username)) {
         errorMessage.textContent = 'User already exists! Please';
         errorMessage.style.display = 'block';
-       
+
     } else {
         localStorage.setItem(username, password);
         localStorage.setItem("fstname",fstname);
         localStorage.setItem("lstname",lstname);
             localStorage.setItem("prf1",fstname.slice(0,1));
         localStorage.setItem("prf2",lstname.slice(0,1));
-        
-        
+
+
         errorMessage.style.display = 'none';
         trueMessage.textContent = 'Sign Up Successful!';
         trueMessage.style.display = 'block';
-        
+
     }
- 
+
 }
 
 let fstname= localStorage.getItem("fstname");
@@ -176,25 +173,24 @@ let prf1= localStorage.getItem("prf1");
 let prf2= localStorage.getItem("prf2");
 
 
-
 // Login Function
 function login() {
-     
-    
+
+
     let username = document.getElementById("login-username").value;
     let password = document.getElementById("login-password").value;
-    
+
 
     if (localStorage.getItem (username) === password) {
-      
-        
+
+
       localStorage.setItem("loggedInUser",username); 
       document.getElementById("user-name").innerText=fstname+" "+ lstname;
 document.getElementById("user-name2").innerText=fstname;
 
 document.getElementById("profile-icon").innerText= prf1+ prf2;
 
- 
+
     document.body.classList.toggle('no-scroll');    document.getElementById("login-modal").style.display = "none";
          document.getElementById("welcome-box").style.display = "block";
         errorMessage.style.display = 'none';
@@ -203,7 +199,7 @@ document.getElementById("profile-icon").innerText= prf1+ prf2;
     } else {
         errorMessage.textContent = 'Please Enter corret details.';
         errorMessage.style.display = 'block';
-        
+
     }
 }
 
@@ -219,14 +215,14 @@ function logout() {
 
 
 window.onload = function () {
+
     let loggedInUser = localStorage.getItem("loggedInUser");
-    
     if (loggedInUser) {
-       
+
        document.title=fstname+"'s FinTrack"; document.getElementById("user-name").innerText = fstname +" "+ lstname;
 document.getElementById("user-name2").innerText = fstname;
 
-document.getElementById("profile-icon").innerText= prf1+ prf2;
+document.getElementById("profile-icon").innerText= prf1+ prf2;let loggedInUser = localStorage.getItem("loggedInUser");let loggedInUser = localStorage.getItem("loggedInUser");
 document.getElementById("profile-icon2").innerText= prf1+ prf2;
 
  document.getElementById("login-modal").style.display = "none";
@@ -239,36 +235,33 @@ document.getElementById("profile-icon2").innerText= prf1+ prf2;
 };
 
 
+
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const navLinks = document.querySelector('.nav-links');
-    
+
     hamburgerMenu.addEventListener('click', () => {
         navLinks.classList.toggle('mobile-nav-active');
         document.body.classList.toggle('no-scroll');
     });
-    
-    
-    
-    
+
+
+
+
     // Close menu on outside click
     document.addEventListener('click', (e) => {
         if (!hamburgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
             navLinks.classList.remove('mobile-nav-active');
         }
     });
-    
-    
-    
+
+
+
     function animateCounter(target, duration) {
         const counterElement = document.getElementById('total-balance');
         let start = 0;
         const increment = Math.ceil(target / (duration / 16)); // 16ms interval roughly 60fps
-    
-        function updateCounconst home= document.querySelector(".hom");
 
-home.addEventListener('click' , () => {
-    localStorage.setItem(home,0);
-});ter() {
+        function updateCounter() {
             start += increment;
             if (start < target) {
                 counterElement.textContent = start;
@@ -277,15 +270,15 @@ home.addEventListener('click' , () => {
                 counterElement.textContent = '₹' + target.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             }
         }
-    
+
         updateCounter();
     }
-    
-    
+
+
     animateCounter(800456, 10000);
-    
-    
-    
+
+
+
     document.addEventListener('DOMContentLoaded', function () {
         // ===== Modal Functionality =====
         // Transaction Modal
@@ -293,35 +286,35 @@ home.addEventListener('click' , () => {
         const addTransactionBtn = document.getElementById('add-transaction-btn');
         const cancelTransactionBtn = document.getElementById('cancel-transaction');
         const closeTransactionModal = document.querySelector('#transaction-modal .close-modal');
-    
+
         // Connect Account Modal
         const connectModal = document.getElementById('connect-modal');
         const connectAccountBtn = document.getElementById('connect-account-btn');
         const cancelConnectBtn = document.getElementById('cancel-connect');
         const closeConnectModal = document.querySelector('#connect-modal .close-modal');
-    
+
         // Connection Status Elements
         const connectionForm = document.getElementById('connection-form');
         const connectingStatus = document.getElementById('connecting-status');
         const connectionSuccess = document.getElementById('connection-success');
         const connectBtn = document.getElementById('connect-btn');
-    
-    
+
+
         // Show Transaction Modal
         addTransactionBtn.addEventListener('click', function () {
             transactionModal.style.display = 'flex';
                       document.body.classList.toggle('no-scroll');
         });
-    
+
         // Hide Transaction Modal
         function hideTransactionModal() {
             transactionModal.style.display = 'none';
                document.body.classList.toggle('no-scroll'); document.getElementById('transaction-form').reset();
         }
-    
+
         cancelTransactionBtn.addEventListener('click', hideTransactionModal);
         closeTransactionModal.addEventListener('click', hideTransactionModal);
-    
+
         // Show Connect Modal
         connectAccountBtn.addEventListener('click', function () {
             // Reset form state
@@ -331,7 +324,7 @@ home.addEventListener('click' , () => {
                  document.body.classList.toggle('no-scroll');
             connectModal.style.display = 'flex';
         });
-    
+
         // Hide Connect Modal
         function hideConnectModal() {
             connectModal.style.display = 'none';
@@ -339,31 +332,31 @@ home.addEventListener('click' , () => {
             document.getElementById('uname').value = '';
             document.getElementById('password').value = '';
         }
-    
+
         cancelConnectBtn.addEventListener('click', hideConnectModal);
         closeConnectModal.addEventListener('click', hideConnectModal);
-    
+
         // Handle Connect Account flow
         connectBtn.addEventListener('click', function () {
             // Validate form
             const institution = document.getElementById('institution-select').value;
             const uname = document.getElementById('uname').value;
             const password = document.getElementById('password').value;
-    
+
             if (!institution || !uname || !password) {
                 alert('Please fill in all fields');
                 return;
             }
-    
+
             // Show loading state
             connectionForm.style.display = 'none';
             connectingStatus.style.display = 'block';
-    
+
             // Simulate API connection (3 seconds)
             setTimeout(function () {
                 connectingStatus.style.display = 'none';
                 connectionSuccess.style.display = 'block';
-    
+
                 // Auto close after 2 seconds and refresh account list
                 setTimeout(function () {
                     hideConnectModal();
@@ -371,26 +364,48 @@ home.addEventListener('click' , () => {
                 }, 2000);
             }, 3000);
         });
-    
-    
+
+
         // ===== Navigation Tabs =====
-        
-    
-    
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Remove active class from all links
+                navLinks.forEach(l => l.classList.remove('active'));
+
+                // Add active class to clicked link
+                this.classList.add('active');
+
+                // You would typically load different content here based on the tab
+                const pageName = this.textContent.trim();
+                console.log(`Navigating to ${pageName} page`);
+
+                // For demo purposes, show an alert
+                if (pageName !== 'Dashboard') {
+                    alert(`The ${pageName} page would load here. This is a demo.`);
+                }
+            });
+        });
+
+
+
         // ===== Transaction Filters =====
         const filterButtons = document.querySelectorAll('.filter-btn');
         const transactions = document.querySelectorAll('.transaction-item');
-    
+
         filterButtons.forEach(button => {
             button.addEventListener('click', function () {
                 // Remove active class from all buttons
                 filterButtons.forEach(btn => btn.classList.remove('active'));
-    
+
                 // Add active class to clicked button
                 this.classList.add('active');
-    
+
                 const filter = this.textContent.trim();
-    
+
                 // Show/hide transactions based on filter
                 transactions.forEach(transaction => {
                     if (filter === 'All') {
@@ -405,10 +420,10 @@ home.addEventListener('click' , () => {
                 });
             });
         });
-    
+
         // ===== Month Selector =====
         const monthSelector = document.getElementById('month-selector');
-    
+
         monthSelector.addEventListener('change', function () {
             const selectedMonth = this.value;
             console.log(`Loading data for ${selectedMonth}`);
@@ -416,13 +431,13 @@ home.addEventListener('click' , () => {
             // For demo purposes:
             alert(`Data for ${selectedMonth} would load here. This is a demo.`);
         });
-    
+
         // ===== Transaction Form Submission =====
         const transactionForm = document.getElementById('transaction-form');
-    
+
         transactionForm.addEventListener('submit', function (e) {
             e.preventDefault();
-    
+
             // Get form values
             const type = document.getElementById('transaction-type').value;
             const amount = document.getElementById('transaction-amount').value;
@@ -430,7 +445,7 @@ home.addEventListener('click' , () => {
             const date = document.getElementById('transaction-date').value;
             const description = document.getElementById('transaction-description').value;
             const account = document.getElementById('transaction-account').value;
-    
+
             // Create transaction object
             const transaction = {
                 type,
@@ -440,22 +455,22 @@ home.addEventListener('click' , () => {
                 description,
                 account
             };
-    
+
             console.log('New transaction:', transaction);
-    
+
             // Here you would typically send this data to your backend
             // For demo purposes:
             alert('Transaction added successfully!');
             hideTransactionModal();
-    
+
             // Add the new transaction to the list (for demo purposes)
             addTransactionToList(transaction);
         });
-    
+
         // Function to add a new transaction to the list
         function addTransactionToList(transaction) {
             const transactionList = document.querySelector('.transaction-list');
-    
+
             // Format date for display
             const transactionDate = new Date(transaction.date);
             const formattedDate = transactionDate.toLocaleDateString('en-US', {
@@ -463,11 +478,11 @@ home.addEventListener('click' , () => {
                 month: 'long',
                 day: 'numeric'
             });
-    
+
             // Create new list item
             const newTransaction = document.createElement('li');
             newTransaction.className = 'transaction-item';
-    
+
             // Determine icon class based on category
             let iconClass = '';
             if (transaction.category === 'food') iconClass = 'food';
@@ -475,7 +490,7 @@ home.addEventListener('click' , () => {
             else if (transaction.category === 'transport') iconClass = 'transport';
             else if (transaction.category === 'salary') iconClass = 'bank';
             else iconClass = 'bank';
-    
+
             // Determine icon based on category
             let icon = '';
             if (transaction.category === 'food') icon = 'fas fa-utensils';
@@ -483,11 +498,11 @@ home.addEventListener('click' , () => {
             else if (transaction.category === 'transport') icon = 'fas fa-gas-pump';
             else if (transaction.category === 'salary') icon = 'fas fa-money-bill-wave';
             else icon = 'fas fa-receipt';
-    
+
             // Format amount display
             const amountClass = transaction.type === 'income' ? 'income' : 'expense';
             const amountPrefix = transaction.type === 'income' ? '+ ' : '- ';
-    
+
             // Set HTML content
             newTransaction.innerHTML = `
                     <div class="transaction-info">
@@ -501,23 +516,23 @@ home.addEventListener('click' , () => {
                     </div>
                     <div class="transaction-amount ${amountClass}">${amountPrefix}₹${parseFloat(transaction.amount).toFixed(2)}</div>
                 `;
-    
+
             // Insert at the beginning of the list
             transactionList.insertBefore(newTransaction, transactionList.firstChild);
         }
-    
+
         // ===== Bank Options =====
         const bankOptions = document.querySelectorAll('.bank-option');
-    
+
         bankOptions.forEach(option => {
             option.addEventListener('click', function () {
                 // Show connect modal with pre-selected bank
                 connectModal.style.display = 'flex';
-    
+
                 // Try to set the institution select if it matches
                 const bankName = this.querySelector('img').alt;
                 const selectOptions = document.getElementById('institution-select').options;
-    
+
                 for (let i = 0; i < selectOptions.length; i++) {
                     if (selectOptions[i].text.includes(bankName)) {
                         document.getElementById('institution-select').selectedIndex = i;
@@ -526,16 +541,16 @@ home.addEventListener('click' , () => {
                 }
             });
         });
-    
+
         // ===== Charts =====
         // Load charts using Chart.js
         loadCharts();
-    
+
         function loadCharts() {
             // Get chart contexts
             const incomeExpenseCtx = document.getElementById('incomeExpenseCanvas').getContext('2d');
             const categoryCtx = document.getElementById('categoryCanvas').getContext('2d');
-    
+
             // Income vs Expense Chart
             new Chart(incomeExpenseCtx, {
                 type: 'bar',
@@ -575,7 +590,7 @@ home.addEventListener('click' , () => {
                     }
                 }
             });
-    
+
             // Expense by Category Chart
             new Chart(categoryCtx, {
                 type: 'doughnut',
@@ -616,7 +631,7 @@ home.addEventListener('click' , () => {
                 }
             });
         }
-    
+
         // Close modals when clicking outside the modal content
         window.addEventListener('click', function (event) {
             if (event.target === transactionModal) {
@@ -627,33 +642,33 @@ home.addEventListener('click' , () => {
             }
         });
     });
-    
+
     // API Configuration
 
-    
 
 
-    
+
+
     const aiToggle= document.querySelector('.ai-toggle');
     const chatContainer= document.querySelector('.chat-container');
     const closeAi=document.querySelector('.close-bttn');
-    
+
     aiToggle.addEventListener('click', () => {
         chatContainer.classList.toggle('bot-visible');
         document.body.classList.toggle('no-scroll');
-        
-       
+
+
 
         closeAi.addEventListener('click', ()=> {
             chatContainer.classList.remove('bot-visible');
             document.body.classList.toggle('no-scroll');
         });
-       
+
     });
-    
-    
-    
-    
+
+
+
+
     // DOM Elements
     const chatForm = document.getElementById('chatForm');
     const chatInput = document.getElementById('chatInput');
@@ -664,9 +679,9 @@ home.addEventListener('click' , () => {
     // const chatContainer = document.getElementById('chatContainer');
     const sidebarOverlay = document.getElementById('sidebarOverlay');
     const sidebarClose = document.getElementById('sidebarClose');
-    
+
     const suggestionChips = document.querySelectorAll('.suggestion-chip');
-    
+
     /**
      * Send a request to the AI API
      * @param {string} prompt - The input prompt for the AI
@@ -684,7 +699,7 @@ home.addEventListener('click' , () => {
             presence_penalty: 0,
             ...options
         };
-    
+
         try {
             const response = await fetch(API_ENDPOINT, {
                 method: 'POST',
@@ -694,52 +709,52 @@ home.addEventListener('click' , () => {
                 },
                 body: JSON.stringify(params)
             });
-    
+
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(`API Error: ${errorData.error?.message || response.statusText}`);
             }
-    
+
             return await response.json();
         } catch (error) {
             console.error('Error calling AI API:', error);
             throw error;
         }
     }
-    
+
     // Auto-resize textarea
     chatInput.addEventListener('input', function () {
         this.style.height = 'auto';
         this.style.height = (this.scrollHeight) + 'px';
-    
+
         // Enable/disable send button based on input
         sendBtn.disabled = !this.value.trim();
     });
-    
+
     // Handle form submission
     chatForm.addEventListener('submit', async function (e) {
         e.preventDefault();
         const message = chatInput.value.trim();
         if (!message) return;
-    
+
         addMessage(message, 'user');
         chatInput.value = '';
         chatInput.style.height = 'auto';
         sendBtn.disabled = true;
-    
+
         // Show typing indicator
         typingIndicator.style.display = 'flex';
-    
+
         try {
             // Call the AI API instead of using random responses
             const result = await getAIResponse(message);
             const aiResponse = result.choices && result.choices[0] ?
                 result.choices[0].text :
                 "I'm having trouble connecting to my knowledge source right now.";
-    
+
             // Hide typing indicator after response
             typingIndicator.style.display = 'none';
-    
+
             // Add the AI response to chat
             addMessage(aiResponse, 'ai');
         } catch (error) {
@@ -747,22 +762,22 @@ home.addEventListener('click' , () => {
             typingIndicator.style.display = 'none';
             addMessage("Sorry, I encountered an error: " + error.message, 'ai');
         }
-    
+
         // Scroll to bottom
         chatHistory.scrollTop = chatHistory.scrollHeight;
     });
-    
+
     // Add message to chat
     function addMessage(text, sender) {
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${sender}-message`;
-    
+
         const now = new Date();
         const timeString = now.getHours() + ':' + (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
-    
+
         const avatar = sender === 'user' ? 'You' : 'AI';
         const avatarClass = sender === 'user' ? 'user-avatar' : 'ai-avatar';
-    
+
         messageDiv.innerHTML = `
             <div class="message-wrapper">
                 <div>
@@ -788,9 +803,9 @@ home.addEventListener('click' , () => {
                 </div>
             </div>
         `;
-    
+
         chatHistory.appendChild(messageDiv);
-    
+
         // Add click event for copy button
         const copyBtn = messageDiv.querySelector('.copy-btn');
         copyBtn.addEventListener('click', function () {
@@ -810,7 +825,7 @@ home.addEventListener('click' , () => {
                 }, 2000);
             });
         });
-    
+
         // Add click event for regenerate button (if AI message)
         if (sender === 'ai') {
             const regenerateBtn = messageDiv.querySelector('.regenerate-btn');
@@ -821,33 +836,33 @@ home.addEventListener('click' , () => {
                     if (userMessages.length > 0) {
                         const lastUserMessage = userMessages[userMessages.length - 1];
                         const lastUserText = lastUserMessage.querySelector('.message-content').textContent;
-    
+
                         // Remove the current AI message
                         messageDiv.remove();
-    
+
                         // Show typing indicator
                         typingIndicator.style.display = 'flex';
-    
+
                         try {
                             // Get a new response
                             const result = await getAIResponse(lastUserText, {
                                 temperature: 1.0 // Increase temperature for more variation
                             });
-    
+
                             const aiResponse = result.choices && result.choices[0] ?
                                 result.choices[0].text :
                                 "I'm having trouble connecting to my knowledge source right now.";
-    
+
                             // Hide typing indicator
                             typingIndicator.style.display = 'none';
-    
+
                             // Add the new AI response
                             addMessage(aiResponse, 'ai');
                         } catch (error) {
                             typingIndicator.style.display = 'none';
                             addMessage("Sorry, I encountered an error while regenerating: " + error.message, 'ai');
                         }
-    
+
                         // Scroll to bottom
                         chatHistory.scrollTop = chatHistory.scrollHeight;
                     }
@@ -855,7 +870,7 @@ home.addEventListener('click' , () => {
             }
         }
     }
-    
+
     // Add event listeners for suggestion chips if they exist
     if (suggestionChips.length > 0) {
         suggestionChips.forEach(chip => {
@@ -867,38 +882,38 @@ home.addEventListener('click' , () => {
             });
         });
     }
-    
+
     // Add menu toggle functionality if menu button exists
     if (menuBtn && sidebarOverlay) {
         menuBtn.addEventListener('click', function () {
             sidebarOverlay.classList.add('active');
         });
     }
-    
+
     // Add sidebar close functionality if close button exists
     if (sidebarClose && sidebarOverlay) {
         sidebarClose.addEventListener('click', function () {
             sidebarOverlay.classList.remove('active');
         });
     }
-    
-    
-    
+
+
+
     // Sidebar toggle
     menuBtn.addEventListener('click', function () {
         chatContainer.classList.add('sidebar-open');
     });
-    
+
     sidebarOverlay.addEventListener('click', function () {
         chatContainer.classList.remove('sidebar-open');
     });
-    
+
     sidebarClose.addEventListener('click', function () {
         chatContainer.classList.remove('sidebar-open');
     });
-    
-    
-    
+
+
+
     // Suggestion chips
     suggestionChips.forEach(chip => {
         chip.addEventListener('click', function () {
