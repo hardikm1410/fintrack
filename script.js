@@ -1,8 +1,4 @@
-const home= document.querySelector(".hom");
 
-home.addEventListener('click' , () => {
-    localStorage.setItem(home,0);
-});
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -242,7 +238,11 @@ document.getElementById("profile-icon2").innerText= prf1+ prf2;
     }
 };
 
+const home= document.querySelector(".hom");
 
+home.addEventListener('click' , () => {
+    localStorage.setItem(home,0);
+});
     
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const navLinks = document.querySelector('.nav-links');
@@ -269,7 +269,11 @@ document.getElementById("profile-icon2").innerText= prf1+ prf2;
         let start = 0;
         const increment = Math.ceil(target / (duration / 16)); // 16ms interval roughly 60fps
     
-        function updateCounter() {
+        function updateCounconst home= document.querySelector(".hom");
+
+home.addEventListener('click' , () => {
+    localStorage.setItem(home,0);
+});ter() {
             start += increment;
             if (start < target) {
                 counterElement.textContent = start;
