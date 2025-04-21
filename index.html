@@ -858,7 +858,22 @@
          }
      }
    };
+   <script>
+       
+    window.onload = function () {
+       let loggedInUser = localStorage.getItem("loggedInUser");
+ 
+       
+        if (loggedInUser) {
+            
+               if(localStorage.getItem(home) !== 0){
+                  window.location.replace("/dashboard.html");
+               }
+            
+         }
+   };
    </script>
+   
     <script src="script.js"></script>
 
 </body>
