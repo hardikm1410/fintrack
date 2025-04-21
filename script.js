@@ -238,7 +238,7 @@ document.getElementById("profile-icon2").innerText= prf1+ prf2;
     }
 };
 
-const home= document.querySelector(".hom");
+const home= document.querySelector('.hom');
 
 home.addEventListener('click' , () => {
     localStorage.setItem(home,0);
