@@ -1,4 +1,8 @@
+const home= document.querySelector(".hom");
 
+home.addEventListener('click' , () => {
+    localStorage.setItem(home,0);
+});
 
 
 // Smooth scrolling for anchor links
