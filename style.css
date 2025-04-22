@@ -308,6 +308,7 @@ div > span:first-child {
     color: #63E6BE; /* Light green for the amount */
     border: 1px solid #eaeaea; /* Optional border for visual separation */
     padding: 5px 10px;
+    display:none;
     border-radius: 5px;
     background-color: #f9f9f9; /* Light gray background */
 }
