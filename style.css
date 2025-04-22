@@ -166,8 +166,8 @@ nav {
     align-items: center;
     justify-content: center;
    // transform: translateX(-50px);
-    margin-left: 30px;
-    margin-top: -50px;
+    
+    margin-top: -60px;
    // z-index:-1;
     font-size: 15px;
     animation : combo 1s all ease
