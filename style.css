@@ -166,7 +166,7 @@ nav {
     align-items: center;
     justify-content: center;
    // transform: translateX(-50px);
-    
+    margin-bottom: 1.5rem;
     margin-top: -75px;
    // z-index:-1;
     font-size: 15px;
