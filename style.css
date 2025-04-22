@@ -142,15 +142,14 @@ nav {
     justify-content: center;
     margin-bottom: 1.5rem;
     color: #71ce75;
-    animation: combine 1s all ease;
+    animation: combine 2s all ease;
    
  }   
 
 
 
 @keyframes combine {
-     
-   0%{ transform: translateX(0px);} 
+   
    50℅{ transform: translateX(-15px) ;}
    100%{ transform: translateX(-30px);} 
 
