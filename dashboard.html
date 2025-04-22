@@ -196,7 +196,21 @@
                 <div class="card">
                     <div class="card-header">
                         <h2 class="card-title">Total Balance</h2>
-                        <i class="fas fa-ellipsis-h"></i>
+                        <i class="fas fa-ellipsis-h"><!-- Currency Selector -->
+<label for="currency-select">Choose Currency:</label>
+<select id="currency-select">
+    <option value="INR" selected>INR - Indian Rupee</option>
+    <option value="USD">USD - US Dollar</option>
+    <option value="EUR">EUR - Euro</option>
+    <option value="GBP">GBP - British Pound</option>
+    <option value="AUD">AUD - Australian Dollar</option>
+</select>
+
+<!-- Example Display of Amount -->
+<div>
+    <span>Amount:</span>
+    <span id="amount">₹1000</span>
+</div></i>
                     </div>
                     <div class="total-balance" id="total-balance">₹0.0</div>
                     <button class="btn btn-primary" id="add-transaction-btn">
