@@ -169,7 +169,7 @@ nav {
     margin-bottom: 1.5rem;
     margin-top: -75px;
     margin-left: 110px;
-   // z-index:-1;
+    z-index:-1;
     font-size: 15px;
     animation : combo 1s all ease
     
