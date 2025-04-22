@@ -169,10 +169,7 @@ function signup() {
  
 }
 
-let fstname= localStorage.getItem("fstname");
-let lstname= localStorage.getItem("lstname");
-let prf1= localStorage.getItem("prf1");
-let prf2= localStorage.getItem("prf2");
+
 
 
 // Login Function
@@ -181,7 +178,10 @@ function login() {
     
     let username = document.getElementById("login-username").value;
     let password = document.getElementById("login-password").value;
-    
+    let fstname= localStorage.getItem("fstname");
+    let lstname= localStorage.getItem("lstname");
+    let prf1= localStorage.getItem("prf1"); 
+    let prf2= localStorage.getItem("prf2");
 
     if (localStorage.getItem (username) === password) {
       
@@ -218,6 +218,11 @@ function logout() {
 
 window.onload = function () {
     let loggedInUser = localStorage.getItem("loggedInUser");
+
+let fstname= localStorage.getItem("fstname");
+let lstname= localStorage.getItem("lstname");
+let prf1= localStorage.getItem("prf1");
+let prf2= localStorage.getItem("prf2");
     
     if (loggedInUser) {
        
