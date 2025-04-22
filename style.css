@@ -269,6 +269,49 @@ main {
     font-weight: bold;
 }
 
+/* Currency Selector Styles */
+label[for="currency-select"] {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2C3E50; /* Dark blue-gray text color */
+    margin-right: 10px;
+    display:block;
+}
+
+#currency-select {
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid #63E6BE; /* Light green border */
+    border-radius: 5px;
+    background-color: #fff; /* White background */
+    color: #333; /* Dark text color */
+    cursor: pointer;
+}
+
+#currency-select:focus {
+    outline: none;
+    border-color: #52c3a3; /* Slightly darker green for focus */
+    box-shadow: 0 0 5px rgba(81, 196, 163, 0.5);
+}
+
+/* Amount Display Styles */
+div > span:first-child {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2C3E50; /* Dark blue-gray text color */
+    margin-right: 10px;
+}
+
+#amount {
+    font-size: 18px;
+    font-weight: bold;
+    color: #63E6BE; /* Light green for the amount */
+    border: 1px solid #eaeaea; /* Optional border for visual separation */
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Light gray background */
+}
+
 .total-balance {
     font-size: 32px;
     font-weight: bold;
