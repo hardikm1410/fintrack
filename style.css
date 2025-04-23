@@ -152,7 +152,7 @@ nav {
    0%{ transform: rotate(30deg);}
    15% { transform: rotate(-30deg); }
    30%{ transform: rotate(30deg);}
-   45% {transform : rotate (0deg);} 
+   45% {transform : rotate (-30deg);} 
    100%{ transform: translateX(-50px);} 
 
 } 
