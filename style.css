@@ -151,17 +151,17 @@ nav {
 
 @keyframes combine {
    0%{ transform: rotate(0deg);}
-   4% { transform: rotate(-10deg); }
-   8%{ transform: rotate(10deg);}
-   12% { transform: rotate(-10deg); }
+   8% { transform: rotate(-10deg); }
    16%{ transform: rotate(10deg);}
-   20% { transform: rotate(-10deg); }
-   24%{ transform: rotate(10deg);}
-   27% { transform: rotate(0deg);}
-   33% { transform: translateX(0px);}
+   24% { transform: rotate(-10deg); }
+   32%{ transform: rotate(10deg);}
+   40% { transform: rotate(-10deg); }
+   48%{ transform: rotate(10deg);}
+   54% { transform: rotate(0deg);}
+   65% { transform: translateX(0px);}
    
-   50%{ transform: translateX(-55px);} 
-   100% { transform: translateX(0px);}
+   100%{ transform: translateX(-55px);} 
+   
 } 
 
 
@@ -188,11 +188,10 @@ nav {
 @keyframes profo{
 
     
-   32% { transform: translateX(0px);}
-   36% {opacity:0;}
-   50%{ transform: translateX(+55px);     opacity: 1;} 
-   80%{opacity:0;}
-   100% { transform: translateX(0px);}
+   54% { transform: translateX(0px);}
+   70% {opacity:0;}
+   100%{ transform: translateX(+55px);     opacity: 1;} 
+   
 }
 #vr {
     border-left: 1px solid #fff;
