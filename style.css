@@ -191,7 +191,7 @@ nav {
    32% { transform: translateX(0px);}
    36% {opacity:0;}
    50%{ transform: translateX(+55px);     opacity: 1;} 
-   70%{opacity:0;}
+   80%{opacity:0;}
 }
 #vr {
     border-left: 1px solid #fff;
