@@ -1925,6 +1925,11 @@ input ,select {
     background-color: #484848;
 }
 
+.dark-mode .avtar2 {
+    background-color: #333333;
+    color: #fff;
+}
+
 .ai-toggle {
     position: fixed;
     bottom: 20px;
