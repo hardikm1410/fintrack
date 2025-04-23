@@ -189,7 +189,7 @@ nav {
 
     
    32% { transform: translateX(0px);}
-   36% {opacity:0;}
+   34% {opacity:0;}
    50%{ transform: translateX(+55px);     opacity: 1;} 
    80%{opacity:0;}
 }
