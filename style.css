@@ -191,7 +191,7 @@ nav {
    65% { transform: translateX(0px);}
    
    100%{ transform: translateX(+50px);} 
-
+}
 #vr {
     border-left: 1px solid #fff;
     height:45px;
