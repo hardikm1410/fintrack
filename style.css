@@ -187,9 +187,9 @@ nav {
 
 @keyframes profo{
 
-    60% {opacity:0;}
+    
    65% { transform: translateX(0px);}
-   
+   70% {opacity:0;}
    100%{ transform: translateX(+50px);     opacity: 1;} 
 }
 #vr {
