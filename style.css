@@ -147,7 +147,24 @@ nav {
  }   
 
 
+.login-modal > .link {
+    font-size: 50px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: #71ce75;
+    animation: fadeIn 4s ease;
+    animation-fill-mode: forwards;
+    opacity:0;
+    z-index:-1;
+ }   
 
+@keyfrakes fadein{
+   80% {opacity:0;}
+   100% {opacity:1;}
+}
 
 @keyframes combine {
    0%{ transform: rotate(0deg);}
