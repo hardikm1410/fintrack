@@ -142,7 +142,7 @@ nav {
     justify-content: center;
     margin-bottom: 1.5rem;
     color: #71ce75;
-    animation: combine 2s all ease;
+    animation: combine 2s ease;
    
  }   
 
@@ -173,7 +173,6 @@ nav {
     z-index:-1;
     opacity:0;
     font-size: 15px;
-    animation : combo 1s ease;
     
     
 }
@@ -184,12 +183,7 @@ nav {
     margin-left: 30px;
 }
 
-@keyframes combo {
-    50%{ transform: translateX(70px);}
-    
-    
 
-} 
 
 .nav-links {
     display: flex;
