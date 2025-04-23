@@ -148,6 +148,7 @@ nav {
 
 
 
+
 @keyframes combine {
    0%{ transform: rotate(0deg);}
    8% { transform: rotate(-10deg); }
@@ -180,9 +181,16 @@ nav {
     z-index:-1;
     opacity:0;
     font-size: 15px;
-    
-    
+    animation: profo 1s ease;
+ 
 }
+
+@keyframes profo{
+
+    54% {opacity:1;}
+   65% { transform: translateX(0px);}
+   
+   100%{ transform: translateX(+50px);} 
 
 #vr {
     border-left: 1px solid #fff;
