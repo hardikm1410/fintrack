@@ -175,11 +175,11 @@ nav {
 }
 
 @keyframes blinkit{
-   45%{ opacity:0;}
-   56%{ opacity:1;}
-   67%{ opacity:0;}
-   78%{ opacity:1;}
-   89%{ opacity:0;}
+   50%{ opacity:0;}
+   60%{ opacity:1;}
+   70%{ opacity:0;}
+   80%{ opacity:1;}
+   90%{ opacity:0;}
    100%{ opacity:1;}
 }
    
