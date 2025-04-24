@@ -167,7 +167,7 @@ nav {
 }
 
 .vrbr{
-    border-left: 1px solid #fff; height:45px; margin-left:140px; margin-top:-4.3rem; margin-bottom:1.5rem;
+    border-left: 2px solid #fff; height:45px; margin-left:140px; margin-top:-4.3rem; margin-bottom:1.5rem;
     opacity:0;
     z-index:-2;
     animation: blinkit 6s ease;
@@ -175,11 +175,12 @@ nav {
 }
 
 @keyframes blinkit{
-   56%{ opacity:0;}
-   67%{ opacity:1;}
-   78%{ opacity:0;}
-   89%{ opacity:1;}
-   100%{ opacity:0;}
+   45%{ opacity:0;}
+   56%{ opacity:1;}
+   67%{ opacity:0;}
+   78%{ opacity:1;}
+   89%{ opacity:0;}
+   100%{ opacity:1;}
 }
    
 
