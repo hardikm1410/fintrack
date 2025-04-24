@@ -908,19 +908,36 @@
             </div>
         </div>
     </footer>
-    <script> 
+<script> 
      window.onload = function () {
-       let loggedInUser =        localStorage.getItem("loggedInUser");
-      
-       if (loggedInUser){
-         let reDirect= confirm("You're already logged in previously! Do you want to redirect your dashboard?");
-           if(reDirect){ window.location.replace("/dashboard.html");}
-           else {
+       let loggedInUser = localStorage.getItem("loggedInUser");
+
+       if (loggedInUser) {
+        // Show custom alert
+        const customAlert = document.getElementById("custom-alert");
+        const customAlertMessage = document.getElementById("custom-alert-message");
+        const customAlertOk = document.getElementById("custom-alert-ok");
+        const customAlertCancel = document.getElementById("custom-alert-cancel");
+
+        // Set the custom alert message
+        customAlertMessage.textContent = "You're already logged in previously! Do you want to redirect to your dashboard?";
+
+        // Display the custom alert
+        customAlert.style.display = "flex";
+
+        // Handle OK button click
+        customAlertOk.onclick = function () {
+            window.location.replace("/dashboard.html");
+        };
+
+        // Handle Cancel button click
+        customAlertCancel.onclick = function () {
+            customAlert.style.display = "none";
             alert("Keep exploring 🙂");
-           }
-       }
-     };
-    </script>
+        };
+    }
+};
+</script>
     <script src="script.js"></script>
 
 </body>
