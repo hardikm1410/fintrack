@@ -941,29 +941,12 @@
        let loggedInUser = localStorage.getItem("loggedInUser");
 
        if (loggedInUser) {
-        // Show custom alert
-        const customAlert = document.getElementById("custom-alert");
-        const customAlertMessage = document.getElementById("custom-alert-message");
-        const customAlertOk = document.getElementById("custom-alert-ok");
-        const customAlertCancel = document.getElementById("custom-alert-cancel");
+         let reDirect = confirm("You're already logged in previously!,Do you want to redirect to your dashboard?");
 
-        // Set the custom alert message
-        customAlertMessage.textContent = "You're already logged in previously! Do you want to redirect to your dashboard?";
-
-        // Display the custom alert
-        customAlert.style.display = "flex";
-
-        // Handle OK button click
-        customAlertOk.onclick = function () {
-            window.location.replace("/dashboard.html");
-        };
-
-        // Handle Cancel button click
-        customAlertCancel.onclick = function () {
-            customAlert.style.display = "none";
-            alert("Keep exploring 🙂");
-        };
-    }
+          if(reDirect){
+             window.location.replace("/dashboard.html");
+          }
+          
 };
 </script>
     <script src="script.js"></script>
