@@ -607,6 +607,58 @@
         .ai-feature-item:nth-child(2) { transition-delay: 0.2s; }
         .ai-feature-item:nth-child(3) { transition-delay: 0.3s; }
         .ai-feature-item:nth-child(4) { transition-delay: 0.4s; }
+
+  .custom-alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.custom-alert-box {
+    background-color: #fff;
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.custom-alert-box h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #63E6BE; /* Light green for branding */
+}
+
+.custom-alert-box p {
+    margin: 15px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.custom-alert-buttons button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-alert-buttons button:first-child {
+    background-color: #63E6BE; /* Light green */
+    color: #fff;
+}
+
+.custom-alert-buttons button:last-child {
+    background-color: #eaeaea; /* Light gray */
+    color: #333;
+}
     </style>
 </head>
 <body>
@@ -642,6 +694,16 @@
     <!-- Hero Section -->
     <section class="hero fade-in-section" id="home">
         <div class="container">
+          <div id="custom-alert" class="custom-alert"    style="display: none;">
+            <div class="custom-alert-box">
+             <h3>FinTrack</h3>
+             <p id="custom-alert-message">You're already logged in previously! Do you want to redirect to your dashboard?</p>
+             <div class="custom-alert-buttons">
+             <button id="custom-alert-ok">OK</button>
+             <button id="custom-alert-cancel">Cancel</button>
+             </div>
+           </div>
+         </div>
             <div class="hero-content">
                 <h2>Take Control of Your Finances with AI-Powered Insights</h2>
                 <p>FinTrack helps you track expenses, analyze spending patterns, and make smarter financial decisions with personalized AI recommendations.</p>
