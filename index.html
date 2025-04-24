@@ -846,7 +846,19 @@
             </div>
         </div>
     </footer>
-    
+    <script> 
+     window.onload = function () {
+       let loggedInUser =        localStorage.getItem("loggedInUser");
+      
+       if (loggedIn){
+         let reDirect= confirm("You're already logged in previously! Do you want to redirect your dashboard?);
+           if(reDirect){ window.location.replace("/dashboard.html");}
+           else {
+            alert("Keep exploring 🙂");
+           }
+       }
+     };
+    </script>
     <script src="script.js"></script>
 
 </body>
