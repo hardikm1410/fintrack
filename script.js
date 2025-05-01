@@ -92,7 +92,7 @@ fadeInObserver.observe(item);
     const loginTrigger = document.getElementById('login-trigger');
     
     const logoutModal = document.getElementById('logout-modal');
-    const closeBtn=document.getElementById('close-btn');
+    const closeBtn=document.getElementById('close-btn1');
     
      loginTrigger.addEventListener('click', () => {
             logoutModal.style.display = 'block';
@@ -102,7 +102,7 @@ fadeInObserver.observe(item);
     
             closeBtn.addEventListener('click', () => {
                 logoutModal.style.display= 'none';
-                 document.body.classList.toggle('no-scroll');
+                document.body.classList.toggle('no-scroll');
             });
         
         });

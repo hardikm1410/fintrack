@@ -169,7 +169,8 @@ nav {
 }
 
 .vrbr{
-    border-left: 2px solid #fff; height:45px; margin-left:140px; margin-top:-4.3rem; margin-bottom:1.5rem;
+    display: flex;
+    border-left: 2px solid #fff; height:45px; width: 10px;margin-left: 139px; margin-top:-4.3rem; margin-bottom:1.5rem;
     opacity:0;
     z-index:-2;
     animation: blinkit 6s ease;
@@ -1562,7 +1563,7 @@ input ,select {
 .close-btn {
     color: #aaa;
     float: right;
-    
+    cursor: pointer;
     font-weight: bold;
 }
 
