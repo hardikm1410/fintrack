@@ -8,7 +8,7 @@
     --bg-color: #f5f5f5;
     --card-color: #ffffff;
     --border-radius: 8px;
-    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* --box-shadow: inset -6px -7px 10px 3px rgb(0 0 0 / 44%); */
     --ai-bg-color: #e8f5e9;
     --ai-accent: #2e7d32;
     --ai-text: #1b5e20;
@@ -46,16 +46,18 @@ font-size: x-small;
     
    
 }
-
 header {
     background-color: var(--primary-color);
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 12px 0;
     position: sticky;
     top: 0;
-    width:100%;
+    width: 100%;
     z-index: 1000;
-   
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-shadow: inset -6px -7px 10px 3px rgb(0 0 0 / 44%);
+    border-radius: 20px;
 }
 
 /* ... your existing CSS ... */
@@ -262,8 +264,8 @@ nav {
 }
 
 .avtar {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: var(--primary-color);
     display: flex;
