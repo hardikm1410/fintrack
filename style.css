@@ -161,7 +161,7 @@ nav {
     z-index:-1;
  }   
 
-@keyfrakes fadein{
+@keyframes fadein{
    80% {opacity:0;}
    100% {opacity:1;}
 }
@@ -209,7 +209,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-   // transform: translateX(-50px);
+   /* transform: translateX(-50px); */
     margin-bottom: 1.5rem;
     margin-top: -75px;
     margin-left: 110px;
