@@ -192,7 +192,7 @@ nav {
     justify-content: center;
     margin-bottom: 1.5rem;
     margin-top: -53px;
-    margin-left: -80px;
+    margin-left: 40px;
     z-index:-1;
     opacity:0;
     animation: profo 4s ease;
