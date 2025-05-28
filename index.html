@@ -93,27 +93,12 @@
             transition:0.2s;
         }
         
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            padding: 4px 12px;
+        .nav-links a:hover {
             
-        }
-        
-        .nav-links a::after{
-            content: "";
-            display:block;
-            height: 0.5px;
-            width:100%;
-            background-color:rgb(255, 255, 255) ;
-            transform: scale(0);
-            transform-origin: center;
-            transition: 0.5s all ease; 
+            border-bottom:0.5px solid #fff; 
+           
         }
        
-        .nav-links a:hover::after{
-            transform: scale(1);
-        }
 
         .btn {
             display: inline-block;
