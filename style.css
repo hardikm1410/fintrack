@@ -255,10 +255,19 @@ nav {
     
 }
 
-.nav-links a:hover {
-    transition:1s;
-    border-bottom:0.5px solid #fff; 
-   
+.nav-links::after{
+    content: "";
+    display:block;
+    height: 0.5px;
+    width:100%;
+    background-color:rgb(255, 255, 255) ;
+    transform: scale(0);
+    transform-origin: left;
+    transition: 0.5s all ease; 
+}
+
+.nav-links:hover::after{
+    transform: scale(1);
 }
 
 .user-profile {
