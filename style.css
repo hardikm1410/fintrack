@@ -262,7 +262,7 @@ nav {
     width:100%;
     background-color:rgb(255, 255, 255) ;
     transform: scale(0);
-    transform-origin: left;
+    transform-origin: center;
     transition: 0.5s all ease; 
 }
 
