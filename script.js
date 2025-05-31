@@ -188,13 +188,14 @@ function login() {
         
       localStorage.setItem("loggedInUser",username); 
       document.getElementById("user-name").innerText=fstname+" "+ lstname;
-document.getElementById("user-name2").innerText=fstname;
+        document.getElementById("user-name2").innerText=fstname;
 
-document.getElementById("profile-icon").innerText= prf1+ prf2;
+        loginTrigger.innerText= prf1+ prf2;
 
  
-    document.body.classList.toggle('no-scroll');    document.getElementById("login-modal").style.display = "none";
-         document.getElementById("welcome-box").style.display = "block";
+        document.body.classList.toggle('no-scroll');    
+        document.getElementById("login-modal").style.display = "none";
+        document.getElementById("welcome-box").style.display = "block";
         errorMessage.style.display = 'none';
         trueMessage.textContent = 'Logged in successfully!';
         trueMessage.style.display = 'block';
