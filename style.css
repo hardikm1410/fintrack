@@ -916,6 +916,12 @@ div > span:first-child {
     transition: var(--transition);
 }
 
+.message-content span
+{
+    font-size: 12px;
+    color: var(--ai-text);
+}
+
 .message-wrapper {
     display: flex;
     align-items: flex-end;
