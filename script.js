@@ -89,7 +89,7 @@ fadeInObserver.observe(item);
     
      
     
-    const loginTrigger = document.getElementById('login-trigger');
+    const loginTrigger = document.getElementById('profile-icon');
     
     const logoutModal = document.getElementById('logout-modal');
     const closeBtn=document.getElementById('close-btn1');
